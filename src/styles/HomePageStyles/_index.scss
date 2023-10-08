@@ -1,0 +1,27 @@
+@forward "./banner";
+@forward "./homeText";
+
+.tree1 {
+  position: fixed;
+  left: -100px;
+  top: -10%;
+  height: 120%;
+}
+
+.tree2 {
+  position: fixed;
+  right: -100px;
+  top: -10%;
+  height: 120%;
+  transform: rotateY(180deg);
+}
+.leaf1 {
+  position: fixed;
+  left: -110px;
+  top: -110px;
+}
+.leaf2 {
+  position: fixed;
+  right: -110px;
+  top: -110px;
+}

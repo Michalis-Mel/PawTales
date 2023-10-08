@@ -1,0 +1,31 @@
+@use "../global/colors" as *;
+@use "../global/typography" as *;
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 30px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+
+    img {
+      width: 100%;
+      max-width: 120px;
+    }
+    span {
+      font-size: 40px;
+      font-family: $logo;
+      background: -webkit-linear-gradient($black, $green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

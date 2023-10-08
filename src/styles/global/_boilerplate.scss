@@ -1,0 +1,45 @@
+@use "./colors" as *;
+@use "./typography" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffefba; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1920px;
+  flex-flow: column nowrap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  font-family: $text;
+  text-decoration: none;
+  color: $black;
+}
