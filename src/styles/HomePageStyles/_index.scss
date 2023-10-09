@@ -1,19 +1,22 @@
 @forward "./banner";
 @forward "./homeText";
+@forward "./homeSlider";
 
 .tree1 {
   position: fixed;
-  left: -100px;
+  left: -300px;
   top: -10%;
   height: 120%;
+  animation: slideRignt 2s forwards ease-in-out;
 }
 
 .tree2 {
   position: fixed;
-  right: -100px;
+  right: -300px;
   top: -10%;
   height: 120%;
   transform: rotateY(180deg);
+  animation: slideLeft 2s forwards ease-in-out;
 }
 .leaf1 {
   position: fixed;
@@ -24,4 +27,21 @@
   position: fixed;
   right: -110px;
   top: -110px;
+}
+
+@keyframes slideRignt {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: -100px;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: -100px;
+  }
 }

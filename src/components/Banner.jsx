@@ -1,4 +1,4 @@
-import animals from "../assets/environment.jpg";
+import animals from "../assets/homepage/slider/environment.jpg";
 import { motion } from "framer-motion";
 
 const Banner = () => {
@@ -7,7 +7,7 @@ const Banner = () => {
       className="banner_con"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 2.5 }}
+      transition={{ duration: 1, delay: 4 }}
     >
       <motion.img
         className="banner"
