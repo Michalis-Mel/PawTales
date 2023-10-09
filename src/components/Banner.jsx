@@ -7,7 +7,7 @@ const Banner = () => {
       className="banner_con"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 4 }}
+      transition={{ duration: 1, delay: 3 }}
     >
       <motion.img
         className="banner"

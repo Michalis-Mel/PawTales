@@ -33,14 +33,44 @@ body {
   flex-flow: column nowrap;
 }
 
-h1,
+h1 {
+  font-family: $logo;
+  background: -webkit-linear-gradient($black, $green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  width: fit-content;
+  padding-bottom: 8px;
+
+  &::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    content: "";
+    width: 60%;
+    height: 5px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, $green, $black);
+  }
+}
+
 h2,
-h3,
+h3 {
+  font-family: $titles;
+  background: -webkit-linear-gradient($black, $brown);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
 h4,
 h5,
 h6,
 a,
-p {
+p,
+span {
   font-family: $text;
   text-decoration: none;
   color: $black;

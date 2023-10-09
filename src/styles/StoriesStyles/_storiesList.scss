@@ -1,0 +1,120 @@
+@use "../global/typography" as *;
+@use "../global/colors" as *;
+
+.stories {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+
+  h1 {
+    font-size: 34px;
+    margin: 0 auto 100px auto;
+  }
+
+  .storiesList {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+    .story {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+
+      .storyCon {
+        background: $blue;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0 0 30px $blue;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          box-shadow: 0 0 30px #000;
+        }
+
+        & > img {
+          font-size: 0;
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .storyInfo {
+          padding-left: 40px;
+          box-sizing: border-box;
+          display: flex;
+          flex-flow: column nowrap;
+          flex-grow: 1;
+
+          h3 {
+            font-size: 28px;
+          }
+
+          h5 {
+            font-size: 18px;
+            margin: 0 auto 20px 0;
+            font-weight: 300;
+          }
+
+          p {
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 20px;
+            line-height: 25px;
+            overflow: hidden;
+          }
+
+          .tags {
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+
+            span {
+              margin-right: 10px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loadMore {
+    display: block;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 4px solid $green;
+    background: $green;
+    color: #fff;
+    font-family: $titles;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 40px auto;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: transparent;
+      color: $green;
+    }
+
+    &:disabled {
+      background: gray;
+      cursor: no-drop;
+      border: 4px solid gray;
+    }
+
+    &:hover:disabled {
+      color: #fff;
+    }
+  }
+}
