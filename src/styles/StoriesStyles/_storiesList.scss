@@ -3,7 +3,7 @@
 
 .stories {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 50px auto;
 
   h1 {
@@ -11,76 +11,159 @@
     margin: 0 auto 100px auto;
   }
 
+  .layoutBtns {
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 auto 20px auto;
+    gap: 6px;
+
+    button {
+      width: 35px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0;
+      }
+
+      &.active {
+        opacity: 0.5;
+      }
+    }
+  }
+
   .storiesList {
     width: 100%;
     display: flex;
-    flex-flow: column nowrap;
 
-    .story {
-      width: 100%;
+    .storyCon {
+      background: $blue;
       padding: 20px;
       box-sizing: border-box;
+      box-shadow: 0 0 30px $blue;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
 
-      .storyCon {
-        background: $blue;
-        padding: 20px;
-        box-sizing: border-box;
-        box-shadow: 0 0 30px $blue;
-        border-radius: 20px;
+      &:hover {
+        box-shadow: 0 0 30px #000;
+      }
+
+      & > img {
+        font-size: 0;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .storyInfo {
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.2s ease-in-out;
+        flex-flow: column nowrap;
 
-        &:hover {
-          box-shadow: 0 0 30px #000;
+        h3 {
+          font-size: 28px;
         }
 
-        & > img {
-          font-size: 0;
+        h5 {
+          font-size: 18px;
+          margin: 0 auto 20px 0;
+          font-weight: 300;
+        }
+
+        p {
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 20px;
+          line-height: 25px;
+          overflow: hidden;
+        }
+
+        .tags {
           width: 100%;
-          max-width: 300px;
-        }
-
-        .storyInfo {
-          padding-left: 40px;
-          box-sizing: border-box;
           display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: flex-start;
+          column-gap: 7px;
+
+          span {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    &.detailsList {
+      flex-flow: column nowrap;
+      .story {
+        width: 100%;
+        padding: 20px;
+        .storyCon {
+          flex-flow: row nowrap;
+          justify-content: space-between;
+
+          .storyInfo {
+            padding-left: 40px;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+    &.gridList {
+      flex-flow: row wrap;
+
+      .story {
+        flex: 0 0 25%;
+        width: 25%;
+        width: 100%;
+        padding: 10px;
+        .storyCon {
           flex-flow: column nowrap;
-          flex-grow: 1;
-
-          h3 {
-            font-size: 28px;
-          }
-
-          h5 {
-            font-size: 18px;
-            margin: 0 auto 20px 0;
-            font-weight: 300;
-          }
-
-          p {
-            -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
-            font-size: 18px;
-            line-height: 22px;
-            margin-bottom: 20px;
-            line-height: 25px;
-            overflow: hidden;
-          }
-
-          .tags {
+          justify-content: unset;
+          height: 100%;
+          .storyInfo {
             width: 100%;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: flex-start;
+            text-align: center;
+            height: 100%;
 
-            span {
-              margin-right: 10px;
+            h3 {
+              flex-grow: 1;
+              margin-top: 20px;
+              font-size: 22px;
+              line-height: 22px;
+            }
+
+            h5 {
               font-size: 16px;
+              margin: 10px auto 20px auto;
+              font-weight: 300;
+            }
+            p {
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              display: -webkit-box;
+              font-size: 16px;
+              line-height: 22px;
+              margin-bottom: 20px;
+              line-height: 22px;
+              overflow: hidden;
+            }
+            .tags {
+              flex-flow: row wrap;
+
+              span {
+                font-size: 16px;
+              }
             }
           }
         }
