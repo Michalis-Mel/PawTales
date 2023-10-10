@@ -8,33 +8,78 @@
 
   h1 {
     font-size: 34px;
-    margin: 0 auto 100px auto;
+    margin: 0 auto 50px auto;
   }
 
-  .layoutBtns {
+  .searchBar {
     padding: 0 20px;
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-end;
-    margin: 0 auto 20px auto;
-    gap: 6px;
 
-    button {
-      width: 35px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
+    form {
+      width: 250px;
+      position: relative;
+      margin-right: 20px;
 
-      img {
+      input {
         width: 100%;
-        max-width: 100%;
-        font-size: 0;
+        padding: 8px 35px 8px 20px;
+        box-sizing: border-box;
+        border: 2px solid#286EAF;
+        border-radius: 10px;
+        font-size: 18px;
+        color: $black;
+        &::placeholder {
+          font-size: 16px;
+          font-family: $text;
+        }
       }
 
-      &.active {
-        opacity: 0.5;
+      button {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 10px;
+        top: 45%;
+        transform: translateY(-50%);
+        width: 25px;
+        height: 25px;
+
+        img {
+          font-size: 0;
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
+    .layoutBtns {
+      width: fit-content;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+
+      button {
+        width: 35px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          max-width: 100%;
+          font-size: 0;
+        }
+
+        &.active {
+          opacity: 0.5;
+        }
       }
     }
   }
@@ -42,6 +87,11 @@
   .storiesList {
     width: 100%;
     display: flex;
+
+    h2.notFound {
+      text-align: center;
+      margin: 100px auto;
+    }
 
     .storyCon {
       background: $blue;
