@@ -93,6 +93,26 @@
       margin: 100px auto;
     }
 
+    a.back {
+      width: 200px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+      border-radius: 20px;
+      padding: 5px 0 8px 0;
+      box-sizing: border-box;
+      border: 3px solid $green;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background: $green;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background: transparent;
+        color: $green;
+      }
+    }
+
     .storyCon {
       background: $blue;
       padding: 20px;

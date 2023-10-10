@@ -1,98 +1,99 @@
 @use "../global/colors" as *;
+@use "../global/typography" as *;
 
-.homeSlider {
+.topStories {
   width: 100%;
-  max-width: 800px;
-  margin: 50px auto;
-  border-radius: 50px;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
 
-  .homeSliderCon {
+  .homeSlider {
     width: 100%;
-    height: 100%;
-    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    border-radius: 50px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
 
-    img.sliderImage {
-      object-fit: cover;
+    .homeSliderCon {
       width: 100%;
       height: 100%;
-      display: block;
-      flex-shrink: 0;
-      flex-grow: 1;
-      transition: translate 0.3s ease-in-out;
+      display: flex;
+
+      .topStory {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        flex-shrink: 0;
+        flex-grow: 1;
+        transition: translate 0.3s ease-in-out;
+        img.sliderImage {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        .topStoryInfo {
+          background: #fff;
+          z-index: 100;
+          position: absolute;
+          bottom: 20%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 50%;
+          max-width: 400px;
+          min-width: 200px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-flow: column nowrap;
+          padding: 20px;
+          border-radius: 20px;
+
+          h2 {
+            font-family: $logo;
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 10px;
+          }
+          h4 {
+            font-family: $titles;
+            font-size: 20px;
+          }
+        }
+      }
     }
-  }
 
-  .arrow {
-    z-index: 1;
-    padding: 10px;
-    width: 80px;
-    box-sizing: border-box;
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    bottom: 0;
-    background: transparent;
-    border: none;
-    display: block;
-    font-size: 0;
-    transition: transform 0.3s ease-in-out;
-
-    img {
-      font-size: 0;
-
-      width: 100%;
-      max-width: 100%;
-    }
-
-    &:hover,
-    &:focus {
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    &:hover img,
-    &:focus img {
-      animation: squish 0.2s ease-in-out;
-    }
-
-    &:focus-visible {
-      outline: auto;
-    }
-  }
-
-  .arrowLeft {
-    left: 0;
-  }
-  .arrowRight {
-    right: 0;
-  }
-
-  .sliderPagination {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    button {
+    .arrow {
+      z-index: 1;
+      padding: 10px;
+      width: 80px;
+      box-sizing: border-box;
+      position: absolute;
       cursor: pointer;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      box-shadow: 0 0 20px #000;
-      transition: scale 0.1s ease-in-out;
+      top: 0;
+      bottom: 0;
+      background: transparent;
+      border: none;
+      display: block;
+      font-size: 0;
+      transition: transform 0.3s ease-in-out;
+
+      img {
+        font-size: 0;
+
+        width: 100%;
+        max-width: 100%;
+      }
 
       &:hover,
       &:focus {
-        scale: 1.2;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      &:hover img,
+      &:focus img {
+        animation: squish 0.2s ease-in-out;
       }
 
       &:focus-visible {
@@ -100,8 +101,47 @@
       }
     }
 
-    button.active {
-      background: $blue;
+    .arrowLeft {
+      left: 0;
+    }
+    .arrowRight {
+      right: 0;
+    }
+
+    .sliderPagination {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      button {
+        cursor: pointer;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0 20px #000;
+        transition: scale 0.1s ease-in-out;
+
+        &:hover,
+        &:focus {
+          scale: 1.2;
+        }
+
+        &:focus-visible {
+          outline: auto;
+        }
+      }
+
+      button.active {
+        background: $blue;
+      }
     }
   }
 }

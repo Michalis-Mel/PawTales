@@ -4,7 +4,7 @@
 
 .tree1 {
   position: fixed;
-  left: -300px;
+  left: -200px;
   top: -10%;
   height: 120%;
   animation: slideRignt 2s forwards ease-in-out;
@@ -12,7 +12,7 @@
 
 .tree2 {
   position: fixed;
-  right: -300px;
+  right: -200px;
   top: -10%;
   height: 120%;
   transform: rotateY(180deg);
@@ -31,7 +31,7 @@
 
 @keyframes slideRignt {
   0% {
-    left: -300px;
+    left: -200px;
   }
   100% {
     left: -100px;
@@ -39,7 +39,7 @@
 }
 @keyframes slideLeft {
   0% {
-    right: -300px;
+    right: -200px;
   }
   100% {
     right: -100px;

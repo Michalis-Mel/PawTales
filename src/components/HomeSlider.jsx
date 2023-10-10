@@ -1,73 +1,81 @@
-import env1 from "../assets/homepage/slider/environment.jpg";
-import tmax from "../assets/homepage/slider/10.jpg";
-import env3 from "../assets/homepage/slider/environment.jpg";
-import env4 from "../assets/homepage/slider/environment.jpg";
-import env5 from "../assets/homepage/slider/environment.jpg";
+//Images
 import left from "../assets/icons/arrowLeft.png";
 import right from "../assets/icons/arrowRight.png";
+
+//import topStories
+import { topStories } from "../stories";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const imagesArray = [env1, tmax, env3, env4, env5];
-
 const HomeSlider = () => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const [storyIndex, setStoryIndex] = useState(0);
 
   const nextSlide = () => {
-    setImageIndex((index) => {
-      if (index === imagesArray.length - 1) return 0;
+    setStoryIndex((index) => {
+      if (index === topStories.length - 1) return 0;
       return index + 1;
     });
   };
   const prevSlide = () => {
-    setImageIndex((index) => {
-      if (index === 0) return imagesArray.length - 1;
+    setStoryIndex((index) => {
+      if (index === 0) return topStories.length - 1;
       return index - 1;
     });
   };
   return (
     <motion.div
-      className="homeSlider"
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1.5, ease: "linear" }}
+      className="topStories"
     >
-      <button
-        onClick={prevSlide}
-        className="arrow arrowLeft"
-        aria-label="View Previous Image"
-      >
-        <img src={left} alt="arrow left" />
-      </button>
-      <div className="homeSliderCon">
-        {imagesArray.map((image) => (
-          <img
-            key={image}
-            src={image}
-            alt="image"
-            className="sliderImage"
-            style={{ translate: ` ${-100 * imageIndex}%` }}
-          />
-        ))}
-      </div>
-      <button
-        onClick={nextSlide}
-        className="arrow arrowRight"
-        aria-label="View Next Image"
-      >
-        <img src={right} alt="arrow right" />
-      </button>
-      <div className="sliderPagination">
-        {imagesArray.map((image, index) => (
-          <button
-            key={index}
-            onClick={() => setImageIndex(index)}
-            className={`${index === imageIndex ? "active" : ""}`}
-            aria-label={`View Image ${index + 1}`}
-          ></button>
-        ))}
+      <h1>Κορυφαίες Ιστορίες της Εβδομάδας</h1>
+      <div className="homeSlider">
+        <button
+          onClick={prevSlide}
+          className="arrow arrowLeft"
+          aria-label="View Previous Image"
+        >
+          <img src={left} alt="arrow left" />
+        </button>
+        <div className="homeSliderCon">
+          {topStories.map((story) => (
+            <div
+              key={story.id}
+              className="topStory"
+              style={{ translate: ` ${-100 * storyIndex}%` }}
+            >
+              <img
+                src={story.image}
+                alt={story.title}
+                className="sliderImage"
+              />
+              <div className="topStoryInfo">
+                <h2>{story.title}</h2>
+                <h4>Ιδέα: {story.idea}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={nextSlide}
+          className="arrow arrowRight"
+          aria-label="View Next Image"
+        >
+          <img src={right} alt="arrow right" />
+        </button>
+        <div className="sliderPagination">
+          {topStories.map((story, index) => (
+            <button
+              key={index}
+              onClick={() => setStoryIndex(index)}
+              className={`${index === storyIndex ? "active" : ""}`}
+              aria-label={`View Image ${index + 1}`}
+            ></button>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

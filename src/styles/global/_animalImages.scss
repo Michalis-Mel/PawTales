@@ -7,12 +7,11 @@
   z-index: -1;
   @for $i from 1 through 10 {
     img:nth-child(#{$i}) {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       position: absolute;
       left: #{($i * random(20) + "vw")};
       top: #{($i * random(20) + "vh")};
-      opacity: 0.7;
       animation: float#{$i} 10s linear infinite alternate-reverse;
     }
   }

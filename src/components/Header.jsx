@@ -19,7 +19,7 @@ const Header = () => {
           alt="Οι ιδέες σας"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 2, duration: 0.8 }}
+          transition={{ duration: 0.8 }}
         />{" "}
         <motion.span
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ const Header = () => {
             type: "spring",
             duration: 2,
             ease: "linear",
-            delay: 3,
+            delay: 1,
           }}
         >
           Οι Ιδέες σας
@@ -46,7 +46,7 @@ const Header = () => {
           alt="Logo"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 2, duration: 0.8 }}
+          transition={{ duration: 0.8 }}
         />
         <motion.span
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const Header = () => {
             type: "spring",
             duration: 2,
             ease: "linear",
-            delay: 3,
+            delay: 1,
           }}
         >
           PawTales
@@ -73,7 +73,7 @@ const Header = () => {
           alt="Ιστορίες"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 2, duration: 0.8 }}
+          transition={{ duration: 0.8 }}
         />
         <motion.span
           initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ const Header = () => {
             type: "spring",
             duration: 2,
             ease: "linear",
-            delay: 3,
+            delay: 1,
           }}
         >
           Οι Ιστορίες μας

@@ -62,12 +62,19 @@ const Stories = () => {
         {searchedStories.length > 0 ? (
           stories.map((story) => <Story key={story.id} story={story} />)
         ) : (
-          <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
+          <>
+            <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
+            <a href="/" className="back">
+              Αρχική Σελίδα
+            </a>
+          </>
         )}
       </div>
-      <button className="loadMore" disabled={isCompleted} onClick={loadMore}>
-        Περισσότερες Ιστορίες
-      </button>
+      {searchedStories.length > 0 && (
+        <button className="loadMore" disabled={isCompleted} onClick={loadMore}>
+          Περισσότερες Ιστορίες
+        </button>
+      )}
     </div>
   );
 };
