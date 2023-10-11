@@ -7,8 +7,8 @@ const animalStories = [
     `,
     dateCreated: "10 Μαΐου 2023",
     idea: "Μιχάλης Μελιόπουλος",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/PawStories/assets/storiesImages/1/wolfie.jpg",
     smallDescription:
       "Στο όμορφο Χρυσοχωριό, ο Μάικ, ένας ξεχωριστός λευκός σκύλος, ζει με την αγαπημένη οικογένειά του, τους Τζόνσον. Μέσα από την αγάπη και την περιπέτεια, ο Μάικ ανακαλύπτει τη δύναμη της φιλίας μεταξύ διαφορετικών ζώων και διδάσκει σε μικρούς και μεγάλους το σημαντικό μήνυμα ότι η αγάπη και η φροντίδα για όλα τα ζώα κάνει τον κόσμο μας καλύτερο.",
   },
@@ -19,8 +19,8 @@ const animalStories = [
       "Μια χαμένη γάτα βρέθηκε από έναν καλόκαρδο άνθρωπο, που την φρόντισε και της έδωσε ένα σπίτι γεμάτο αγάπη.",
     dateCreated: "2023-09-28",
     idea: "",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -32,8 +32,8 @@ const animalStories = [
       "Ένας παπαγάλος μάθαινε να μιμεί τις φωνές των ανθρώπων, και προκάλεσε πολλά γέλια στην οικογένειά του.",
     dateCreated: "2023-09-12",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -45,8 +45,8 @@ const animalStories = [
       "Ένα λιοντάρι και μια ζεβρά έγιναν απρόσμενοι φίλοι και μοιράστηκαν τον χώρο τους στη ζούγκλα.",
     dateCreated: "2023-08-20",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -58,8 +58,8 @@ const animalStories = [
       "Ένας χελώνας συμμετείχε σε αγώνα ταχύτητας και κατάφερε να κερδίσει τα όλα τα υπόλοιπα ζώα.",
     dateCreated: "2023-07-03",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -71,8 +71,8 @@ const animalStories = [
       "Μια ομάδα βοδιών συνεργάστηκε για να λύσει ένα πρόβλημα και κατάφερε να το αντιμετωπίσει με επιτυχία.",
     dateCreated: "2023-06-15",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -84,8 +84,8 @@ const animalStories = [
       "Ένας κόρακας που έδειξε την εξυπνάδα του επιλύοντας διάφορα γρίφους και προβλήματα.",
     dateCreated: "2023-05-22",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -97,8 +97,8 @@ const animalStories = [
       "Ένας σκαντζόχοιρος ανακάλυψε έναν νέο κόσμο γεμάτο θαύματα και εξερευνώντας τον είχε πολλές περιπέτειες.",
     dateCreated: "2023-04-10",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -110,8 +110,8 @@ const animalStories = [
       "Ένα δελφίνι έπαιζε παιχνίδια με τους ανθρώπους και έφερε χαμόγελα στα πρόσωπά τους.",
     dateCreated: "2023-03-01",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -123,8 +123,8 @@ const animalStories = [
       "Ένας σπάνιος πετεινός που νόμιζαν πως είχε εξαφανιστεί επέστρεψε στον τόπο του, φέρνοντας τη χαρά στους ανθρώπους.",
     dateCreated: "2023-02-14",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -140,8 +140,8 @@ export const topStories = [
     `,
     dateCreated: "11 Οκτωβρίου 2023",
     idea: "Μιχάλης Μελιόπουλος",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
     smallDescription:
       "Στο όμορφο Χρυσοχωριό, ο Μάικ, ένας ξεχωριστός λευκός σκύλος, ζει με την αγαπημένη οικογένειά του, τους Τζόνσον. Μέσα από την αγάπη και την περιπέτεια, ο Μάικ ανακαλύπτει τη δύναμη της φιλίας μεταξύ διαφορετικών ζώων και διδάσκει σε μικρούς και μεγάλους το σημαντικό μήνυμα ότι η αγάπη και η φροντίδα για όλα τα ζώα κάνει τον κόσμο μας καλύτερο.",
   },
@@ -152,8 +152,8 @@ export const topStories = [
       "Μια χαμένη γάτα βρέθηκε από έναν καλόκαρδο άνθρωπο, που την φρόντισε και της έδωσε ένα σπίτι γεμάτο αγάπη.",
     dateCreated: "2023-09-28",
     idea: "",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -165,8 +165,8 @@ export const topStories = [
       "Ένας παπαγάλος μάθαινε να μιμεί τις φωνές των ανθρώπων, και προκάλεσε πολλά γέλια στην οικογένειά του.",
     dateCreated: "2023-09-12",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -178,8 +178,8 @@ export const topStories = [
       "Ένα λιοντάρι και μια ζεβρά έγιναν απρόσμενοι φίλοι και μοιράστηκαν τον χώρο τους στη ζούγκλα.",
     dateCreated: "2023-08-20",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
@@ -191,8 +191,8 @@ export const topStories = [
       "Ένας χελώνας συμμετείχε σε αγώνα ταχύτητας και κατάφερε να κερδίσει τα όλα τα υπόλοιπα ζώα.",
     dateCreated: "2023-07-03",
     idea: "Mixalis",
-    image: "/PawStories/src/assets/storiesImages/1/MikeDog.jpg",
-    secondImage: "/PawStories/src/assets/storiesImages/1/wolfie.jpg",
+    image: "/PawStories/assets/storiesImages/1/MikeDog.jpg",
+    secondImage: "/PawStories/assets/storiesImages/1/wolfie.jpg",
 
     smallDescription:
       "Lorem ipsum, d sit amet consectetur adipisicing elit. Itaque sunt soluta vero delectus id consequuntur nisi eius quas excepturi. Sapiente nihil commodi fugit quasi voluptatem. Reiciendis similique perferendis magnam suscipit tenetur aperiam sunt obcaecati alias, odit laborum ab, repudiandae optio non porro nam tempore exercitationem at quam voluptatem aut asperiores quos rem libero. Optio sed, consequatur quidem non beatae in tenetur vero libero, repellat soluta earum sit odio praesentium veniam fugit excepturi labore autem nemo molestias eos. Perspiciatis aspernatur reiciendis omnis architecto ullam deleniti dignissimos modi. Vitae rerum odit corporis nulla aut voluptates totam, aperiam consectetur quo voluptatum. Animi, deleniti.",
