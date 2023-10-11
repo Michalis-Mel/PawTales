@@ -54,7 +54,11 @@ const HomeSlider = () => {
               />
               <div className="topStoryInfo">
                 <h2>{story.title}</h2>
-                <h4>Ιδέα: {story.idea}</h4>
+                {story.idea ? (
+                  <h4>Ιδέα: {story.idea}</h4>
+                ) : (
+                  <h4>Ιδέα: PawTales</h4>
+                )}
               </div>
             </div>
           ))}
