@@ -1,0 +1,79 @@
+@use "../global/colors" as *;
+@use "../global/typography" as *;
+.ideasForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+
+  h1 {
+    margin: 0 auto 20px auto;
+  }
+  h3 {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+  }
+  form {
+    width: 100%;
+    max-width: 600px;
+    background: $blue;
+    border: 3px solid $brown;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 30px;
+    box-shadow: 0 0 20px $brown;
+    padding: 30px;
+    margin: 0 auto 50px auto;
+
+    label {
+      width: 100%;
+      margin-bottom: 20px;
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: 2px solid $brown;
+        resize: none;
+        font-size: 18px;
+        background: #fff;
+        outline: none;
+
+        &:focus {
+          box-shadow: 0 0 10px $brown;
+        }
+
+        &::placeholder {
+          font-size: 19px;
+          font-family: $logo;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      max-width: 150px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      font-size: 20px;
+      background: $pink;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 20px $brown;
+        background: $brown;
+      }
+    }
+  }
+}

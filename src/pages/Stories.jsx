@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { slice } from "lodash";
+import { NavLink } from "react-router-dom";
 
 //Stories
 import animalStories from "../stories";
 
 //Components
-import Story from "../components/Story";
+import StoryItem from "../components/StoryItem";
 import SearchBar from "../components/SearchBar";
 
 //Images
@@ -60,13 +61,13 @@ const Stories = () => {
 
       <div className={`storiesList ${isGrid ? "gridList" : "detailsList"}`}>
         {searchedStories.length > 0 ? (
-          stories.map((story) => <Story key={story.id} story={story} />)
+          stories.map((story) => <StoryItem key={story.id} story={story} />)
         ) : (
           <>
             <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
-            <a href="/" className="back">
+            <NavLink to="/" className="back">
               Αρχική Σελίδα
-            </a>
+            </NavLink>
           </>
         )}
       </div>
