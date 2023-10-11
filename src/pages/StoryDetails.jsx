@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import animalStories from "../stories";

@@ -14,7 +14,7 @@ const Header = () => {
   };
   return (
     <header>
-      <NavLink to="/ideas" className="link">
+      <NavLink to="/PawStories/ideas" className="link">
         <motion.img
           src={idea}
           alt="Οι ιδέες σας"
@@ -43,7 +43,7 @@ const Header = () => {
           Οι Ιδέες σας
         </motion.span>
       </NavLink>
-      <NavLink to="/stories" className="link">
+      <NavLink to="/PawStories/stories" className="link">
         <motion.img
           src={book}
           alt="Ιστορίες"
@@ -72,7 +72,7 @@ const Header = () => {
           Οι Ιστορίες μας
         </motion.span>
       </NavLink>
-      <NavLink to="/" className="logo">
+      <NavLink to="/PawStories" className="logo">
         <motion.img
           src={logo}
           alt="Logo"
@@ -101,7 +101,7 @@ const Header = () => {
           PawTales
         </motion.span>
       </NavLink>
-      <NavLink to="/favorites" className="link">
+      <NavLink to="/PawStories/favorites" className="link">
         <motion.img
           src={heart}
           alt="Αγαπημένα"
@@ -130,7 +130,7 @@ const Header = () => {
           Αγαπημένα
         </motion.span>
       </NavLink>
-      <NavLink to="/account" className="link">
+      <NavLink to="/PawStories/account" className="link">
         <motion.img
           src={user}
           alt="Λογαριασμός"

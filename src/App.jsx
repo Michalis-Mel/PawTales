@@ -16,11 +16,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/ideas" element={<IdeasForm />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/stories" element={<Stories />} />
-        <Route path="/stories/:id" element={<StoryDetails />} />
+        <Route path="/PawStories" element={<Home />} />
+        <Route path="/PawStories/ideas" element={<IdeasForm />} />
+        <Route path="/PawStories/favorites" element={<Favorites />} />
+        <Route path="/PawStories/account" element={<Account />} />
+        <Route path="/PawStories/stories" element={<Stories />} />
+        <Route path="/PawStories/stories/:id" element={<StoryDetails />} />
       </Routes>
       <TreesLeaves />
       <Footer />
