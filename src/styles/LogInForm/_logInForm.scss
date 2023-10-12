@@ -1,0 +1,74 @@
+@use "../global/typography" as *;
+@use "../global/colors" as *;
+
+.logInForm {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  margin: 50px auto;
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 30px 20px;
+    border: 2px solid $brown;
+    border-radius: 10px;
+    box-shadow: 0 0 20px $brown;
+    margin: 0 auto 10px auto;
+
+    label {
+      width: 100%;
+      font-family: $text;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      font-size: 16px;
+      padding: 8px 10px;
+      border: 2px solid $green;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      font-size: 16px;
+      background: $green;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $brown;
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+
+    a {
+      color: $green;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $brown;
+      }
+    }
+  }
+}

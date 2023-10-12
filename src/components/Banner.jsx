@@ -7,12 +7,12 @@ const Banner = () => {
       className="banner_con"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 1.5 }}
+      transition={{ duration: 1, delay: 1 }}
     >
       <motion.img
         className="banner"
         src={animals}
-        alt="Paw Planet"
+        alt="Paw Stories"
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       />

@@ -65,7 +65,7 @@ const Stories = () => {
         ) : (
           <>
             <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
-            <NavLink to="/PawStories" className="back">
+            <NavLink to="/PawTales" className="back">
               Αρχική Σελίδα
             </NavLink>
           </>

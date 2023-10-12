@@ -1,4 +1,5 @@
 //Images
+import { NavLink } from "react-router-dom";
 import left from "../assets/icons/arrowLeft.png";
 import right from "../assets/icons/arrowRight.png";
 
@@ -25,8 +26,8 @@ const HomeSlider = () => {
   };
   return (
     <motion.div
-      initial={{ scale: 0 }}
-      whileInView={{ scale: 1 }}
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1.5, ease: "linear" }}
       className="topStories"
@@ -52,14 +53,17 @@ const HomeSlider = () => {
                 alt={story.title}
                 className="sliderImage"
               />
-              <div className="topStoryInfo">
+              <NavLink
+                to={`/PawTales/stories/${story.id}`}
+                className="topStoryInfo"
+              >
                 <h2>{story.title}</h2>
                 {story.idea ? (
                   <h4>Ιδέα: {story.idea}</h4>
                 ) : (
                   <h4>Ιδέα: PawTales</h4>
                 )}
-              </div>
+              </NavLink>
             </div>
           ))}
         </div>

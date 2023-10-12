@@ -34,6 +34,7 @@
 
         .topStoryInfo {
           background: #fff;
+          border: 5px solid #fff;
           z-index: 100;
           position: absolute;
           bottom: 20%;
@@ -49,16 +50,23 @@
           flex-flow: column nowrap;
           padding: 20px;
           border-radius: 20px;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            border: 5px solid $green;
+            transform: translateX(-50%) scale(1.1);
+          }
 
           h2 {
             font-family: $logo;
             font-size: 22px;
             line-height: 27px;
             margin-bottom: 10px;
+            transition: all 0.2s ease-in-out;
           }
           h4 {
             font-family: $titles;
-            font-size: 20px;
+            transition: all 0.2s ease-in-out;
           }
         }
       }
@@ -140,7 +148,7 @@
       }
 
       button.active {
-        background: $blue;
+        background: $green;
       }
     }
   }
