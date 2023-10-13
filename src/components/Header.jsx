@@ -53,64 +53,67 @@ const Header = () => {
 
   return (
     <header>
-      <NavLink to="/PawTales/ideas" className="link">
-        <motion.img
-          src={idea}
-          alt="Οι ιδέες σας"
-          initial="hidden"
-          animate="show"
-          variants={linkImgVariants}
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-          whileTap={{
-            scale: 0.8,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-        />{" "}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            duration: 2,
-            ease: "linear",
-            delay: 1,
-          }}
-        >
-          Οι Ιδέες σας
-        </motion.span>
-      </NavLink>
-      <NavLink to="/PawTales/stories" className="link">
-        <motion.img
-          src={book}
-          alt="Ιστορίες"
-          initial="hidden"
-          animate="show"
-          variants={linkImgVariants}
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-          whileTap={{
-            scale: 0.8,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-        />
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            duration: 2,
-            ease: "linear",
-            delay: 1,
-          }}
-        >
-          Οι Ιστορίες μας
-        </motion.span>
-      </NavLink>
+      <div className="headerLeft">
+        <NavLink to="/PawTales/ideas" className="link">
+          <motion.img
+            src={idea}
+            alt="Οι ιδέες σας"
+            initial="hidden"
+            animate="show"
+            variants={linkImgVariants}
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2, ease: "linear" },
+            }}
+            whileTap={{
+              scale: 0.8,
+              transition: { duration: 0.2, ease: "linear" },
+            }}
+          />{" "}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              duration: 2,
+              ease: "linear",
+              delay: 1,
+            }}
+          >
+            Οι Ιδέες σας
+          </motion.span>
+        </NavLink>
+        <NavLink to="/PawTales/stories" className="link">
+          <motion.img
+            src={book}
+            alt="Ιστορίες"
+            initial="hidden"
+            animate="show"
+            variants={linkImgVariants}
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2, ease: "linear" },
+            }}
+            whileTap={{
+              scale: 0.8,
+              transition: { duration: 0.2, ease: "linear" },
+            }}
+          />
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              duration: 2,
+              ease: "linear",
+              delay: 1,
+            }}
+          >
+            Οι Ιστορίες μας
+          </motion.span>
+        </NavLink>
+      </div>
+
       <NavLink to="/PawTales" className="logo">
         <motion.img
           src={logo}
@@ -140,40 +143,11 @@ const Header = () => {
           PawTales
         </motion.span>
       </NavLink>
-      <NavLink to="/PawTales/favorites" className="link">
-        <motion.img
-          src={heart}
-          alt="Αγαπημένα"
-          initial="hidden"
-          animate="show"
-          variants={linkImgVariants}
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-          whileTap={{
-            scale: 0.8,
-            transition: { duration: 0.2, ease: "linear" },
-          }}
-        />
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            duration: 2,
-            ease: "linear",
-            delay: 1,
-          }}
-        >
-          Αγαπημένα
-        </motion.span>
-      </NavLink>
-      {authUser ? (
-        <NavLink to="/PawTales/" onClick={handleLogout} className="link">
+      <div className="headerRight">
+        <NavLink to="/PawTales/favorites" className="link">
           <motion.img
-            src={logout}
-            alt="Αποσύνδεση"
+            src={heart}
+            alt="Αγαπημένα"
             initial="hidden"
             animate="show"
             variants={linkImgVariants}
@@ -196,40 +170,71 @@ const Header = () => {
               delay: 1,
             }}
           >
-            Αποσύνδεση
+            Αγαπημένα
           </motion.span>
         </NavLink>
-      ) : (
-        <NavLink to="/PawTales/login" className="link">
-          <motion.img
-            src={user}
-            alt="Λογαριασμός"
-            initial="hidden"
-            animate="show"
-            variants={linkImgVariants}
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2, ease: "linear" },
-            }}
-            whileTap={{
-              scale: 0.8,
-              transition: { duration: 0.2, ease: "linear" },
-            }}
-          />
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              type: "spring",
-              duration: 2,
-              ease: "linear",
-              delay: 1,
-            }}
-          >
-            Σύνδεση
-          </motion.span>
-        </NavLink>
-      )}
+        {authUser ? (
+          <NavLink to="/PawTales/" onClick={handleLogout} className="link">
+            <motion.img
+              src={logout}
+              alt="Αποσύνδεση"
+              initial="hidden"
+              animate="show"
+              variants={linkImgVariants}
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.2, ease: "linear" },
+              }}
+              whileTap={{
+                scale: 0.8,
+                transition: { duration: 0.2, ease: "linear" },
+              }}
+            />
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                duration: 2,
+                ease: "linear",
+                delay: 1,
+              }}
+            >
+              Αποσύνδεση
+            </motion.span>
+          </NavLink>
+        ) : (
+          <NavLink to="/PawTales/login" className="link">
+            <motion.img
+              src={user}
+              alt="Λογαριασμός"
+              initial="hidden"
+              animate="show"
+              variants={linkImgVariants}
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.2, ease: "linear" },
+              }}
+              whileTap={{
+                scale: 0.8,
+                transition: { duration: 0.2, ease: "linear" },
+              }}
+            />
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                duration: 2,
+                ease: "linear",
+                delay: 1,
+              }}
+            >
+              Σύνδεση
+            </motion.span>
+          </NavLink>
+        )}
+      </div>
     </header>
   );
 };

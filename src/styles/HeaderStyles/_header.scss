@@ -2,19 +2,40 @@
 @use "../global/typography" as *;
 
 header {
+  min-height: 180px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 0;
   margin-bottom: 30px;
+  position: relative;
+
+  .headerLeft,
+  .headerRight {
+    flex: 0 0 calc(50% - 100px);
+    width: calc(50% - 100px);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  .headerLeft {
+    justify-content: flex-end;
+  }
+  .headerRight {
+    justify-content: flex-start;
+  }
 
   .logo {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
-    margin: 0 50px;
 
     img {
       width: 100%;
