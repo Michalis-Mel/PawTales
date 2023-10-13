@@ -55,7 +55,6 @@ const Login = () => {
           name="email"
           type="email"
           placeholder="pawtales@gmail.com"
-          required
           onChange={(e) => setEmail(e.target.value)}
         />
 
@@ -65,7 +64,6 @@ const Login = () => {
           name="password"
           type="password"
           placeholder="PawTales123!"
-          required
           onChange={(e) => setPassword(e.target.value)}
         />
 

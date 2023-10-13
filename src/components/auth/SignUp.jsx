@@ -59,7 +59,6 @@ const Signup = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="pawtales@gmail.com"
-          required
         />
 
         <label htmlFor="password">Κωδικός</label>
@@ -69,7 +68,6 @@ const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="PawTales123!"
-          required
         />
 
         <button type="submit">Εγγραφή</button>
