@@ -1,16 +1,30 @@
-//Images
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+//DB
+import { collection, getDocs } from "@firebase/firestore";
+import { firestore } from "../firebase";
+
+//Images
 import left from "../assets/icons/arrowLeft.png";
 import right from "../assets/icons/arrowRight.png";
 
-//import topStories
-import { topStories } from "../stories";
-
-import { motion } from "framer-motion";
-import { useState } from "react";
-
 const HomeSlider = () => {
+  const [topStories, setTopStories] = useState([]);
   const [storyIndex, setStoryIndex] = useState(0);
+
+  // Fetch stories from Firestore
+  useEffect(() => {
+    const fetchStories = async () => {
+      const storiesCollection = collection(firestore, "stories");
+      const storiesSnapshot = await getDocs(storiesCollection);
+      const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+      setTopStories(storiesData);
+    };
+
+    fetchStories();
+  }, []);
 
   const nextSlide = () => {
     setStoryIndex((index) => {

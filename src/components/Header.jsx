@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 //Images
 import logo from "../assets/header/pawLogo.png";
@@ -13,6 +15,8 @@ import user from "../assets/header/user.png";
 import logout from "../assets/header/logout.png";
 
 const Header = () => {
+  const { setUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
 
@@ -38,6 +42,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         setAuthUser(null);
+        setUser(null);
         navigate("/PawTales/login");
       })
       .catch((error) => {

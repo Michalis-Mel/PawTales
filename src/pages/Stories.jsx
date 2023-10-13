@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { slice } from "lodash";
-import { NavLink } from "react-router-dom";
-
-//Stories
-import animalStories from "../stories";
+import { collection, getDocs } from "@firebase/firestore";
+import { firestore } from "../firebase";
+import { motion } from "framer-motion";
 
 //Components
 import StoryItem from "../components/StoryItem";
@@ -14,8 +13,12 @@ import grid from "../assets/icons/grid.png";
 import details from "../assets/icons/details.png";
 
 const Stories = () => {
-  //Search Functionality
-  const [searchedStories, setSearchedStories] = useState(animalStories);
+  const [stories, setStories] = useState([]);
+  const [searchedStories, setSearchedStories] = useState([]);
+
+  // Loading state to handle initial loading
+  const [isLoading, setIsLoading] = useState(true);
+
   //Grid Functionality
   const [isGrid, setIsGrid] = useState(false);
 
@@ -23,7 +26,24 @@ const Stories = () => {
   const initialStoriesShown = isGrid ? 12 : 5;
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(initialStoriesShown);
-  const stories = slice(searchedStories, 0, index);
+  const shortedStories = slice(searchedStories, 0, index);
+
+  // Fetch stories from Firestore
+  useEffect(() => {
+    const fetchStories = async () => {
+      const storiesCollection = collection(firestore, "stories");
+      const storiesSnapshot = await getDocs(storiesCollection);
+      const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+      setStories(storiesData);
+      setSearchedStories(storiesData);
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    };
+
+    fetchStories();
+  }, []);
 
   const loadMore = () => {
     isGrid ? setIndex(index + 12) : setIndex(index + 5);
@@ -40,7 +60,7 @@ const Stories = () => {
       <h1>Οι Ιστορίες μας</h1>
       <div className="searchBar">
         <SearchBar
-          animalStories={animalStories}
+          animalStories={stories}
           setSearchedStories={setSearchedStories}
         />
         <div className="layoutBtns">
@@ -59,22 +79,39 @@ const Stories = () => {
         </div>
       </div>
 
-      <div className={`storiesList ${isGrid ? "gridList" : "detailsList"}`}>
-        {searchedStories.length > 0 ? (
-          stories.map((story) => <StoryItem key={story.id} story={story} />)
-        ) : (
-          <>
+      {isLoading ? (
+        <div className="loading-indicator">
+          <div className="dot" id="dot1"></div>
+          <div className="dot" id="dot2"></div>
+          <div className="dot" id="dot3"></div>
+          <div className="dot" id="dot4"></div>
+          <div className="dot" id="dot5"></div>
+          <div className="dot" id="dot6"></div>
+        </div>
+      ) : (
+        <motion.div
+          className={`storiesList ${isGrid ? "gridList" : "detailsList"}`}
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: "linear" }}
+        >
+          {searchedStories.length > 0 ? (
+            shortedStories.map((story) => (
+              <StoryItem key={story.id} story={story} />
+            ))
+          ) : (
             <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
-            <NavLink to="/PawTales" className="back">
-              Αρχική Σελίδα
-            </NavLink>
-          </>
-        )}
-      </div>
-      {searchedStories.length > 0 && (
-        <button className="loadMore" disabled={isCompleted} onClick={loadMore}>
-          Περισσότερες Ιστορίες
-        </button>
+          )}
+          {searchedStories.length > 0 && (
+            <button
+              className="loadMore"
+              disabled={isCompleted}
+              onClick={loadMore}
+            >
+              Περισσότερες Ιστορίες
+            </button>
+          )}
+        </motion.div>
       )}
     </div>
   );
