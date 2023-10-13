@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useState, useEffect } from "react";
@@ -13,6 +13,7 @@ import user from "../assets/header/user.png";
 import logout from "../assets/header/logout.png";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
 
   const linkImgVariants = {
@@ -37,6 +38,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         setAuthUser(null);
+        navigate("/PawTales/login");
       })
       .catch((error) => {
         // An error happened.

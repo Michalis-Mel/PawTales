@@ -6,30 +6,38 @@ import { auth } from "../../firebase";
 const Signup = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const onSubmit = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        updateProfile(user, {
-          displayName: name,
-        }).catch((error) => {
-          // Handle any errors related to setting the display name
-          console.log(error);
-        });
         navigate("/PawTales");
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(error.code);
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            setErrorMsg("Το email χρησιμοποιείται ήδη");
+            break;
+          case "auth/missing-password":
+            setErrorMsg("Συμπληρώστε τον κωδικό σας");
+            break;
+          case "auth/invalid-email":
+            setErrorMsg("Συμπληρώστε το email σας");
+            break;
+          case "auth/weak-password":
+            setErrorMsg("Αδύναμος κωδικός");
+            break;
+          default:
+            break;
+        }
         // ..
       });
   };
@@ -37,15 +45,12 @@ const Signup = () => {
   return (
     <div className="signUpForm">
       <h1> Δημιουργία Λογαριασμού </h1>
-      <form>
-        <label htmlFor="name">Όνομα Χρήστη</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+      <form onSubmit={handleSignUp}>
+        {errorMsg.length > 0 && (
+          <div className="errorMsg">
+            <span className="errorText">{errorMsg}</span>
+          </div>
+        )}
 
         <label htmlFor="email">Email</label>
         <input
@@ -53,6 +58,7 @@ const Signup = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="pawtales@gmail.com"
           required
         />
 
@@ -62,12 +68,11 @@ const Signup = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="PawTales123!"
           required
         />
 
-        <button type="submit" onClick={onSubmit}>
-          Εγγραφή
-        </button>
+        <button type="submit">Εγγραφή</button>
       </form>
 
       <p>

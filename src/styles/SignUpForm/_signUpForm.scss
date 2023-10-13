@@ -2,60 +2,94 @@
 @use "../global/colors" as *;
 
 .signUpForm {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   width: 100%;
-  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
 
+  h1 {
+    margin: 0 auto 70px auto;
+  }
   form {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    background: $blue;
+    border: 3px solid $brown;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding: 30px 20px;
-    border: 2px solid $brown;
-    border-radius: 10px;
+    box-sizing: border-box;
+    border-radius: 30px;
     box-shadow: 0 0 20px $brown;
-    margin: 0 auto 10px auto;
+    padding: 30px;
+    margin: 0 auto 20px auto;
+
+    .errorMsg {
+      width: 100%;
+      text-align: center;
+      background: $pink;
+      padding: 10px 20px;
+      margin: 0 auto 20px auto;
+      border-radius: 20px;
+
+      .errorText {
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
 
     label {
       width: 100%;
       font-family: $text;
       font-size: 16px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     input {
       width: 100%;
-      font-size: 16px;
-      padding: 8px 10px;
-      border: 2px solid $green;
-      border-radius: 5px;
+      padding: 15px 20px;
+      box-sizing: border-box;
+      border-radius: 20px;
+      border: 2px solid $brown;
+      resize: none;
+      font-size: 18px;
+      background: #fff;
+      outline: none;
       margin-bottom: 20px;
+      &:focus {
+        box-shadow: 0 0 10px $brown;
+      }
+      &::placeholder {
+        font-size: 18px;
+        font-family: $logo;
+      }
     }
 
     button {
       margin-top: 10px;
-      font-size: 16px;
+      width: 100%;
+      max-width: 150px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      font-size: 20px;
       background: $green;
       color: #fff;
       border: none;
-      border-radius: 10px;
-      padding: 10px 20px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
 
       &:hover {
-        background-color: $brown;
+        box-shadow: 0 0 20px $brown;
+        background: $brown;
       }
     }
   }
 
   p {
     font-size: 14px;
-    margin-top: 10px;
+    margin: 0 auto 80px auto;
     text-align: center;
     display: flex;
     flex-flow: column nowrap;

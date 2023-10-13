@@ -7,20 +7,35 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogIn = (e) => {
+    console.log("why");
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         navigate("/PawTales");
-        console.log(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(error.code);
+        switch (error.code) {
+          case "auth/invalid-login-credentials":
+            setErrorMsg("Μη έγκυρα στοιχεία σύνδεσης");
+            break;
+          case "auth/missing-password":
+            setErrorMsg("Συμπληρώστε τον κωδικό σας");
+            break;
+          case "auth/invalid-email":
+            setErrorMsg("Συμπληρώστε το email σας");
+            break;
+          case "auth/weak-password":
+            setErrorMsg("Αδύναμος κωδικός");
+            break;
+          default:
+            break;
+        }
       });
   };
 
@@ -28,12 +43,18 @@ const Login = () => {
     <div className="logInForm">
       <h1>Συνδέσου στον Λογαριασμό σου</h1>
 
-      <form onClick={handleLogIn}>
+      <form onSubmit={handleLogIn}>
+        {errorMsg.length > 0 && (
+          <div className="errorMsg">
+            <span className="errorText">{errorMsg}</span>
+          </div>
+        )}
         <label htmlFor="email">Email</label>
         <input
           id="email"
           name="email"
           type="email"
+          placeholder="pawtales@gmail.com"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -43,6 +64,7 @@ const Login = () => {
           id="password"
           name="password"
           type="password"
+          placeholder="PawTales123!"
           required
           onChange={(e) => setPassword(e.target.value)}
         />

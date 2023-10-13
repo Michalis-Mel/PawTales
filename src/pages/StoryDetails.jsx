@@ -1,6 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { firestore } from "../firebase";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  getDoc,
+  query,
+  where,
+  deleteDoc,
+  doc,
+} from "@firebase/firestore";
 
 import animalStories from "../stories";
 import heart from "../assets/icons/heart.svg";
@@ -8,8 +19,10 @@ import heart from "../assets/icons/heart.svg";
 const StoryDetails = () => {
   const navigate = useNavigate();
   const url = useParams();
+
   const [story, setStory] = useState(animalStories[0]);
   const [allStories] = useState(animalStories);
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     const currentStory = allStories.filter(
@@ -21,6 +34,11 @@ const StoryDetails = () => {
   //Format the story
   const paragraphs = story.content.split("\n");
 
+  const toggleFavorite = async (e) => {
+    e.preventDefault();
+    setFavorite(!favorite);
+  };
+
   return (
     <motion.div
       className="storyDetails"
@@ -31,10 +49,13 @@ const StoryDetails = () => {
       <h1>{story.title}</h1>
       {story.idea && <h4>Ιδέα: {story.idea}</h4>}
 
-      <button className="emptyFav favorite">
-        <span>Προσθήκη στα Αγαπημένα</span>
+      <button onClick={toggleFavorite} className="favorite">
+        <span>
+          {favorite ? "Αφαίρεση από τα Αγαπημένα" : "Προσθήκη στα Αγαπημένα"}
+        </span>
         <img src={heart} alt="Favorite" />
       </button>
+
       <motion.div
         className="storyDetailsCon"
         initial={{ opacity: 0 }}
