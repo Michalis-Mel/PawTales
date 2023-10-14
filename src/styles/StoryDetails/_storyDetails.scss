@@ -1,6 +1,8 @@
 @use "../global//colors" as *;
 
 .storyDetailsLoad {
+  min-height: calc(100vh - 330px);
+
   .loading-indicator {
     display: flex;
     align-items: center;

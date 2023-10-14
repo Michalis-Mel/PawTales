@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import heart from "../assets/icons/heart.svg";
+import { AuthContext } from "../Context/AuthContext";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
   const url = useParams();
+  const { user } = useContext(AuthContext);
 
   const [story, setStory] = useState({});
   const [allStories, setAllStories] = useState([]);
@@ -35,11 +37,43 @@ const StoryDetails = () => {
         (myStory) => myStory.id === parseInt(url.id)
       );
       if (currentStory) setStory(currentStory);
-    }
-  }, [allStories, url, isLoading]);
 
-  const toggleFavorite = () => {
+      // Check if the story is a favorite for the user
+      if (user) {
+        // Replace 'favorites' with the name of your Firestore collection
+        const favoritesRef = doc(firestore, "favorites", user.uid);
+        getDoc(favoritesRef)
+          .then((docSnap) => {
+            if (docSnap.exists()) {
+              const data = docSnap.data();
+              setFavorite(data[url.id] === true);
+            } else {
+              setFavorite(false);
+            }
+          })
+          .catch((error) => {
+            console.error("Error checking favorite:", error);
+          });
+      }
+    }
+  }, [allStories, url, isLoading, user]);
+
+  const toggleFavorite = async () => {
     setFavorite(!favorite);
+
+    if (user) {
+      // Replace 'favorites' with the name of your Firestore collection
+      const favoritesRef = doc(firestore, "favorites", user.uid);
+
+      // Update the favorites collection based on the favorite state
+      if (favorite) {
+        // Remove the story from the user's favorites
+        await setDoc(favoritesRef, { [url.id]: false }, { merge: true });
+      } else {
+        // Add the story to the user's favorites
+        await setDoc(favoritesRef, { [url.id]: true }, { merge: true });
+      }
+    }
   };
 
   const paragraphs = story.content ? story.content.split("\n") : [];

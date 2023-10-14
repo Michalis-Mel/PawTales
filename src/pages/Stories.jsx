@@ -118,7 +118,7 @@ const Stories = () => {
               <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
             )}
           </div>
-          {searchedStories.length > 0 && (
+          {searchedStories.length > index && (
             <button
               className="loadMore"
               disabled={isCompleted}

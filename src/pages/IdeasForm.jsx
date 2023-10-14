@@ -9,6 +9,7 @@ const IdeasForm = () => {
     idea: "",
   });
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,20 +36,24 @@ const IdeasForm = () => {
         "PT2cBtRUGgQLlI3DD"
       )
       .then(
-        () => {
+        (response) => {
           setLoading(false);
-          alert("Σε ευχαριστούμε πολύ για την ιδέα σου!");
-
-          setForm({
-            name: "",
-            email: "",
-            idea: "",
-          });
+          // Check the response to determine success or error
+          if (response.status === 200) {
+            setMessage("Σε ευχαριστούμε πολύ για την ιδέα σου!");
+            setForm({
+              name: "",
+              email: "",
+              idea: "",
+            });
+          } else {
+            setMessage("Προσπαθήστε ξανά αργότερα...");
+          }
         },
         (error) => {
           setLoading(false);
           console.log(error);
-          alert("Προσπαθήστε ξανά αργότερα...");
+          setMessage("Προσπαθήστε ξανά αργότερα...");
         }
       );
   };
@@ -61,6 +66,11 @@ const IdeasForm = () => {
         και θα την δημοσιεύσουμε με το όνομα σου!
       </h3>
       <form ref={formRef} onSubmit={handleSubmit}>
+        {message && (
+          <div className="message">
+            <span>{message}</span>
+          </div>
+        )}
         <label>
           <input
             type="text"
