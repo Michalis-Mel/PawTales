@@ -34,8 +34,20 @@ const Stories = () => {
       const storiesCollection = collection(firestore, "stories");
       const storiesSnapshot = await getDocs(storiesCollection);
       const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
-      setStories(storiesData);
-      setSearchedStories(storiesData);
+
+      // Sort stories by creation date in descending order (most recent to oldest)
+      const sortedStories = storiesData.sort((a, b) => {
+        const dateA = new Date(
+          a.dateCreated.split("-").reverse().join("-")
+        ).getTime();
+        const dateB = new Date(
+          b.dateCreated.split("-").reverse().join("-")
+        ).getTime();
+        return dateB - dateA;
+      });
+
+      setStories(sortedStories);
+      setSearchedStories(sortedStories);
 
       setTimeout(() => {
         setIsLoading(false);
@@ -90,18 +102,22 @@ const Stories = () => {
         </div>
       ) : (
         <motion.div
-          className={`storiesList ${isGrid ? "gridList" : "detailsList"}`}
+          className="storiesList"
           initial={{ y: 100, opacity: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "linear" }}
         >
-          {searchedStories.length > 0 ? (
-            shortedStories.map((story) => (
-              <StoryItem key={story.id} story={story} />
-            ))
-          ) : (
-            <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
-          )}
+          <div
+            className={`storiesListCon ${isGrid ? "gridList" : "detailsList"}`}
+          >
+            {searchedStories.length > 0 ? (
+              shortedStories.map((story) => (
+                <StoryItem key={story.id} story={story} />
+              ))
+            ) : (
+              <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
+            )}
+          </div>
           {searchedStories.length > 0 && (
             <button
               className="loadMore"
