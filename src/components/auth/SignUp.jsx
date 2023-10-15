@@ -21,7 +21,7 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         setUser(user);
-        navigate("/");
+        navigate("/PawTales");
         // ...
       })
       .catch((error) => {
@@ -79,7 +79,7 @@ const Signup = () => {
 
       <p>
         Έχεις ήδη λογαριασμό?
-        <NavLink to="/login">Σύνδεση</NavLink>
+        <NavLink to="/PawTales/login">Σύνδεση</NavLink>
       </p>
     </div>
   );

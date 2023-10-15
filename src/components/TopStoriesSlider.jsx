@@ -69,7 +69,10 @@ const TopStoriesSlider = () => {
                     alt={story.title}
                     className="sliderImage"
                   />
-                  <NavLink to={`/stories/${story.id}`} className="topStoryInfo">
+                  <NavLink
+                    to={`/PawTales/stories/${story.id}`}
+                    className="topStoryInfo"
+                  >
                     <h2>{story.title}</h2>
                     {story.idea ? (
                       <h4>Ιδέα: {story.idea}</h4>

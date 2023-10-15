@@ -27,7 +27,7 @@ const LogInModal = ({ modalActive, setModalActive }) => {
           Πρέπει να συνδεθείτε για να προσθέσετε αυτή την ιστορία στα αγαπημένα
           σας
         </h3>
-        <NavLink to="/login">Σύνδεση</NavLink>
+        <NavLink to="/PawTales/login">Σύνδεση</NavLink>
       </div>
     </div>
   );

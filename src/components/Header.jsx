@@ -43,7 +43,7 @@ const Header = () => {
       .then(() => {
         setAuthUser(null);
         setUser(null);
-        navigate("/login");
+        navigate("/PawTales/login");
       })
       .catch((error) => {
         // An error happened.
@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <header>
       <div className="headerLeft">
-        <NavLink to="/ideas" className="link">
+        <NavLink to="/PawTales/ideas" className="link">
           <motion.img
             src={idea}
             alt="Οι ιδέες σας"
@@ -83,7 +83,7 @@ const Header = () => {
             Οι Ιδέες σας
           </motion.span>
         </NavLink>
-        <NavLink to="/stories" className="link">
+        <NavLink to="/PawTales/stories" className="link">
           <motion.img
             src={book}
             alt="Ιστορίες"
@@ -114,7 +114,7 @@ const Header = () => {
         </NavLink>
       </div>
 
-      <NavLink to="/" className="logo">
+      <NavLink to="/PawTales" className="logo">
         <motion.img
           src={logo}
           alt="Logo"
@@ -144,7 +144,7 @@ const Header = () => {
         </motion.span>
       </NavLink>
       <div className="headerRight">
-        <NavLink to="/favorites" className="link">
+        <NavLink to="/PawTales/favorites" className="link">
           <motion.img
             src={heart}
             alt="Αγαπημένα"
@@ -174,7 +174,7 @@ const Header = () => {
           </motion.span>
         </NavLink>
         {authUser ? (
-          <NavLink to="/" onClick={handleLogout} className="link">
+          <NavLink to="/PawTales/" onClick={handleLogout} className="link">
             <motion.img
               src={logout}
               alt="Αποσύνδεση"
@@ -204,7 +204,7 @@ const Header = () => {
             </motion.span>
           </NavLink>
         ) : (
-          <NavLink to="/login" className="link">
+          <NavLink to="/PawTales/login" className="link">
             <motion.img
               src={user}
               alt="Λογαριασμός"
