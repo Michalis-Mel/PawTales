@@ -5,6 +5,7 @@ import { collection, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import heart from "../assets/icons/heart.svg";
 import { AuthContext } from "../Context/AuthContext";
+import LogInModal from "../components/LogInModal";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const StoryDetails = () => {
   const [allStories, setAllStories] = useState([]);
   const [favorite, setFavorite] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -59,9 +61,8 @@ const StoryDetails = () => {
   }, [allStories, url, isLoading, user]);
 
   const toggleFavorite = async () => {
-    setFavorite(!favorite);
-
     if (user) {
+      setFavorite(!favorite);
       // Replace 'favorites' with the name of your Firestore collection
       const favoritesRef = doc(firestore, "favorites", user.uid);
 
@@ -73,6 +74,8 @@ const StoryDetails = () => {
         // Add the story to the user's favorites
         await setDoc(favoritesRef, { [url.id]: true }, { merge: true });
       }
+    } else {
+      setModalActive(true);
     }
   };
 
@@ -134,6 +137,7 @@ const StoryDetails = () => {
           </button>
         </motion.div>
       )}
+      <LogInModal modalActive={modalActive} setModalActive={setModalActive} />
     </div>
   );
 };
