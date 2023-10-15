@@ -20,17 +20,17 @@ const animalStories = [
 
 export const topStories = [];
 
-export async function addStoriesToFirestore() {
-  const storiesCollection = collection(firestore, "stories"); // 'stories' is the name of your Firestore collection
+// export async function addStoriesToFirestore() {
+//   const storiesCollection = collection(firestore, "stories"); // 'stories' is the name of your Firestore collection
 
-  try {
-    for (const story of animalStories) {
-      await addDoc(storiesCollection, story);
-      console.log(`Added story: ${story.title}`);
-    }
-  } catch (error) {
-    console.error("Error adding stories: ", error);
-  }
-}
+//   try {
+//     for (const story of animalStories) {
+//       await addDoc(storiesCollection, story);
+//       console.log(`Added story: ${story.title}`);
+//     }
+//   } catch (error) {
+//     console.error("Error adding stories: ", error);
+//   }
+// }
 
 export default animalStories;

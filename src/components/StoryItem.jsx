@@ -21,7 +21,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
     }
   };
 
-  const isFavoritesPage = location.pathname === "/PawTales/favorites";
+  const isFavoritesPage = location.pathname === "/favorites";
   const [isFavorite, setIsFavorite] = useState(true);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
       {isFavoritesPage && user ? (
         isFavorite ? (
           <div className="story">
-            <NavLink to={`/PawTales/stories/${id}`} className="storyCon">
+            <NavLink to={`/stories/${id}`} className="storyCon">
               <img src={image} alt={title} />
               <div className="storyInfo">
                 <h3>{title}</h3>
@@ -59,7 +59,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
         ) : null
       ) : (
         <div className="story">
-          <NavLink to={`/PawTales/stories/${id}`} className="storyCon">
+          <NavLink to={`/stories/${id}`} className="storyCon">
             <img src={image} alt={title} />
             <div className="storyInfo">
               <h3>{title}</h3>
