@@ -191,6 +191,8 @@
           font-size: 0;
           width: 100%;
           max-width: 300px;
+          object-fit: cover;
+          min-height: 225px;
         }
         .storyInfo {
           display: flex;
@@ -257,7 +259,7 @@
                 flex-grow: 1;
                 margin: 20px auto 0 auto;
                 font-size: 22px;
-                line-height: 22px;
+                line-height: 26px;
               }
 
               h5 {
