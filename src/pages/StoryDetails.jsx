@@ -102,7 +102,6 @@ const StoryDetails = () => {
         >
           <h1>{story.title}</h1>
           {story.idea && <h4>Ιδέα: {story.idea}</h4>}
-          <ShareStory />
           <button onClick={toggleFavorite} className="favorite">
             <span>
               {favorite
@@ -111,6 +110,8 @@ const StoryDetails = () => {
             </span>
             <img src={heart} alt="Favorite" />
           </button>
+          <ShareStory story={story} />
+
           <div className="storyDetailsCon">
             <motion.img
               className="storyDetailsImage"
