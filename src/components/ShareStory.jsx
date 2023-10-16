@@ -2,7 +2,6 @@ import fb from "../assets/icons/facebook.png";
 import twitter from "../assets/icons/twitter.png";
 import linkedin from "../assets/icons/linkedin.png";
 import viber from "../assets/icons/viber.png";
-import messenger from "../assets/icons/messenger.png";
 import { useLocation } from "react-router-dom";
 import {
   FacebookShareButton,
@@ -26,16 +25,6 @@ const ShareStory = ({ story }) => {
       >
         <img src={fb} alt="Facebook" />
       </FacebookShareButton>
-      <FacebookMessengerShareButton
-        className="shareBtn"
-        appId="1366083764342178"
-        url={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
-        redirectUri={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
-        to=""
-        target="_blank"
-      >
-        <img src={messenger} alt="Facebook" />
-      </FacebookMessengerShareButton>
       <ViberShareButton
         className="shareBtn"
         target="_blank"
