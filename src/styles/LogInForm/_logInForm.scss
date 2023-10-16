@@ -9,9 +9,6 @@
   justify-content: center;
   flex-flow: column nowrap;
 
-  h1 {
-    margin: 0 auto 70px auto;
-  }
   form {
     width: 100%;
     max-width: 600px;
@@ -46,6 +43,7 @@
       font-family: $text;
       font-size: 16px;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     input {
@@ -103,6 +101,28 @@
 
       &:hover {
         color: $brown;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .logInForm {
+    form {
+      button {
+        font-size: 18px;
+        padding: 10px;
+        max-width: 120px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .logInForm {
+    form {
+      padding: 30px 20px;
+      input {
+        padding: 10px 20px;
       }
     }
   }

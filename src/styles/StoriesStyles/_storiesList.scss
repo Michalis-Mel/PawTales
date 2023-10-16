@@ -7,11 +7,6 @@
   margin: 0 auto 50px auto;
   min-height: calc(100vh - 300px);
 
-  h1 {
-    font-size: 34px;
-    margin: 0 auto 50px auto;
-  }
-
   .loading-indicator {
     display: flex;
     align-items: center;
@@ -67,7 +62,6 @@
   }
 
   .searchBar {
-    padding: 0 20px;
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -226,10 +220,15 @@
         flex-flow: column nowrap;
         .story {
           width: 100%;
-          padding: 20px;
+          padding: 0;
+          margin-bottom: 20px;
           .storyCon {
             flex-flow: row nowrap;
             justify-content: space-between;
+
+            img {
+              border-radius: 20px 0 0 20px;
+            }
 
             .storyInfo {
               padding-left: 40px;
@@ -250,6 +249,9 @@
             flex-flow: column nowrap;
             justify-content: unset;
             height: 100%;
+            img {
+              border-radius: 20px 20px 0 0;
+            }
             .storyInfo {
               width: 100%;
               text-align: center;
@@ -304,6 +306,109 @@
 
     &:hover:disabled {
       color: #fff;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .stories .storiesList {
+    .storiesListCon.gridList {
+      .story {
+        width: 33.3%;
+        flex: 0 0 33.3%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .stories {
+    .storiesList {
+      .storiesListCon.detailsList {
+        .story .storyCon {
+          flex-flow: column nowrap;
+          align-items: center;
+          text-align: center;
+          img {
+            min-height: unset;
+            max-width: 100%;
+            border-radius: 20px 20px 0 0;
+          }
+
+          .storyInfo {
+            align-items: center;
+            text-align: center;
+            padding: 20px 0 0 0;
+            h3 {
+              font-size: 22px;
+              margin: 0 auto 10px auto;
+            }
+            h5 {
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+
+      .storiesListCon.gridList {
+        .story .storyCon {
+          .storyInfo {
+            h3 {
+              font-size: 20px;
+              margin: 10px auto;
+            }
+            h5 {
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .stories .storiesList {
+    .storiesListCon.gridList {
+      .story {
+        width: 50%;
+        flex: 0 0 50%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .stories {
+    .storiesList {
+      .storiesListCon.detailsList {
+        .story .storyCon {
+          padding: 10px;
+
+          .storyInfo {
+            h3 {
+              font-size: 20px;
+              line-height: 24px;
+            }
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .storiesListCon.storiesListCon.gridList {
+        .story {
+          padding: 5px;
+          .storyCon {
+            padding: 10px;
+            .storyInfo h3 {
+              font-size: 19px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
     }
   }
 }

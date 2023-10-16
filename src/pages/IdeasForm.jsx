@@ -71,36 +71,37 @@ const IdeasForm = () => {
             <span>{message}</span>
           </div>
         )}
-        <label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Το Όνομα σου..."
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            placeholder="Το email σου...(π.χ. pawtales@gmail.com)"
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          <textarea
-            rows={5}
-            name="idea"
-            value={form.idea}
-            onChange={handleChange}
-            placeholder="Η Ιδέα σου για την Ιστορία..."
-            required
-          />
-        </label>
+
+        <label htmlFor="name">Όνομα</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Το Όνομα σου..."
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={form.email}
+          placeholder="Το email σου...(π.χ. pawtales@gmail.com)"
+          onChange={handleChange}
+          required
+        />
+        <label htmlFor="idea">Ιδέα</label>
+        <textarea
+          rows={5}
+          id="idea"
+          name="idea"
+          value={form.idea}
+          onChange={handleChange}
+          placeholder="Η Ιδέα σου..."
+          required
+        />
         <button type="submit">{loading ? "Αποστέλλεται" : "Αποστολή"}</button>
       </form>
     </div>

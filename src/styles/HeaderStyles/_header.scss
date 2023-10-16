@@ -68,6 +68,106 @@ header {
     span {
       font-size: 18px;
       font-family: $logo;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      .permanent {
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  header {
+    .link {
+      margin: 0 20px;
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  header {
+    min-height: 150px;
+
+    .link {
+      span {
+        font-size: 16px;
+
+        div:not(.permanent) {
+          display: none;
+        }
+      }
+    }
+    .logo {
+      img {
+        max-width: 90px;
+      }
+      span {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  header {
+    .link {
+      span {
+        font-size: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  header {
+    min-height: 110px;
+    margin-bottom: 50px;
+    .link {
+      margin: 0 15px;
+    }
+
+    .logo {
+      img {
+        max-width: 70px;
+      }
+      span {
+        font-size: 26px;
+      }
+    }
+    .headerLeft,
+    .headerRight {
+      flex: 0 0 calc(50% - 60px);
+      width: calc(50% - 60px);
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  header {
+    min-height: 100px;
+    .link {
+      margin: 0 15px;
+    }
+
+    .logo {
+      span {
+        font-size: 0;
+      }
+    }
+    .headerLeft,
+    .headerRight {
+      flex: 0 0 calc(50% - 50px);
+      width: calc(50% - 50px);
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  header {
+    .link {
+      margin: 0 10px;
+      img {
+        max-width: 30px;
+      }
     }
   }
 }

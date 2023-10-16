@@ -80,7 +80,9 @@ const Header = () => {
               delay: 1,
             }}
           >
-            Οι Ιδέες σας
+            <div>Οι</div>
+            <div className="permanent">Ιδέες</div>
+            <div>σας</div>
           </motion.span>
         </NavLink>
         <NavLink to="/PawTales/stories" className="link">
@@ -109,7 +111,9 @@ const Header = () => {
               delay: 1,
             }}
           >
-            Οι Ιστορίες μας
+            <div>Οι</div>
+            <div className="permanent">Ιστορίες</div>
+            <div>μας</div>
           </motion.span>
         </NavLink>
       </div>

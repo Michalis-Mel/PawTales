@@ -9,9 +9,6 @@
   justify-content: center;
   flex-flow: column nowrap;
 
-  h1 {
-    margin: 0 auto 20px auto;
-  }
   h3 {
     width: 100%;
     font-size: 20px;
@@ -50,28 +47,29 @@
 
     label {
       width: 100%;
-      margin-bottom: 20px;
-
-      input,
-      textarea {
-        width: 100%;
-        padding: 15px 20px;
-        box-sizing: border-box;
-        border-radius: 20px;
-        border: 2px solid $brown;
-        resize: none;
+      font-family: $text;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px 20px;
+      box-sizing: border-box;
+      border-radius: 20px;
+      border: 2px solid $brown;
+      resize: none;
+      font-size: 18px;
+      background: #fff;
+      outline: none;
+      margin-bottom: 30px;
+      &:focus {
+        box-shadow: 0 0 10px $brown;
+      }
+      &::placeholder {
         font-size: 18px;
-        background: #fff;
-        outline: none;
-
-        &:focus {
-          box-shadow: 0 0 10px $brown;
-        }
-
-        &::placeholder {
-          font-size: 19px;
-          font-family: $logo;
-        }
+        font-family: $logo;
       }
     }
 
@@ -92,6 +90,28 @@
       &:hover {
         box-shadow: 0 0 20px $brown;
         background: $brown;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .ideasForm {
+    form {
+      button {
+        font-size: 18px;
+        padding: 10px;
+        max-width: 120px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .ideasForm {
+    form {
+      padding: 30px 20px;
+      input {
+        padding: 10px 20px;
       }
     }
   }

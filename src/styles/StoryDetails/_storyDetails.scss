@@ -65,7 +65,7 @@
     flex-flow: column nowrap;
 
     h1 {
-      margin-bottom: 20px;
+      margin: 0 auto 20px auto;
     }
 
     h4 {
@@ -83,7 +83,7 @@
       background: #ee8080;
       border-radius: 10px;
       padding: 5px 10px;
-      margin: 20px auto;
+      margin: 0 auto 20px;
 
       &:hover {
         background: #fff;
@@ -176,6 +176,25 @@
         background: transparent;
         color: $green;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .storyDetailsLoad .storyDetails h1 {
+    margin: 0 auto 10px auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .storyDetailsLoad .storyDetails {
+    .favorite {
+      span {
+        font-size: 14px;
+      }
+    }
+    p {
+      font-size: 18px;
+      line-height: 25px;
     }
   }
 }
