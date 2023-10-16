@@ -28,7 +28,7 @@ body {
   z-index: 1;
   width: 100%;
   display: flex;
-  padding: 0 120px;
+  padding: 0 100px;
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 1920px;
@@ -81,6 +81,7 @@ span {
   left: -200px;
   top: -10%;
   height: 120%;
+  transform: rotate(4deg);
   animation: slideRignt 2s forwards ease-in-out;
 }
 
@@ -89,18 +90,18 @@ span {
   right: -200px;
   top: -10%;
   height: 120%;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) rotateZ(4deg);
   animation: slideLeft 2s forwards ease-in-out;
 }
 .leaf1 {
   position: fixed;
-  left: -110px;
-  top: -110px;
+  left: -140px;
+  top: -140px;
 }
 .leaf2 {
   position: fixed;
-  right: -110px;
-  top: -110px;
+  right: -140px;
+  top: -140px;
 }
 
 @keyframes slideRignt {
@@ -108,7 +109,7 @@ span {
     left: -200px;
   }
   100% {
-    left: -100px;
+    left: -120px;
   }
 }
 @keyframes slideLeft {
@@ -116,6 +117,6 @@ span {
     right: -200px;
   }
   100% {
-    right: -100px;
+    right: -120px;
   }
 }

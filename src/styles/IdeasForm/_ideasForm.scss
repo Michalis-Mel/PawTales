@@ -1,6 +1,8 @@
 @use "../global/colors" as *;
 @use "../global/typography" as *;
 .ideasForm {
+  min-height: calc(100vh - 300px);
+
   width: 100%;
   display: flex;
   align-items: center;

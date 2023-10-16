@@ -14,8 +14,9 @@ const TreesLeaves = () => {
         className="leaf1"
         src={leaf1}
         alt="leaf"
-        animate={{ rotateZ: 5 }}
-        whileHover={{ rotateZ: 10 }}
+        initial={{ rotateZ: -20 }}
+        animate={{ rotateZ: -15 }}
+        whileHover={{ rotateZ: -10 }}
         transition={{
           duration: 2,
           repeat: Infinity,
@@ -27,8 +28,9 @@ const TreesLeaves = () => {
         className="leaf2"
         src={leaf2}
         alt="leaf"
-        animate={{ rotateZ: 5 }}
-        whileHover={{ rotateZ: -10 }}
+        initial={{ rotateZ: 20 }}
+        animate={{ rotateZ: 15 }}
+        whileHover={{ rotateZ: 10 }}
         transition={{
           duration: 2,
           repeat: Infinity,

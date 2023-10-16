@@ -2,7 +2,7 @@
 @use "../global/typography" as *;
 
 .favorites {
-  min-height: calc(100vh - 330px);
+  min-height: calc(100vh - 300px);
   .favoritesCon {
     h2.emptyFav {
       margin: 200px auto;

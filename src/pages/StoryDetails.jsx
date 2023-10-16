@@ -6,6 +6,7 @@ import { firestore } from "../helpers/firebase";
 import heart from "../assets/icons/heart.svg";
 import { AuthContext } from "../Context/AuthContext";
 import LogInModal from "../components/LogInModal";
+import ShareStory from "../components/ShareStory";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -101,6 +102,7 @@ const StoryDetails = () => {
         >
           <h1>{story.title}</h1>
           {story.idea && <h4>Ιδέα: {story.idea}</h4>}
+          <ShareStory />
           <button onClick={toggleFavorite} className="favorite">
             <span>
               {favorite
@@ -133,7 +135,7 @@ const StoryDetails = () => {
             </div>
           )}
           <button className="back" onClick={() => navigate(-1)}>
-            Back
+            Πίσω
           </button>
         </motion.div>
       )}
