@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { setDoc, doc } from "@firebase/firestore";
-import { firestore } from "../firebase";
+import { firestore } from "../helpers/firebase";
 import { onSnapshot } from "firebase/firestore";
 
 import x from "../assets/icons/x.png";

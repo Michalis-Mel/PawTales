@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
-import ScrollToTop from "./scrollToTop";
+import ScrollToTop from "./helpers/scrollToTop";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";

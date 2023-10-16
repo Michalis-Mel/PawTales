@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../helpers/firebase";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Signup = () => {

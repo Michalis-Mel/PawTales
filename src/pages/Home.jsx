@@ -2,7 +2,7 @@ import Banner from "../components/Banner";
 import HomeText from "../components/HomeText";
 import TopStoriesSlider from "../components/TopStoriesSlider";
 import AnimalsBackground from "../components/AnimalsBackground";
-import { addStoriesToFirestore } from "../stories";
+import { addStoriesToFirestore } from "../helpers/stories";
 
 const Home = () => {
   // addStoriesToFirestore().then(() => console.log("done"));

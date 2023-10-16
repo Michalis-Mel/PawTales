@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { slice } from "lodash";
 import { collection, getDocs } from "@firebase/firestore";
-import { firestore } from "../firebase";
+import { firestore } from "../helpers/firebase";
 import { motion } from "framer-motion";
 
 //Components

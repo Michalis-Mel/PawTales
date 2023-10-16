@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { collection, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
-import { firestore } from "../firebase";
+import { firestore } from "../helpers/firebase";
 import heart from "../assets/icons/heart.svg";
 import { AuthContext } from "../Context/AuthContext";
 import LogInModal from "../components/LogInModal";

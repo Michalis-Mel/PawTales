@@ -11,7 +11,7 @@ import {
   dog,
   horse,
   dove,
-} from "../animalImages";
+} from "../helpers/animalImages";
 
 const AnimalsBackground = () => {
   const variants = {

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../helpers/firebase";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";

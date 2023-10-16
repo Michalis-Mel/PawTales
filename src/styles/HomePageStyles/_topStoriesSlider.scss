@@ -51,10 +51,10 @@
           padding: 20px;
           border-radius: 20px;
           transition: all 0.2s ease-in-out;
+          min-height: 120px;
 
           &:hover {
             border: 5px solid $green;
-            transform: translateX(-50%) scale(1.1);
           }
 
           h2 {

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 //DB
 import { collection, getDocs } from "@firebase/firestore";
-import { firestore } from "../firebase";
+import { firestore } from "../helpers/firebase";
 
 //Images
 import left from "../assets/icons/arrowLeft.png";

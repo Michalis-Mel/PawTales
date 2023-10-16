@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import StoryItem from "../components/StoryItem";
 import { AuthContext } from "../Context/AuthContext";
 import { getDoc, doc, collection, getDocs } from "firebase/firestore";
-import { firestore } from "../firebase";
+import { firestore } from "../helpers/firebase";
 
 const Favorites = () => {
   const { user } = useContext(AuthContext);
