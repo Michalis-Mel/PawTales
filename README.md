@@ -54,7 +54,7 @@ We welcome contributions from the community to make PawTales even better. Whethe
 
 ## License
 
-PawTales is licensed under the MIT License, which means you can use, modify, and distribute it freely. However, we appreciate giving credit to the project.
+PawTales is licensed under the <a href="https://github.com/Michalis-Mel/PawTales/blob/main/LICENSE">MIT License</a>, which means you can use, modify, and distribute it freely. However, we appreciate giving credit to the project.
 
 ## Thank you
 
