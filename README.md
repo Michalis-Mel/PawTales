@@ -45,7 +45,7 @@ npm install
 npm run dev
 ```
 
-4. **Open the Appr**:
+4. **Open the App**:
    Once the server is running, open your browser and navigate to http://localhost:5173.
 
 ## Contributing
