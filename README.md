@@ -1,4 +1,4 @@
-<img src="./public/pawLogo.png" alt="PawTales Logo" width="80" > # PawTales: A Fun and Educational Web App for Kids <img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >
+#<img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >  PawTales: A Fun and Educational Web App for Kids <img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >
 
 
 
