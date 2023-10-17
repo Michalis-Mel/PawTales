@@ -47,7 +47,7 @@
 
     label {
       width: 100%;
-      font-family: $text;
+      font-family: $titles;
       font-size: 16px;
       margin-bottom: 10px;
       text-align: center;
@@ -69,7 +69,7 @@
       }
       &::placeholder {
         font-size: 18px;
-        font-family: $logo;
+        font-family: $titles;
       }
     }
 
@@ -108,6 +108,10 @@
 }
 @media only screen and (max-width: 550px) {
   .ideasForm {
+    h3 {
+      font-size: 18px;
+      line-height: 22px;
+    }
     form {
       padding: 30px 20px;
       input {

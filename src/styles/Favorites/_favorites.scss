@@ -20,6 +20,7 @@
 
       h2 {
         margin: 0 auto;
+        text-align: center;
       }
       a {
         margin-top: 50px;
@@ -42,8 +43,8 @@
     }
     .story {
       width: 100%;
-      padding: 20px;
       position: relative;
+      margin-bottom: 20px;
 
       .storyCon {
         flex-flow: row nowrap;
@@ -74,6 +75,7 @@
 
           h3 {
             font-size: 28px;
+            padding-right: 30px;
           }
 
           h5 {
@@ -104,8 +106,8 @@
         border: none;
         background: transparent;
         position: absolute;
-        right: 30px;
-        top: 30px;
+        right: 10px;
+        top: 10px;
         font-size: 0;
         cursor: pointer;
         z-index: 99;
@@ -201,6 +203,78 @@
 
     &:hover:disabled {
       color: #fff;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .favorites .favoritesCon .favLogin a {
+    font-size: 18px;
+    padding: 5px 10px;
+    max-width: 120px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .favorites {
+    .favoritesCon {
+      .story {
+        .storyCon {
+          padding: 30px;
+          flex-flow: column nowrap;
+          align-items: center;
+          text-align: center;
+          img {
+            min-height: unset;
+            max-width: 100%;
+            border-radius: 20px 20px 0 0;
+          }
+          .storyInfo {
+            align-items: center;
+            text-align: center;
+            padding: 20px 0 0 0;
+            h3 {
+              font-size: 22px;
+              margin: 0 auto 10px auto;
+            }
+            h5 {
+              margin: 0 auto;
+            }
+          }
+        }
+        .removeFav {
+          padding: 9px;
+          width: 35px;
+          height: 35px;
+          right: 5px;
+          top: 5px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .favorites {
+    h2 {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .favorites {
+    .favoritesCon {
+      .story .storyCon {
+        .storyInfo {
+          h3 {
+            font-size: 20px;
+            line-height: 24px;
+          }
+          p {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 }

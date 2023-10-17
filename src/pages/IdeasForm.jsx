@@ -88,7 +88,7 @@ const IdeasForm = () => {
           name="email"
           id="email"
           value={form.email}
-          placeholder="Το email σου...(π.χ. pawtales@gmail.com)"
+          placeholder="Το email σου..."
           onChange={handleChange}
           required
         />

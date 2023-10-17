@@ -43,7 +43,7 @@ header {
     }
     span {
       font-size: 40px;
-      font-family: $logo;
+      font-family: $titles;
       background: -webkit-linear-gradient($black, $green);
       -webkit-background-clip: text;
       background-clip: text;
@@ -85,7 +85,7 @@ header {
 
     span {
       font-size: 18px;
-      font-family: $logo;
+      font-family: $titles;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;

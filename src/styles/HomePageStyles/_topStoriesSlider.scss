@@ -58,7 +58,7 @@
           }
 
           h2 {
-            font-family: $logo;
+            font-family: $titles;
             font-size: 22px;
             line-height: 27px;
             transition: all 0.2s ease-in-out;
@@ -208,6 +208,14 @@
               line-height: 20px;
             }
           }
+        }
+      }
+
+      .sliderPagination {
+        gap: 7px;
+        button {
+          width: 8px;
+          height: 8px;
         }
       }
     }
