@@ -1,6 +1,6 @@
-#<img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >  PawTales: A Fun and Educational Web App for Kids <img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >
+###PawTales: A Fun and Educational Web App for Kids
 
-
+<img src="./public/pawLogo.png" alt="PawTales Logo" width="80" >
 
 PawTales is a delightful web app built with React and Vite, designed to entertain and educate children about the wonderful world of animals. Our aim is to foster a love for animals and promote their protection from a young age. With engaging stories and interactive features, PawTales is the perfect place for kids to explore and learn.
 
