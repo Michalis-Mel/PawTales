@@ -29,11 +29,11 @@ PawTales is made possible by using the following technologies:
 To get started with PawTales, follow these steps:
 
 1. **Clone the Repository**:
-   ```
-   git clone https://github.com/Michalis-Mel/PawTales.git
-   ```
-2. **Install Dependencies**:
+```
+git clone https://github.com/Michalis-Mel/PawTales.git
+```
 
+2. **Install Dependencies**:
 ```
 cd PawTales
 npm install
