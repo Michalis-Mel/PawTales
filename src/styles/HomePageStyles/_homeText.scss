@@ -2,21 +2,55 @@
 .homeText {
   width: 100%;
   max-width: 1200px;
-  margin: 120px auto 200px auto;
+  margin: 50px auto 100px auto;
   text-align: center;
   background: #fff;
   border: 5px solid $green;
-
   padding: 40px;
   border-radius: 50px;
 
-  h1 {
-    font-size: 34px;
-  }
-
   p {
     font-size: 22px;
-    line-height: 34px;
+    line-height: 32px;
     margin: 30px auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .homeText {
+    p {
+      font-size: 20px;
+      line-height: 30px;
+      margin: 20px auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .homeText {
+    padding: 40px 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .homeText {
+    h1 {
+      font-size: 24px;
+      line-height: 30px;
+      margin: 0 auto 20px auto;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .homeText {
+    padding: 40px 10px;
+    p {
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
 }

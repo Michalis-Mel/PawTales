@@ -30,3 +30,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .animalsBg {
+    @for $i from 1 through 10 {
+      img:nth-child(#{$i}) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

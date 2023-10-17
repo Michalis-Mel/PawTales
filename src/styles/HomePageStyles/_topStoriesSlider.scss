@@ -61,10 +61,10 @@
             font-family: $logo;
             font-size: 22px;
             line-height: 27px;
-            margin-bottom: 10px;
             transition: all 0.2s ease-in-out;
           }
           h4 {
+            margin-top: 10px;
             font-family: $titles;
             transition: all 0.2s ease-in-out;
           }
@@ -157,5 +157,59 @@
 @keyframes squish {
   50% {
     scale: 1.4 0.6;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .topStories {
+    .homeSlider {
+      .arrowLeft,
+      .arrowRight {
+        width: 60px;
+      }
+      .homeSliderCon {
+        .topStory {
+          .topStoryInfo {
+            bottom: 10%;
+            padding: 10px;
+
+            h2 {
+              font-size: 18px;
+              line-height: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .topStories {
+    h1 {
+      margin: 0 auto 20px auto;
+    }
+    .homeSlider {
+      margin: 0 auto 20px auto;
+      .arrowLeft,
+      .arrowRight {
+        width: 40px;
+        padding: 0;
+      }
+      .homeSliderCon {
+        .topStory {
+          .topStoryInfo {
+            transform: translate(-50%, 50%);
+            bottom: 50%;
+            padding: 10px;
+            min-height: unset;
+
+            h2 {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
   }
 }
