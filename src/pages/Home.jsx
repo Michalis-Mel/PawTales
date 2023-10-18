@@ -5,7 +5,7 @@ import AnimalsBackground from "../components/AnimalsBackground";
 import { addStoriesToFirestore } from "../helpers/stories";
 
 const Home = () => {
-  addStoriesToFirestore().then(() => console.log("done"));
+  // addStoriesToFirestore().then(() => console.log("done"));
   return (
     <>
       <AnimalsBackground />
