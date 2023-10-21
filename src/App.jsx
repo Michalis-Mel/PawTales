@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import ScrollToTop from "./helpers/scrollToTop";
 
@@ -18,14 +18,13 @@ function App() {
     <div className="row">
       <Header />
       <Routes>
-        <Route path="/" exact element={<Navigate to="/PawTales" />} />
-        <Route path="/PawTales" element={<Home />} />
-        <Route path="/PawTales/ideas" element={<IdeasForm />} />
-        <Route path="/PawTales/favorites" element={<Favorites />} />
-        <Route path="/PawTales/signup" element={<SignUpPage />} />
-        <Route path="/PawTales/login" element={<LogInPage />} />
-        <Route path="/PawTales/stories" element={<Stories />} />
-        <Route path="/PawTales/stories/:id" element={<StoryDetails />} />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/ideas" element={<IdeasForm />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/stories" element={<Stories />} />
+        <Route path="/stories/:id" element={<StoryDetails />} />
       </Routes>
       <TreesLeaves />
       <Footer />

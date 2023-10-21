@@ -19,7 +19,7 @@ const ShareStory = ({ story }) => {
       <FacebookShareButton
         className="shareBtn"
         target="_blank"
-        url={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
+        url={`https://michalis-mel.github.io/${location.pathname}`}
         hashtag={"#PawTales"}
         quote={story.smallDescription}
       >
@@ -29,7 +29,7 @@ const ShareStory = ({ story }) => {
         className="shareBtn"
         target="_blank"
         title={story.title}
-        url={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
+        url={`https://michalis-mel.github.io/${location.pathname}`}
       >
         <img src={viber} alt="Facebook" />
       </ViberShareButton>
@@ -38,7 +38,7 @@ const ShareStory = ({ story }) => {
         target="_blank"
         title={story.title}
         hashtag={"#PawTales"}
-        url={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
+        url={`https://michalis-mel.github.io/${location.pathname}`}
       >
         <img src={twitter} alt="Facebook" />
       </TwitterShareButton>
@@ -47,7 +47,7 @@ const ShareStory = ({ story }) => {
         title={story.title}
         summary={story.smallDescription}
         source="PawTales"
-        url={`https://michalis-mel.github.io/PawTales/#${location.pathname}`}
+        url={`https://michalis-mel.github.io/${location.pathname}`}
         target="_blank"
       >
         <img src={linkedin} alt="Facebook" />

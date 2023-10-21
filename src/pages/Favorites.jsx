@@ -111,7 +111,7 @@ const Favorites = () => {
               Για να μπορέσετε να δείτε τις αγαπημένες σας ιστορίες πρέπει να
               συνδεθείτε!
             </h2>
-            <NavLink to="/PawTales/login">Σύνδεση</NavLink>
+            <NavLink to="/login">Σύνδεση</NavLink>
           </div>
         </div>
       )}
