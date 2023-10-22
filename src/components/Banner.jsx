@@ -24,7 +24,7 @@ const Banner = () => {
       className="banner_con"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 1 }}
       viewport={{ once: true }}
     >
       <motion.img
