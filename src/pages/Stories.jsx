@@ -15,6 +15,7 @@ import details from "../assets/icons/details.png";
 const Stories = () => {
   const [stories, setStories] = useState([]);
   const [searchedStories, setSearchedStories] = useState([]);
+  const [errorMessage, setErrorMessage] = useState();
 
   // Loading state to handle initial loading
   const [isLoading, setIsLoading] = useState(true);
@@ -31,27 +32,34 @@ const Stories = () => {
   // Fetch stories from Firestore
   useEffect(() => {
     const fetchStories = async () => {
-      const storiesCollection = collection(firestore, "stories");
-      const storiesSnapshot = await getDocs(storiesCollection);
-      const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+      try {
+        const storiesCollection = collection(firestore, "stories");
+        const storiesSnapshot = await getDocs(storiesCollection);
+        const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
 
-      // Sort stories by creation date in descending order (most recent to oldest)
-      const sortedStories = storiesData.sort((a, b) => {
-        const dateA = new Date(
-          a.dateCreated.split("-").reverse().join("-")
-        ).getTime();
-        const dateB = new Date(
-          b.dateCreated.split("-").reverse().join("-")
-        ).getTime();
-        return dateB - dateA;
-      });
+        // Sort stories by creation date in descending order (most recent to oldest)
+        const sortedStories = storiesData.sort((a, b) => {
+          const dateA = new Date(
+            a.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          const dateB = new Date(
+            b.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          return dateB - dateA;
+        });
 
-      setStories(sortedStories);
-      setSearchedStories(sortedStories);
-
-      setTimeout(() => {
+        setStories(sortedStories);
+        setSearchedStories(sortedStories);
+      } catch (error) {
+        console.error("Error fetching stories:", error);
+        // Handle the error with an informative message
+        setErrorMessage(
+          "Προέκυψε σφάλμα κατά τη λήψη ιστοριών. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
+        );
+      } finally {
+        // Whether there was an error or not, update the loading state to false
         setIsLoading(false);
-      }, 1000);
+      }
     };
 
     fetchStories();
@@ -115,7 +123,7 @@ const Stories = () => {
                 <StoryItem key={story.id} story={story} />
               ))
             ) : (
-              <h2 className="notFound">Δεν Βρέθηκαν Ιστορίες</h2>
+              <h2 className="notFound">{errorMessage}</h2>
             )}
           </div>
           {searchedStories.length > index && (
