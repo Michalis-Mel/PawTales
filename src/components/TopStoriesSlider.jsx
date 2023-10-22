@@ -42,10 +42,10 @@ const TopStoriesSlider = () => {
     <>
       {topStories.length > 0 ? (
         <motion.div
-          initial={{ y: 100 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1 }}
           className="topStories"
         >
           <h1>Κορυφαίες Ιστορίες της Εβδομάδας</h1>
