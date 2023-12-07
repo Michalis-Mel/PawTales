@@ -79,8 +79,8 @@
       justify-content: center;
       width: fit-content;
       cursor: pointer;
-      border: 2px solid #ee8080;
-      background: #ee8080;
+      border: 2px solid $pink;
+      background: $pink;
       border-radius: 10px;
       padding: 5px 10px;
       margin: 0 auto 20px;
@@ -89,7 +89,7 @@
         background: #fff;
       }
       &:hover span {
-        color: #ee8080;
+        color: $pink;
       }
       &:hover img {
         filter: invert(62%) sepia(15%) saturate(3443%) hue-rotate(308deg)
@@ -100,13 +100,51 @@
         white-space: nowrap;
         font-size: 15px;
         color: #fff;
-        margin-right: 10px;
+        margin-left: 10px;
       }
 
       img {
         width: 100%;
         max-width: 24px;
         font-size: 0;
+      }
+    }
+
+    button.audio {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      cursor: pointer;
+      border-radius: 10px;
+      padding: 5px 10px;
+      margin: 0 auto 20px;
+
+      span {
+        white-space: nowrap;
+        font-size: 15px;
+        color: #fff;
+        margin-left: 10px;
+      }
+
+      img {
+        width: 100%;
+        max-width: 22px;
+        font-size: 0;
+      }
+
+      &.paused {
+        border: 2px solid $green;
+        background: $green;
+      }
+
+      &.playing {
+        border: 2px solid #ff2f00;
+        background: #ff2f00;
+        img {
+          border-radius: 15%;
+        }
       }
     }
 

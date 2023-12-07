@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import { collection, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
 import heart from "../assets/icons/heart.svg";
+import musicOn from "../assets/icons/music-on.svg";
+import musicOff from "../assets/icons/music-off.svg";
+import play from "../assets/icons/play.svg";
+import pause from "../assets/icons/pause.svg";
 import { AuthContext } from "../Context/AuthContext";
 import LogInModal from "../components/LogInModal";
 import ShareStory from "../components/ShareStory";
@@ -18,6 +22,8 @@ const StoryDetails = () => {
   const [favorite, setFavorite] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [modalActive, setModalActive] = useState(false);
+  const [audioPlayer, setAudioPlayer] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -41,6 +47,12 @@ const StoryDetails = () => {
       );
       if (currentStory) setStory(currentStory);
 
+      // Check if the story has an audio URL
+      if (story.audio) {
+        const audio = new Audio(story.audio);
+        setAudioPlayer(audio);
+      }
+
       // Check if the story is a favorite for the user
       if (user) {
         // Replace 'favorites' with the name of your Firestore collection
@@ -59,7 +71,7 @@ const StoryDetails = () => {
           });
       }
     }
-  }, [allStories, url, isLoading, user]);
+  }, [allStories, url, isLoading, user, story.audio]);
 
   const toggleFavorite = async () => {
     if (user) {
@@ -82,6 +94,17 @@ const StoryDetails = () => {
 
   const paragraphs = story.content ? story.content.split("\n") : [];
 
+  const handleTogglePlayPause = () => {
+    if (audioPlayer) {
+      if (isPlaying) {
+        audioPlayer.pause();
+      } else {
+        audioPlayer.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <div className="storyDetailsLoad">
       {isLoading ? (
@@ -103,13 +126,25 @@ const StoryDetails = () => {
           <h1>{story.title}</h1>
           {story.idea && <h4>Ιδέα: {story.idea}</h4>}
           <button onClick={toggleFavorite} className="favorite">
+            <img src={heart} alt="Favorite" />
             <span>
               {favorite
                 ? "Αφαίρεση από τα Αγαπημένα"
                 : "Προσθήκη στα Αγαπημένα"}
             </span>
-            <img src={heart} alt="Favorite" />
           </button>
+          {isPlaying ? (
+            <button onClick={handleTogglePlayPause} className="audio  playing">
+              <img src={musicOff} alt="Pause" />
+              <span>Παύση</span>
+            </button>
+          ) : (
+            <button onClick={handleTogglePlayPause} className="audio  paused">
+              <img src={musicOn} alt="Play" />
+              <span>Ακούστε την ιστορία</span>
+            </button>
+          )}
+
           <ShareStory story={story} />
 
           <div className="storyDetailsCon">

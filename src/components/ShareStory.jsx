@@ -12,7 +12,6 @@ import {
 
 const ShareStory = ({ story }) => {
   const location = useLocation();
-  console.log(`https://www.pawtales.gr${location.pathname}`);
 
   return (
     <div className="shareBtns">
