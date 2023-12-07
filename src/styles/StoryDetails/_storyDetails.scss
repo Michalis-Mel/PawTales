@@ -141,7 +141,7 @@
     .storyDetailsCon {
       overflow: hidden;
       width: 100%;
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto 50px auto;
       border-radius: 50px;
       box-shadow: 0 0 20px $brown;
@@ -156,6 +156,7 @@
       font-size: 20px;
       margin-bottom: 20px;
       width: 100%;
+      max-width: 1200px;
     }
     button.back {
       cursor: pointer;
