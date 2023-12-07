@@ -1,0 +1,16 @@
+@use "../global//colors" as *;
+@use "../global//typography" as *;
+
+.welcomeMsg {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 20px auto;
+
+  h1 {
+    font-size: 32px;
+
+    &::after {
+      display: none;
+    }
+  }
+}

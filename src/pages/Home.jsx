@@ -1,3 +1,4 @@
+import WelcomeMsg from "../components/WelcomeMsg";
 import Banner from "../components/Banner";
 import HomeText from "../components/HomeText";
 import TopStoriesSlider from "../components/TopStoriesSlider";
@@ -10,6 +11,7 @@ const Home = () => {
     <>
       <AnimalsBackground />
       <div className="home">
+        <WelcomeMsg />
         <Banner />
         <HomeText />
         <TopStoriesSlider />

@@ -83,7 +83,7 @@ const Header = () => {
               scale: 0.8,
               transition: { duration: 0.2, ease: "linear" },
             }}
-          />{" "}
+          />
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ y: 0, opacity: 1 }}
@@ -192,7 +192,7 @@ const Header = () => {
           </motion.span>
         </NavLink>
         {authUser ? (
-          <NavLink to="/" onClick={handleLogout} className="link">
+          <NavLink to="/" onClick={handleLogout} className="link logout">
             <motion.img
               src={logout}
               alt="Αποσύνδεση"
