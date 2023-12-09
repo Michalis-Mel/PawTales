@@ -1,4 +1,5 @@
 @use "../global//colors" as *;
+@use "../global/typography" as *;
 
 .storyDetailsLoad {
   min-height: calc(100vh - 330px);
@@ -65,87 +66,200 @@
     flex-flow: column nowrap;
 
     h1 {
-      margin: 0 auto 20px auto;
+      margin: 0 auto 40px auto;
     }
 
     h4 {
       font-size: 20px;
     }
 
-    .favorite {
+    .storyBtns {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
       justify-content: center;
-      width: fit-content;
-      cursor: pointer;
-      border: 2px solid $pink;
-      background: $pink;
-      border-radius: 10px;
-      padding: 5px 10px;
-      margin: 0 auto 20px;
+      column-gap: 20px;
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding-bottom: 80px;
 
-      &:hover {
-        background: #fff;
-      }
-      &:hover span {
-        color: $pink;
-      }
-      &:hover img {
-        filter: invert(62%) sepia(15%) saturate(3443%) hue-rotate(308deg)
-          brightness(108%) contrast(90%);
+      .favorite {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        cursor: pointer;
+        border: 2px solid $pink;
+        background: $pink;
+        border-radius: 10px;
+        padding: 5px 10px;
+
+        &:hover {
+          background: #fff;
+        }
+        &:hover span {
+          color: $pink;
+        }
+        &:hover img {
+          filter: invert(62%) sepia(15%) saturate(3443%) hue-rotate(308deg)
+            brightness(108%) contrast(90%);
+        }
+
+        span {
+          white-space: nowrap;
+          font-size: 15px;
+          color: #fff;
+          margin-left: 10px;
+        }
+
+        img {
+          width: 100%;
+          max-width: 24px;
+          font-size: 0;
+        }
       }
 
-      span {
-        white-space: nowrap;
-        font-size: 15px;
-        color: #fff;
-        margin-left: 10px;
-      }
+      .player {
+        width: fit-content;
 
-      img {
+        button.audio {
+          width: fit-content;
+          min-width: 200px;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          cursor: pointer;
+          border-radius: 10px;
+          padding: 5px 10px;
+
+          span {
+            white-space: nowrap;
+            font-size: 15px;
+            color: #fff;
+            margin-left: 10px;
+          }
+
+          img {
+            width: 100%;
+            max-width: 22px;
+            font-size: 0;
+          }
+
+          &.paused {
+            border: 2px solid $green;
+            background: $green;
+          }
+
+          &.playing {
+            border: 2px solid #ff2f00;
+            background: #ff2f00;
+            img {
+              border-radius: 15%;
+            }
+          }
+        }
+
+        .time-control {
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          width: 100%;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s ease-in-out;
+          z-index: 1;
+
+          &.hide {
+            opacity: 0;
+            transform: translateY(200px);
+            pointer-events: none;
+          }
+
+          input {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+          }
+
+          input:focus {
+            outline: none;
+          }
+
+          input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            background-color: #ffffff;
+            border: 2px solid $green;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px $green;
+          }
+
+          /* For Firefox */
+          input::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+
+          .track {
+            background: rgb(34, 151, 255);
+            background: linear-gradient(
+              75deg,
+              rgba(34, 151, 255, 1) 0%,
+              rgba(224, 138, 138, 1) 100%
+            );
+            width: 100%;
+            height: 20px;
+            border-radius: 1rem;
+            overflow: hidden;
+          }
+
+          p {
+            text-align: center;
+            width: fit-content;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+            font-family: $text;
+            min-width: 70px;
+          }
+        }
+      }
+    }
+    .storyDetailsCon {
+      z-index: 10;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+      border-radius: 50px;
+      box-shadow: 0 0 20px $brown;
+      font-size: 0;
+      .storyDetailsImage {
+        max-width: 100%;
         width: 100%;
-        max-width: 24px;
-        font-size: 0;
       }
     }
 
-    button.audio {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      cursor: pointer;
-      border-radius: 10px;
-      padding: 5px 10px;
-      margin: 0 auto 20px;
-
-      span {
-        white-space: nowrap;
-        font-size: 15px;
-        color: #fff;
-        margin-left: 10px;
-      }
-
-      img {
-        width: 100%;
-        max-width: 22px;
-        font-size: 0;
-      }
-
-      &.paused {
-        border: 2px solid $green;
-        background: $green;
-      }
-
-      &.playing {
-        border: 2px solid #ff2f00;
-        background: #ff2f00;
-        img {
-          border-radius: 15%;
-        }
-      }
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 1200px;
     }
 
     .shareBtns {
@@ -176,30 +290,10 @@
       }
     }
 
-    .storyDetailsCon {
-      overflow: hidden;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 50px auto;
-      border-radius: 50px;
-      box-shadow: 0 0 20px $brown;
-      font-size: 0;
-      .storyDetailsImage {
-        max-width: 100%;
-        width: 100%;
-      }
-    }
-
-    p {
-      font-size: 20px;
-      margin-bottom: 20px;
-      width: 100%;
-      max-width: 1200px;
-    }
     button.back {
       cursor: pointer;
       width: 150px;
-      margin: 0 auto 50px auto;
+      margin: 0 auto 20px auto;
       text-align: center;
       border-radius: 20px;
       padding: 5px 0 5px 0;

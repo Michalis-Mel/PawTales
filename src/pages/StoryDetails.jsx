@@ -24,6 +24,10 @@ const StoryDetails = () => {
   const [modalActive, setModalActive] = useState(false);
   const [audioPlayer, setAudioPlayer] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioInfo, setAudioInfo] = useState({
+    currentTime: 0,
+    duration: 0,
+  });
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -45,12 +49,22 @@ const StoryDetails = () => {
       const currentStory = allStories.find(
         (myStory) => myStory.id === parseInt(url.id)
       );
-      if (currentStory) setStory(currentStory);
 
-      // Check if the story has an audio URL
-      if (story.audio) {
-        const audio = new Audio(story.audio);
-        setAudioPlayer(audio);
+      if (currentStory) {
+        setStory(currentStory);
+
+        if (story.audio) {
+          const audio = new Audio(story.audio);
+          audio.addEventListener("loadedmetadata", () => {
+            setAudioInfo({
+              ...audioInfo,
+              duration: audio.duration,
+            });
+          });
+          audio.addEventListener("timeupdate", timeUpdateHandler); // Add this line
+
+          setAudioPlayer(audio);
+        }
       }
 
       // Check if the story is a favorite for the user
@@ -71,6 +85,7 @@ const StoryDetails = () => {
           });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allStories, url, isLoading, user, story.audio]);
 
   const toggleFavorite = async () => {
@@ -94,14 +109,48 @@ const StoryDetails = () => {
 
   const paragraphs = story.content ? story.content.split("\n") : [];
 
-  const handleTogglePlayPause = () => {
+  const handlePause = () => {
     if (audioPlayer) {
-      if (isPlaying) {
-        audioPlayer.pause();
-      } else {
-        audioPlayer.play();
-      }
-      setIsPlaying(!isPlaying);
+      audioPlayer.pause();
+      audioPlayer.removeEventListener("timeupdate", timeUpdateHandler);
+      setIsPlaying(false);
+    }
+  };
+  const handlePlay = () => {
+    if (audioPlayer) {
+      audioPlayer.play();
+      audioPlayer.addEventListener("timeupdate", timeUpdateHandler);
+      setIsPlaying(true);
+    }
+  };
+
+  const getTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
+  const timeUpdateHandler = (e) => {
+    const current = e.target.currentTime;
+    const duration = e.target.duration || 0;
+    if (current === duration) {
+      setAudioInfo({ ...audioInfo, currentTime: 0, duration });
+      setIsPlaying(false);
+    } else {
+      setAudioInfo({ ...audioInfo, currentTime: current, duration });
+    }
+  };
+
+  const handleSeek = (value) => {
+    setAudioInfo({ ...audioInfo, currentTime: value });
+    if (audioPlayer) {
+      audioPlayer.currentTime = value;
+    }
+  };
+
+  const handleSeekComplete = () => {
+    if (audioPlayer && isPlaying) {
+      audioPlayer.play();
     }
   };
 
@@ -125,28 +174,44 @@ const StoryDetails = () => {
         >
           <h1>{story.title}</h1>
           {story.idea && <h4>Ιδέα: {story.idea}</h4>}
-          <button onClick={toggleFavorite} className="favorite">
-            <img src={heart} alt="Favorite" />
-            <span>
-              {favorite
-                ? "Αφαίρεση από τα Αγαπημένα"
-                : "Προσθήκη στα Αγαπημένα"}
-            </span>
-          </button>
-          {isPlaying ? (
-            <button onClick={handleTogglePlayPause} className="audio  playing">
-              <img src={musicOff} alt="Pause" />
-              <span>Παύση</span>
+          <div className="storyBtns">
+            {story.audio && (
+              <div className="player">
+                {isPlaying ? (
+                  <button onClick={handlePause} className="audio playing">
+                    <img src={musicOff} alt="Pause" />
+                    <span>Παύση</span>
+                  </button>
+                ) : (
+                  <button onClick={handlePlay} className="audio paused">
+                    <img src={musicOn} alt="Play" />
+                    <span>Ακούστε την ιστορία</span>
+                  </button>
+                )}
+                <div className={`time-control ${isPlaying ? "show" : "hide"}`}>
+                  <p>{getTime(audioInfo.currentTime)}</p>
+                  <div className="track">
+                    <input
+                      type="range"
+                      min={0}
+                      max={audioInfo.duration}
+                      step={0.001}
+                      value={audioInfo.currentTime}
+                      onChange={(e) => handleSeek(parseFloat(e.target.value))}
+                      onMouseUp={handleSeekComplete}
+                    />
+                  </div>
+                  <p>
+                    {audioInfo.duration ? getTime(audioInfo.duration) : "0:00"}
+                  </p>
+                </div>
+              </div>
+            )}
+            <button onClick={toggleFavorite} className="favorite">
+              <img src={heart} alt="Favorite" />
+              <span>{favorite ? "Αφαίρεση" : "Προσθήκη "}</span>
             </button>
-          ) : (
-            <button onClick={handleTogglePlayPause} className="audio  paused">
-              <img src={musicOn} alt="Play" />
-              <span>Ακούστε την ιστορία</span>
-            </button>
-          )}
-
-          <ShareStory story={story} />
-
+          </div>
           <div className="storyDetailsCon">
             <motion.img
               className="storyDetailsImage"
@@ -170,6 +235,7 @@ const StoryDetails = () => {
               />
             </div>
           )}
+          <ShareStory story={story} />
           <button className="back" onClick={() => navigate(-1)}>
             Πίσω
           </button>
