@@ -3,7 +3,7 @@ import { useState } from "react";
 //Images
 import searchIcon from "../assets/icons/search.png";
 
-const SearchBar = ({ animalStories, setSearchedStories }) => {
+const SearchBar = ({ animalStories, setSearchedStories, setErrorMessage }) => {
   const [textInput, setTextInput] = useState("");
 
   const handleTextInput = (e) => {
@@ -16,6 +16,8 @@ const SearchBar = ({ animalStories, setSearchedStories }) => {
     animalStories.map((story) => {
       if (story.title.toLowerCase().includes(textInput.toLowerCase())) {
         setSearchedStories((prev) => [...prev, story]);
+      } else {
+        setErrorMessage("Δεν βρέθηκε η ιστορία που αναζητήσατε");
       }
     });
     setTextInput("");

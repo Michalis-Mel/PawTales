@@ -82,17 +82,18 @@ const Stories = () => {
         <SearchBar
           animalStories={stories}
           setSearchedStories={setSearchedStories}
+          setErrorMessage={setErrorMessage}
         />
         <div className="layoutBtns">
           <button
             className={`details ${isGrid ? "active" : ""}`}
-            onClick={() => setIsGrid(!isGrid)}
+            onClick={() => setIsGrid(false)}
           >
             <img src={details} alt="Details" />
           </button>
           <button
             className={`grid ${isGrid ? "" : "active"}`}
-            onClick={() => setIsGrid(!isGrid)}
+            onClick={() => setIsGrid(true)}
           >
             <img src={grid} alt="Grid" />
           </button>
