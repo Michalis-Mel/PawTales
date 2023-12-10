@@ -1,0 +1,88 @@
+@use "../global/colors" as *;
+@use "../global/typography" as *;
+
+.edit-stories-container {
+  margin: 20px auto 90px auto;
+  max-width: 1400px;
+  padding: 20px;
+  border: 2px solid $brown;
+  background-color: $blue;
+  border-radius: 10px;
+  position: relative;
+
+  button.lock {
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: transparent;
+    border: none;
+
+    img {
+      width: 100%;
+      font-size: 0;
+    }
+  }
+
+  ul.stories-list {
+    list-style: none;
+    padding: 0;
+
+    li.story-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $brown;
+      padding: 10px 0;
+
+      span {
+        font-size: 18px;
+        font-weight: bold;
+        color: $black;
+        margin-right: 10px;
+      }
+
+      button {
+        background-color: red;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:disabled {
+          background: gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .loading-message {
+    font-size: 18px;
+    color: $green;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .edit-stories-container {
+    margin: 10px;
+    padding: 10px;
+
+    ul.stories-list {
+      li.story-item {
+        flex-direction: column;
+
+        span {
+          margin-bottom: 10px;
+        }
+
+        button {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

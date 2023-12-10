@@ -17,7 +17,7 @@ const TopStoriesSlider = () => {
   // Fetch stories from Firestore
   useEffect(() => {
     const fetchTopStories = async () => {
-      const topStoriesCollection = collection(firestore, "top stories");
+      const topStoriesCollection = collection(firestore, "topStories");
       const topStoriesSnapshot = await getDocs(topStoriesCollection);
       const topStoriesData = topStoriesSnapshot.docs.map((doc) => doc.data());
       setTopStories(topStoriesData);

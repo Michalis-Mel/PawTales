@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { setDoc, doc } from "@firebase/firestore";
+import { setDoc, doc, updateDoc, deleteField } from "@firebase/firestore";
 import { firestore } from "../helpers/firebase";
 import { onSnapshot } from "firebase/firestore";
 
@@ -15,7 +15,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
   const removeFromFavorites = async () => {
     if (user) {
       const favoritesRef = doc(firestore, "favorites", user.uid);
-      await setDoc(favoritesRef, { [id]: false }, { merge: true });
+      await updateDoc(favoritesRef, { [id]: deleteField() });
 
       removeFromFavoritesId(id);
     }

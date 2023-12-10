@@ -1,13 +1,19 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { collection, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  deleteField,
+} from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
 import heart from "../assets/icons/heart.svg";
 import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
-import play from "../assets/icons/play.svg";
-import pause from "../assets/icons/pause.svg";
 import { AuthContext } from "../Context/AuthContext";
 import LogInModal from "../components/LogInModal";
 import ShareStory from "../components/ShareStory";
@@ -46,9 +52,7 @@ const StoryDetails = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      const currentStory = allStories.find(
-        (myStory) => myStory.id === parseInt(url.id)
-      );
+      const currentStory = allStories.find((myStory) => myStory.id === url.id);
 
       if (currentStory) {
         setStory(currentStory);
@@ -97,17 +101,17 @@ const StoryDetails = () => {
       // Update the favorites collection based on the favorite state
       if (favorite) {
         // Remove the story from the user's favorites
-        await setDoc(favoritesRef, { [url.id]: false }, { merge: true });
+        await updateDoc(favoritesRef, { [url.id]: deleteField() });
       } else {
         // Add the story to the user's favorites
-        await setDoc(favoritesRef, { [url.id]: true }, { merge: true });
+        await setDoc(favoritesRef, { [url.id]: true });
       }
     } else {
       setModalActive(true);
     }
   };
 
-  const paragraphs = story.content ? story.content.split("\n") : [];
+  const paragraphs = story.content ? story.content.split("<br />") : [];
 
   const handlePause = () => {
     if (audioPlayer) {
@@ -224,6 +228,7 @@ const StoryDetails = () => {
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
+
           {story.secondImage && (
             <div className="storyDetailsCon">
               <motion.img

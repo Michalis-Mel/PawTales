@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import IdeasForm from "./pages/IdeasForm";
+import Admin from "./pages/Admin";
 import Stories from "./pages/Stories";
 import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/stories" element={<Stories />} />
         <Route path="/stories/:id" element={<StoryDetails />} />
+        <Route path="/admin-mixalis" element={<Admin />} />
       </Routes>
       <TreesLeaves />
       <Footer />
