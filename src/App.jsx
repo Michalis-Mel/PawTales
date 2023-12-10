@@ -10,6 +10,7 @@ import IdeasForm from "./pages/IdeasForm";
 import Admin from "./pages/Admin";
 import Stories from "./pages/Stories";
 import LogInPage from "./pages/LogInPage";
+import EditUser from "./pages/EditUser";
 import SignUpPage from "./pages/SignUpPage";
 import StoryDetails from "./pages/StoryDetails";
 import TreesLeaves from "./components/TreesLeaves";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/stories" element={<Stories />} />
         <Route path="/stories/:id" element={<StoryDetails />} />
         <Route path="/admin-mixalis" element={<Admin />} />
+        <Route path="/edit-account" element={<EditUser />} />
       </Routes>
       <TreesLeaves />
       <Footer />

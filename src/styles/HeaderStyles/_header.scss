@@ -76,8 +76,7 @@ header {
     &.active::after {
       left: 0;
     }
-
-    &.logout.active::after {
+    &.active.account::after {
       left: -100%;
     }
 
@@ -95,6 +94,68 @@ header {
       align-items: center;
       .permanent {
         margin: 0 5px;
+      }
+    }
+  }
+
+  .user_menu_container {
+    position: relative;
+
+    .user_menu {
+      position: absolute;
+      left: 0;
+      top: 65px;
+      width: 100%;
+
+      .triangle {
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-color: $green;
+        position: absolute;
+        top: 13px;
+        left: calc(50% - 10px);
+        clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+        transform: rotate(135deg);
+        border-radius: 0 0 0 0.3rem;
+      }
+
+      ul {
+        background: $green;
+        border-radius: 20px;
+        padding: 20px 0;
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 200px;
+        list-style: none;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+
+        li {
+          width: 100%;
+          background: $green;
+          border-bottom: 2px solid #fff;
+          transition: all 0.3s ease-in-out;
+
+          &:first-child {
+            border-top: 2px solid #fff;
+          }
+          &:hover {
+            background: $brown;
+          }
+
+          a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px;
+            display: block;
+          }
+        }
       }
     }
   }

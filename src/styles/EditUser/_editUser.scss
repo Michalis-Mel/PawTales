@@ -1,0 +1,160 @@
+@use "../global/colors" as *;
+@use "../global/typography" as *;
+
+.edit_user_con {
+  margin: 20px auto 90px auto;
+  max-width: 1400px;
+  padding: 50px;
+  border: 2px solid $brown;
+  background-color: $blue;
+  border-radius: 10px;
+  box-shadow: 0 0 20px $brown;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 40px;
+
+    li {
+      background-color: $green;
+      color: #fff;
+      font-size: 18px;
+      font-family: $text;
+      padding: 10px;
+      max-width: 250px;
+      text-align: center;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      width: 50%;
+      min-width: 250px;
+
+      &:hover {
+        background-color: $brown;
+      }
+    }
+  }
+
+  .loading-message {
+    font-size: 18px;
+    color: $green;
+    margin-top: 20px;
+  }
+}
+
+.popupCon {
+  .popupBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgba($black, 0.6);
+  }
+  .popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    background-color: $blue;
+    border: 2px solid $brown;
+    padding: 50px;
+    border-radius: 20px;
+    z-index: 101;
+
+    h3 {
+      font-size: 22px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+    }
+
+    h5 {
+      font-size: 20px;
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: $titles;
+      margin: 0 auto 40px auto;
+    }
+
+    label {
+      font-size: 20px;
+      font-family: $titles;
+      font-weight: 500;
+      margin: 0 auto 20px auto;
+      display: block;
+
+      input {
+        margin-left: 10px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 2px solid $brown;
+        font-size: 18px;
+        background: #fff;
+        outline: none;
+        &:focus {
+          box-shadow: 0 0 10px $brown;
+        }
+        &::placeholder {
+          font-size: 18px;
+          font-family: $titles;
+        }
+      }
+    }
+    .error {
+      width: 100%;
+      text-align: center;
+      color: red;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0 auto;
+      font-size: 18px;
+      max-width: 400px;
+      line-height: 20px;
+    }
+
+    .popBtns {
+      margin-top: 40px;
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      column-gap: 40px;
+
+      button {
+        color: #fff;
+        font-size: 18px;
+        font-family: $text;
+        padding: 10px;
+        text-align: center;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        width: fit-content;
+        min-width: 150px;
+        border: none;
+
+        &.cancel {
+          background-color: gray;
+        }
+
+        &.delete {
+          background-color: red;
+        }
+        &.save {
+          background-color: $green;
+        }
+      }
+    }
+  }
+}
