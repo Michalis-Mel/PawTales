@@ -17,10 +17,23 @@ const TopStoriesSlider = () => {
   // Fetch stories from Firestore
   useEffect(() => {
     const fetchTopStories = async () => {
-      const topStoriesCollection = collection(firestore, "topStories");
-      const topStoriesSnapshot = await getDocs(topStoriesCollection);
-      const topStoriesData = topStoriesSnapshot.docs.map((doc) => doc.data());
-      setTopStories(topStoriesData);
+      try {
+        const storiesCollection = collection(firestore, "stories");
+        const storiesSnapshot = await getDocs(storiesCollection);
+        const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+
+        const topStoriesCollection = collection(firestore, "topStories");
+        const topStoriesSnapshot = await getDocs(topStoriesCollection);
+        const ids = topStoriesSnapshot.docs.map((doc) => doc.id);
+
+        // Filter storiesData based on matching IDs and set the topStories state
+        const topStoriesData = storiesData.filter((story) =>
+          ids.includes(story.id)
+        );
+        setTopStories(topStoriesData);
+      } catch (error) {
+        console.error("Error fetching top stories:", error);
+      }
     };
 
     fetchTopStories();

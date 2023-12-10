@@ -12,7 +12,6 @@ const AddTopStories = () => {
   const [stories, setStories] = useState([]);
   const [storyIds, setStoryIds] = useState([]);
   const [topStories, setTopStories] = useState([]);
-  const [topStoryIds, setTopStoryIds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ const AddTopStories = () => {
         setStoryIds(ids);
         setStories(storiesData);
         setTopStories(topStoriesData);
-        setTopStoryIds(idsTop);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching stories:", error);
@@ -72,7 +70,7 @@ const AddTopStories = () => {
         );
 
         if (selectedStory) {
-          await setDoc(doc(firestore, "topStories", storyId), selectedStory);
+          await setDoc(doc(firestore, "topStories", storyId), {});
         }
       }
     } catch (error) {
