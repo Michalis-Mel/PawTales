@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 import ScrollToTop from "./helpers/scrollToTop";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -18,21 +17,23 @@ import TreesLeaves from "./components/TreesLeaves";
 function App() {
   return (
     <div className="row">
-      <Header />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/ideas" element={<IdeasForm />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/stories" element={<Stories />} />
-        <Route path="/stories/:id" element={<StoryDetails />} />
-        <Route path="/admin-mixalis" element={<Admin />} />
-        <Route path="/edit-account" element={<EditUser />} />
-      </Routes>
-      <TreesLeaves />
-      <Footer />
-      <ScrollToTop />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ideas" element={<IdeasForm />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/stories" element={<Stories />} />
+          <Route path="/stories/:id" element={<StoryDetails />} />
+          <Route path="/admin-mixalis" element={<Admin />} />
+          <Route path="/edit-account" element={<EditUser />} />
+        </Routes>
+        <TreesLeaves />
+        <Footer />
+        <ScrollToTop />
+      </Router>
     </div>
   );
 }
