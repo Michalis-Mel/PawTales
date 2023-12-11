@@ -17,6 +17,7 @@ import musicOff from "../assets/icons/music-off.svg";
 import { AuthContext } from "../Context/AuthContext";
 import LogInModal from "../components/LogInModal";
 import ShareStory from "../components/ShareStory";
+import environment from "../assets/homepage/slider/environment.jpg";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -218,28 +219,50 @@ const StoryDetails = () => {
             </button>
           </div>
           <div className="storyDetailsCon">
-            <motion.img
-              className="storyDetailsImage"
-              src={story.image}
-              alt={story.title}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
+            {story.image ? (
+              <motion.img
+                className="storyDetailsImage"
+                src={story.image}
+                alt={story.title}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+              />
+            ) : (
+              <motion.img
+                src={environment}
+                alt="placeholder"
+                className="storyDetailsImage"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+              />
+            )}
           </div>
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
 
-          {story.secondImage && (
+          {story.secondImage ? (
             <div className="storyDetailsCon">
               <motion.img
                 className="storyDetailsImage"
                 src={story.secondImage}
                 alt={story.title}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
               />
             </div>
+          ) : (
+            <motion.img
+              className="placeholder"
+              src={environment}
+              alt="placeholder"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 1.5 } }}
+              whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+            />
           )}
           <ShareStory story={story} />
           <button className="back" onClick={() => navigate(-1)}>
