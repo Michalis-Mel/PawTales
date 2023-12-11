@@ -177,7 +177,8 @@ const StoryDetails = () => {
           transition={{ duration: 1.5, ease: "linear" }}
         >
           <h1>{story.title}</h1>
-          {story.idea && <h4>Ιδέα: {story.idea}</h4>}
+          <h3 className="date">Ημερομηνία : {story.dateCreated}</h3>
+          {story.idea && <h4 className="idea">Ιδέα : {story.idea}</h4>}
           <div className="storyBtns">
             {story.audio && (
               <div className="player">
