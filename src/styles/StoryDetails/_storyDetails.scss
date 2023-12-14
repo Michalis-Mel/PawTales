@@ -80,7 +80,7 @@
       font-size: 18px;
       font-family: $text;
       font-weight: 500;
-      margin: 0 auto 30px auto;
+      margin: 0 auto;
     }
 
     .storyBtns {
@@ -93,6 +93,7 @@
       width: 100%;
       max-width: 380px;
       padding-bottom: 80px;
+      margin-top: 30px;
 
       .favorite {
         display: flex;
