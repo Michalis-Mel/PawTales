@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
+import { StoriesContext } from "../Context/StoriesContext";
 
 //DB
-import { collection, getDocs } from "@firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
 
 //Images
@@ -11,6 +12,7 @@ import left from "../assets/icons/arrowLeft.png";
 import right from "../assets/icons/arrowRight.png";
 
 const TopStoriesSlider = () => {
+  const { allStories, setAllStories } = useContext(StoriesContext);
   const [topStories, setTopStories] = useState([]);
   const [storyIndex, setStoryIndex] = useState(0);
 
@@ -18,16 +20,12 @@ const TopStoriesSlider = () => {
   useEffect(() => {
     const fetchTopStories = async () => {
       try {
-        const storiesCollection = collection(firestore, "stories");
-        const storiesSnapshot = await getDocs(storiesCollection);
-        const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
-
         const topStoriesCollection = collection(firestore, "topStories");
         const topStoriesSnapshot = await getDocs(topStoriesCollection);
         const ids = topStoriesSnapshot.docs.map((doc) => doc.id);
 
         // Filter storiesData based on matching IDs and set the topStories state
-        const topStoriesData = storiesData.filter((story) =>
+        const topStoriesData = allStories.filter((story) =>
           ids.includes(story.id)
         );
         setTopStories(topStoriesData);
@@ -37,7 +35,7 @@ const TopStoriesSlider = () => {
     };
 
     fetchTopStories();
-  }, []);
+  }, [allStories]);
 
   const nextSlide = () => {
     setStoryIndex((index) => {

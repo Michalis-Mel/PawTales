@@ -1,42 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
+import { StoriesContext } from "../Context/StoriesContext";
 import lock from "../assets/icons/lock.png";
 import unlock from "../assets/icons/unlock.png";
 
 const DeleteStories = () => {
-  const [stories, setStories] = useState([]);
+  const { allStories, setAllStories, isLoading, setIsLoading } =
+    useContext(StoriesContext);
   const [storyIds, setStoryIds] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isLocked, setIsLocked] = useState(true);
 
   useEffect(() => {
-    const fetchStories = async () => {
-      try {
-        const storiesCollection = collection(firestore, "stories");
-        const storiesSnapshot = await getDocs(storiesCollection);
-        const storiesData = storiesSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        const ids = storiesSnapshot.docs.map((doc) => doc.id);
-        setStoryIds(ids);
-        setStories(storiesData);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching stories:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchStories();
-  }, []);
+    const ids = allStories.map((doc) => doc.id);
+    setStoryIds(ids);
+    setIsLoading(false);
+  }, [allStories, setIsLoading]);
 
   const handleDelete = async (storyId) => {
     try {
       const storyRef = doc(firestore, "stories", storyId);
       await deleteDoc(storyRef);
-      setStories((prevStories) =>
+      setAllStories((prevStories) =>
         prevStories.filter((story) => story.id !== storyId)
       );
       setStoryIds((prevIds) => prevIds.filter((id) => id !== storyId));
@@ -62,7 +47,7 @@ const DeleteStories = () => {
         <div>Loading...</div>
       ) : (
         <ul className="stories-list">
-          {stories.map((story, i) => (
+          {allStories.map((story, i) => (
             <li key={story.id} className="story-item">
               <span>{story.title}</span>
               <button

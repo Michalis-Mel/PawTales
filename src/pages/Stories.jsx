@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { slice } from "lodash";
-import { collection, getDocs } from "@firebase/firestore";
-import { firestore } from "../helpers/firebase";
 import { motion } from "framer-motion";
+import { StoriesContext } from "../Context/StoriesContext";
 
 //Components
 import StoryItem from "../components/StoryItem";
@@ -13,12 +12,9 @@ import grid from "../assets/icons/grid.png";
 import details from "../assets/icons/details.png";
 
 const Stories = () => {
-  const [stories, setStories] = useState([]);
+  const { allStories, setAllStories, isLoading } = useContext(StoriesContext);
   const [searchedStories, setSearchedStories] = useState([]);
   const [errorMessage, setErrorMessage] = useState();
-
-  // Loading state to handle initial loading
-  const [isLoading, setIsLoading] = useState(true);
 
   //Grid Functionality
   const [isGrid, setIsGrid] = useState(false);
@@ -28,42 +24,28 @@ const Stories = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(initialStoriesShown);
   const shortedStories = slice(searchedStories, 0, index);
-
-  // Fetch stories from Firestore
   useEffect(() => {
-    const fetchStories = async () => {
-      try {
-        const storiesCollection = collection(firestore, "stories");
-        const storiesSnapshot = await getDocs(storiesCollection);
-        const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+    if (allStories.length > 0) {
+      // Sort stories by creation date in descending order (most recent to oldest)
+      const sortedStories = allStories.sort((a, b) => {
+        const dateA = new Date(
+          a.dateCreated.split("-").reverse().join("-")
+        ).getTime();
+        const dateB = new Date(
+          b.dateCreated.split("-").reverse().join("-")
+        ).getTime();
+        return dateB - dateA;
+      });
 
-        // Sort stories by creation date in descending order (most recent to oldest)
-        const sortedStories = storiesData.sort((a, b) => {
-          const dateA = new Date(
-            a.dateCreated.split("-").reverse().join("-")
-          ).getTime();
-          const dateB = new Date(
-            b.dateCreated.split("-").reverse().join("-")
-          ).getTime();
-          return dateB - dateA;
-        });
-
-        setStories(sortedStories);
-        setSearchedStories(sortedStories);
-      } catch (error) {
-        console.error("Error fetching stories:", error);
-        // Handle the error with an informative message
-        setErrorMessage(
-          "Προέκυψε σφάλμα κατά τη λήψη ιστοριών. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
-        );
-      } finally {
-        // Whether there was an error or not, update the loading state to false
-        setIsLoading(false);
-      }
-    };
-
-    fetchStories();
-  }, []);
+      setAllStories(sortedStories);
+      setSearchedStories(sortedStories);
+    } else {
+      setErrorMessage(
+        "Προέκυψε σφάλμα κατά τη λήψη ιστοριών. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allStories]);
 
   const loadMore = () => {
     isGrid ? setIndex(index + 12) : setIndex(index + 5);
@@ -80,7 +62,7 @@ const Stories = () => {
       <h1>Οι Ιστορίες μας</h1>
       <div className="searchBar">
         <SearchBar
-          animalStories={stories}
+          animalStories={allStories}
           setSearchedStories={setSearchedStories}
           setErrorMessage={setErrorMessage}
         />

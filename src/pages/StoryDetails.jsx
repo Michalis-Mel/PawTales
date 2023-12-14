@@ -1,33 +1,31 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  collection,
-  getDocs,
-  doc,
-  setDoc,
-  getDoc,
-  updateDoc,
-  deleteField,
-} from "firebase/firestore";
+
+//Database
+import { doc, getDoc, updateDoc, deleteField } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
+import { AuthContext } from "../Context/AuthContext";
+import { StoriesContext } from "../Context/StoriesContext";
+
+//Components
+import LogInModal from "../components/LogInModal";
+import ShareStory from "../components/ShareStory";
+
+//Images
+import environment from "../assets/homepage/slider/environment.jpg";
 import heart from "../assets/icons/heart.svg";
 import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
-import { AuthContext } from "../Context/AuthContext";
-import LogInModal from "../components/LogInModal";
-import ShareStory from "../components/ShareStory";
-import environment from "../assets/homepage/slider/environment.jpg";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
   const url = useParams();
   const { user } = useContext(AuthContext);
+  const { allStories, isLoading } = useContext(StoriesContext);
 
   const [story, setStory] = useState({});
-  const [allStories, setAllStories] = useState([]);
   const [favorite, setFavorite] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const [audioPlayer, setAudioPlayer] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,29 +35,14 @@ const StoryDetails = () => {
   });
 
   useEffect(() => {
-    const fetchStories = async () => {
-      const storiesCollection = collection(firestore, "stories");
-      const storiesSnapshot = await getDocs(storiesCollection);
-      const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
-      setAllStories(storiesData);
-
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    };
-
-    fetchStories();
-  }, []);
-
-  useEffect(() => {
     if (!isLoading) {
       const currentStory = allStories.find((myStory) => myStory.id === url.id);
 
       if (currentStory) {
         setStory(currentStory);
 
-        if (story.audio) {
-          const audio = new Audio(story.audio);
+        if (currentStory.audio) {
+          const audio = new Audio(currentStory.audio);
           audio.addEventListener("loadedmetadata", () => {
             setAudioInfo({
               ...audioInfo,
@@ -91,7 +74,7 @@ const StoryDetails = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allStories, url, isLoading, user, story.audio]);
+  }, [allStories, url, isLoading, user]);
 
   const toggleFavorite = async () => {
     if (user) {
@@ -105,7 +88,7 @@ const StoryDetails = () => {
         await updateDoc(favoritesRef, { [url.id]: deleteField() });
       } else {
         // Add the story to the user's favorites
-        await setDoc(favoritesRef, { [url.id]: true });
+        await updateDoc(favoritesRef, { [url.id]: true });
       }
     } else {
       setModalActive(true);

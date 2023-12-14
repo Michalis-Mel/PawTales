@@ -2,21 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import { slice } from "lodash";
 import { NavLink } from "react-router-dom";
 import StoryItem from "../components/StoryItem";
+import { StoriesContext } from "../Context/StoriesContext";
 import { AuthContext } from "../Context/AuthContext";
-import { getDoc, doc, collection, getDocs } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
+import { motion } from "framer-motion";
 
 const Favorites = () => {
   const { user } = useContext(AuthContext);
+  const { allStories, isLoading, setIsLoading } = useContext(StoriesContext);
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [stories, setStories] = useState([]);
+  const [favStoriesShow, setStories] = useState([]);
   const [favoriteStories, setFavoriteStories] = useState([]);
 
   //Load More Functionality
   const initialStoriesShown = 5;
   const [index, setIndex] = useState(initialStoriesShown);
-  const shortedStories = slice(stories, 0, index);
+  const shortedStories = slice(favStoriesShow, 0, index);
 
   useEffect(() => {
     const fetchFavoriteStories = async () => {
@@ -41,28 +43,20 @@ const Favorites = () => {
     };
 
     fetchFavoriteStories();
-  }, [user]);
+  }, [user, setIsLoading]);
 
   useEffect(() => {
-    const fetchStories = async () => {
-      const storiesCollection = collection(firestore, "stories");
-      const storiesSnapshot = await getDocs(storiesCollection);
-      const storiesData = storiesSnapshot.docs.map((doc) => doc.data());
+    // Find favorite stories by comparing with the user's favorite data
+    const favoriteIdsArray = favoriteStories
+      .filter((item) => item.isFavorite)
+      .map((item) => item.id);
 
-      // Find favorite stories by comparing with the user's favorite data
-      const favoriteIdsArray = favoriteStories
-        .filter((item) => item.isFavorite)
-        .map((item) => item.id);
+    const favoriteStoriesData = allStories.filter((story) =>
+      favoriteIdsArray.includes(story.id.toString())
+    );
 
-      const favoriteStoriesData = storiesData.filter((story) =>
-        favoriteIdsArray.includes(story.id.toString())
-      );
-
-      setStories(favoriteStoriesData);
-    };
-
-    fetchStories();
-  }, [favoriteStories]);
+    setStories(favoriteStoriesData);
+  }, [favoriteStories, allStories]);
 
   const removeFromFavoritesId = (storyId) => {
     setStories((prevStories) =>
@@ -84,8 +78,13 @@ const Favorites = () => {
           <div className="dot" id="dot6"></div>
         </div>
       ) : user ? (
-        <div className="favoritesCon">
-          {stories.length > 0 ? (
+        <motion.div
+          className="favoritesCon"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          {favStoriesShow.length > 0 ? (
             shortedStories.map((story) => (
               <StoryItem
                 key={story.id}
@@ -98,14 +97,19 @@ const Favorites = () => {
               Δεν υπάρχουν ιστορίες στα αγαπημένα σας.
             </h2>
           )}
-          {stories.length > index && (
+          {favStoriesShow.length > index && (
             <button className="loadMore" onClick={() => setIndex(index + 5)}>
               Περισσότερες Ιστορίες
             </button>
           )}
-        </div>
+        </motion.div>
       ) : (
-        <div className="favoritesCon">
+        <motion.div
+          className="favoritesCon"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
           <div className="favLogin">
             <h2>
               Για να μπορέσετε να δείτε τις αγαπημένες σας ιστορίες πρέπει να
@@ -113,7 +117,7 @@ const Favorites = () => {
             </h2>
             <NavLink to="/login">Σύνδεση</NavLink>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );
