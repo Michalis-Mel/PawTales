@@ -48,7 +48,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
               <div className="storyInfo">
                 <h3>{title}</h3>
                 <h5>{dateCreated}</h5>
-                {idea && <h5>Ιδέα: {idea}</h5>}
+                <h5>{idea && <>Ιδέα: {idea}</>}</h5>
                 <p>{smallDescription}</p>
               </div>
             </NavLink>
@@ -64,7 +64,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
             <div className="storyInfo">
               <h3>{title}</h3>
               <h5>{dateCreated}</h5>
-              {idea && <h5>Ιδέα: {idea}</h5>}
+              <h5>{idea && <>Ιδέα: {idea}</>}</h5>
               <p>{smallDescription}</p>
             </div>
           </NavLink>

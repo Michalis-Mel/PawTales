@@ -326,16 +326,28 @@
 
 @media only screen and (max-width: 550px) {
   .storyDetailsLoad .storyDetails h1 {
-    margin: 0 auto 10px auto;
+    font-size: 36px;
+    line-height: 38px;
+    margin-bottom: 20px;
+  }
+
+  h3.date,
+  h4.idea {
+    font-size: 16px;
+    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 480px) {
   .storyDetailsLoad .storyDetails {
-    .favorite {
-      span {
-        font-size: 14px;
+    .storyBtns {
+      margin: 20px auto 0 auto;
+      .favorite {
+        span {
+          font-size: 14px;
+        }
       }
     }
+
     p {
       font-size: 18px;
       line-height: 25px;

@@ -193,7 +193,9 @@
           flex-flow: column nowrap;
 
           h3 {
-            font-size: 28px;
+            font-size: 32px;
+            line-height: 34px;
+            margin-bottom: 10px;
           }
 
           h5 {
@@ -260,8 +262,8 @@
               h3 {
                 flex-grow: 1;
                 margin: 20px auto 0 auto;
-                font-size: 22px;
-                line-height: 26px;
+                font-size: 26px;
+                line-height: 28px;
               }
 
               h5 {
@@ -341,9 +343,10 @@
             align-items: center;
             text-align: center;
             padding: 20px 0 0 0;
+
             h3 {
-              font-size: 22px;
-              margin: 0 auto 10px auto;
+              font-size: 28px;
+              line-height: 30px;
             }
             h5 {
               margin: 0 auto;
@@ -356,7 +359,8 @@
         .story .storyCon {
           .storyInfo {
             h3 {
-              font-size: 20px;
+              font-size: 22px;
+              line-height: 24px;
               margin: 10px auto;
             }
             h5 {
@@ -388,8 +392,9 @@
 
           .storyInfo {
             h3 {
-              font-size: 20px;
-              line-height: 24px;
+              font-size: 28px;
+              line-height: 30px;
+              margin-bottom: 15px;
             }
             p {
               font-size: 16px;
@@ -403,8 +408,8 @@
           .storyCon {
             padding: 10px;
             .storyInfo h3 {
-              font-size: 19px;
-              line-height: 20px;
+              font-size: 20px;
+              line-height: 22px;
             }
           }
         }
