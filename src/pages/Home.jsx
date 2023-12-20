@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import HomeText from "../components/HomeText";
 import TopStoriesSlider from "../components/TopStoriesSlider";
 import AnimalsBackground from "../components/AnimalsBackground";
+import SongPawtales from "../components/SongPawtales";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Banner />
         <HomeText />
         <TopStoriesSlider />
+        <SongPawtales />
       </div>
     </>
   );

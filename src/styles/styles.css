@@ -51,7 +51,7 @@ h1 {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   margin: 0 auto 50px auto;
   text-align: center;
 }
@@ -144,22 +144,24 @@ span {
 }
 @media only screen and (max-width: 1200px) {
   h1 {
-    font-size: 30px;
+    font-size: 32px;
+    line-height: 34px;
   }
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 900px) {
   h1 {
-    font-size: 26px;
-    margin: 0 auto 20px auto;
+    -webkit-text-fill-color: #1a1a1a;
+    text-shadow: 0 0 3px #55792f;
     padding: 0;
   }
   h1::after {
     display: none;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 550px) {
   h1 {
-    font-size: 22px;
+    margin: 0 auto 20px auto;
+    padding: 0;
   }
 }
 header {
@@ -316,6 +318,7 @@ header .user_menu_container .user_menu ul li a {
 @media only screen and (max-width: 900px) {
   header {
     min-height: 150px;
+    margin-bottom: 50px;
   }
   header .link span {
     font-size: 16px;
@@ -338,7 +341,6 @@ header .user_menu_container .user_menu ul li a {
 @media only screen and (max-width: 550px) {
   header {
     min-height: 110px;
-    margin-bottom: 50px;
   }
   header .link {
     margin: 0 15px;
@@ -358,6 +360,7 @@ header .user_menu_container .user_menu ul li a {
 @media only screen and (max-width: 450px) {
   header {
     min-height: 100px;
+    margin-bottom: 20px;
   }
   header .link {
     margin: 0 15px;
@@ -413,8 +416,8 @@ footer span {
 
 .homeText {
   width: 100%;
-  max-width: 700px;
-  margin: 50px auto 100px auto;
+  max-width: 900px;
+  margin: 0 auto 100px auto;
   text-align: center;
   background: #fff;
   border: 5px solid #55792f;
@@ -437,12 +440,11 @@ footer span {
 @media only screen and (max-width: 900px) {
   .homeText {
     padding: 40px 20px;
+    margin-bottom: 50px;
   }
 }
 @media only screen and (max-width: 550px) {
   .homeText h1 {
-    font-size: 24px;
-    line-height: 30px;
     margin: 0 auto 20px auto;
   }
   .homeText p {
@@ -461,11 +463,15 @@ footer span {
 }
 .topStories {
   width: 100%;
+  margin-bottom: 100px;
+}
+.topStories h1 {
+  margin-bottom: 40px;
 }
 .topStories .homeSlider {
   width: 100%;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 0 auto;
   border-radius: 50px;
   aspect-ratio: 16/9;
   overflow: hidden;
@@ -492,6 +498,7 @@ footer span {
   height: 100%;
 }
 .topStories .homeSlider .homeSliderCon .topStory .topStoryInfo {
+  box-shadow: 0 0 20px black;
   background: #fff;
   border: 5px solid #fff;
   z-index: 100;
@@ -598,12 +605,15 @@ footer span {
   }
 }
 @media only screen and (max-width: 900px) {
+  .topStories h1 {
+    margin: 0 auto 20px auto;
+    padding-bottom: 10px;
+  }
   .topStories .homeSlider .arrowLeft,
   .topStories .homeSlider .arrowRight {
     width: 60px;
   }
   .topStories .homeSlider .homeSliderCon .topStory .topStoryInfo {
-    bottom: 10%;
     padding: 10px;
   }
   .topStories .homeSlider .homeSliderCon .topStory .topStoryInfo h2 {
@@ -633,6 +643,9 @@ footer span {
     font-size: 16px;
     line-height: 20px;
   }
+  .topStories .homeSlider .homeSliderCon .topStory .topStoryInfo h4 {
+    display: none;
+  }
   .topStories .homeSlider .sliderPagination {
     gap: 7px;
   }
@@ -653,180 +666,180 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 4vw;
-  top: 32vh;
+  left: 3vw;
+  top: 31vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 12vw;
-  top: 20vh;
+  left: 30vw;
+  top: 40vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 21vw;
-  top: 48vh;
+  left: 33vw;
+  top: 39vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 52vw;
-  top: 64vh;
+  left: 40vw;
+  top: 84vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 85vw;
-  top: 47vh;
+  left: 60vw;
+  top: 102vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 66vw;
-  top: 30vh;
+  left: 108vw;
+  top: 54vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 14vw;
-  top: 96vh;
+  left: 91vw;
+  top: 117vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 32vw;
-  top: 132vh;
+  left: 144vw;
+  top: 124vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 90vw;
-  top: 165vh;
+  left: 108vw;
+  top: 93vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 50vw;
-  top: 122vh;
+  left: 150vw;
+  top: 22vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 7vw;
-    top: 31vh;
+    left: 6vw;
+    top: 23vh;
   }
   100% {
-    left: 14vw;
-    top: 26vh;
+    left: 9vw;
+    top: 23vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 38vw;
-    top: 50vh;
+    left: 26vw;
+    top: 30vh;
   }
   100% {
-    left: 26vw;
-    top: 26vh;
+    left: 2vw;
+    top: 24vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 36vw;
-    top: 27vh;
+    left: 54vw;
+    top: 21vh;
   }
   100% {
-    left: 9vw;
-    top: 18vh;
+    left: 27vw;
+    top: 60vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 68vw;
-    top: 36vh;
+    left: 64vw;
+    top: 48vh;
   }
   100% {
-    left: 20vw;
-    top: 36vh;
+    left: 72vw;
+    top: 68vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 20vw;
-    top: 72vh;
+    left: 10vw;
+    top: 67vh;
   }
   100% {
-    left: 95vw;
-    top: 42vh;
+    left: 70vw;
+    top: 17vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 84vw;
-    top: 78vh;
+    left: 42vw;
+    top: 24vh;
   }
   100% {
-    left: 96vw;
-    top: 84vh;
+    left: 36vw;
+    top: 132vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 140vw;
-    top: 124vh;
+    left: 91vw;
+    top: 96vh;
   }
   100% {
-    left: 21vw;
-    top: 110vh;
+    left: 77vw;
+    top: 124vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 8vw;
-    top: 20vh;
+    left: 96vw;
+    top: 100vh;
   }
   100% {
-    left: 64vw;
-    top: 84vh;
+    left: 96vw;
+    top: 36vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 99vw;
-    top: 66vh;
+    left: 117vw;
+    top: 75vh;
   }
   100% {
-    left: 63vw;
-    top: 183vh;
+    left: 90vw;
+    top: 30vh;
   }
 }
 @keyframes float10 {
   0% {
     left: 180vw;
-    top: 192vh;
+    top: 132vh;
   }
   100% {
-    left: 70vw;
+    left: 100vw;
     top: 202vh;
   }
 }
@@ -845,6 +858,94 @@ footer span {
 }
 .welcomeMsg h1::after {
   display: none;
+}
+
+.video_con {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #72442c;
+  font-size: 0;
+  position: relative;
+}
+.video_con .video {
+  width: 100%;
+}
+.video_con .video_controls {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 20px;
+  background: #8dcbc9;
+  border-radius: 40px;
+  box-shadow: 0 0 20px #72442c;
+}
+.video_con .video_controls button {
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  max-height: 40px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.video_con .video_controls button:hover {
+  transform: scale(1.1);
+}
+.video_con .video_controls button img {
+  width: 100%;
+  font-size: 0;
+}
+.video_con .video_controls .track {
+  background: rgb(34, 151, 255);
+  background: linear-gradient(75deg, rgb(34, 151, 255) 0%, rgb(224, 138, 138) 100%);
+  width: 100%;
+  height: 20px;
+  border-radius: 1rem;
+  overflow: hidden;
+  /* For Firefox */
+}
+.video_con .video_controls .track input {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.video_con .video_controls .track input:focus {
+  outline: none;
+}
+.video_con .video_controls .track input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border: 2px solid #55792f;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px #55792f;
+}
+.video_con .video_controls .track input::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .stories {
@@ -1022,7 +1123,9 @@ footer span {
   flex-flow: column nowrap;
 }
 .stories .storiesList .storiesListCon .storyCon .storyInfo h3 {
-  font-size: 28px;
+  font-size: 32px;
+  line-height: 34px;
+  margin-bottom: 10px;
 }
 .stories .storiesList .storiesListCon .storyCon .storyInfo h5 {
   font-size: 18px;
@@ -1084,8 +1187,8 @@ footer span {
 .stories .storiesList .storiesListCon.gridList .story .storyCon .storyInfo h3 {
   flex-grow: 1;
   margin: 20px auto 0 auto;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 26px;
+  line-height: 28px;
 }
 .stories .storiesList .storiesListCon.gridList .story .storyCon .storyInfo h5 {
   font-size: 16px;
@@ -1148,14 +1251,15 @@ footer span {
     padding: 20px 0 0 0;
   }
   .stories .storiesList .storiesListCon.detailsList .story .storyCon .storyInfo h3 {
-    font-size: 22px;
-    margin: 0 auto 10px auto;
+    font-size: 28px;
+    line-height: 30px;
   }
   .stories .storiesList .storiesListCon.detailsList .story .storyCon .storyInfo h5 {
     margin: 0 auto;
   }
   .stories .storiesList .storiesListCon.gridList .story .storyCon .storyInfo h3 {
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 24px;
     margin: 10px auto;
   }
   .stories .storiesList .storiesListCon.gridList .story .storyCon .storyInfo h5 {
@@ -1173,8 +1277,9 @@ footer span {
     padding: 10px;
   }
   .stories .storiesList .storiesListCon.detailsList .story .storyCon .storyInfo h3 {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 15px;
   }
   .stories .storiesList .storiesListCon.detailsList .story .storyCon .storyInfo p {
     font-size: 16px;
@@ -1186,8 +1291,8 @@ footer span {
     padding: 10px;
   }
   .stories .storiesList .storiesListCon.storiesListCon.gridList .story .storyCon .storyInfo h3 {
-    font-size: 19px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 22px;
   }
 }
 .storyDetailsLoad {
@@ -1258,7 +1363,7 @@ footer span {
   font-size: 18px;
   font-family: "Literata", serif;
   font-weight: 500;
-  margin: 0 auto 30px auto;
+  margin: 0 auto;
 }
 .storyDetailsLoad .storyDetails .storyBtns {
   display: flex;
@@ -1271,6 +1376,7 @@ footer span {
   width: 100%;
   max-width: 380px;
   padding-bottom: 80px;
+  margin-top: 30px;
 }
 .storyDetailsLoad .storyDetails .storyBtns .favorite {
   display: flex;
@@ -1476,11 +1582,21 @@ footer span {
 
 @media only screen and (max-width: 550px) {
   .storyDetailsLoad .storyDetails h1 {
-    margin: 0 auto 10px auto;
+    font-size: 36px;
+    line-height: 38px;
+    margin-bottom: 20px;
+  }
+  h3.date,
+  h4.idea {
+    font-size: 16px;
+    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 480px) {
-  .storyDetailsLoad .storyDetails .favorite span {
+  .storyDetailsLoad .storyDetails .storyBtns {
+    margin: 20px auto 0 auto;
+  }
+  .storyDetailsLoad .storyDetails .storyBtns .favorite span {
     font-size: 14px;
   }
   .storyDetailsLoad .storyDetails p {
