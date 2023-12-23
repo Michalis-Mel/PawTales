@@ -6,6 +6,7 @@ import { firestore } from "../helpers/firebase";
 import { onSnapshot } from "firebase/firestore";
 
 import x from "../assets/icons/x.png";
+import placeholderImage from "../assets/homepage/placeholder.png";
 
 const StoryItem = ({ story, removeFromFavoritesId }) => {
   const { id, title, idea, image, smallDescription, dateCreated } = story;
@@ -23,6 +24,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
 
   const isFavoritesPage = location.pathname === "/favorites";
   const [isFavorite, setIsFavorite] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -38,13 +40,23 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
     }
   }, [user, id]);
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <>
       {isFavoritesPage && user ? (
         isFavorite ? (
           <div className="story">
             <NavLink to={`/stories/${id}`} className="storyCon">
-              <img src={image} alt={title} />
+              {!imageLoaded && <img src={placeholderImage} alt="Placeholder" />}
+              <img
+                src={image}
+                alt={title}
+                style={{ display: imageLoaded ? "block" : "none" }}
+                onLoad={handleImageLoad}
+              />
               <div className="storyInfo">
                 <h3>{title}</h3>
                 <h5>{dateCreated}</h5>
@@ -60,7 +72,13 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
       ) : (
         <div className="story">
           <NavLink to={`/stories/${id}`} className="storyCon">
-            <img src={image} alt={title} />
+            {!imageLoaded && <img src={placeholderImage} alt="Placeholder" />}
+            <img
+              src={image}
+              alt={title}
+              style={{ display: imageLoaded ? "block" : "none" }}
+              onLoad={handleImageLoad}
+            />
             <div className="storyInfo">
               <h3>{title}</h3>
               <h5>{dateCreated}</h5>
