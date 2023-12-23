@@ -59,7 +59,7 @@ const TopStoriesSlider = () => {
           transition={{ duration: 1, delay: 1 }}
           className="topStories"
         >
-          <h1>Κορυφαίες Ιστορίες της Εβδομάδας</h1>
+          <h1>Κορυφαίες Ιστορίες</h1>
           <div className="homeSlider">
             <button
               onClick={prevSlide}

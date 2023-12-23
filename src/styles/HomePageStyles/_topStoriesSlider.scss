@@ -166,6 +166,7 @@
 
 @media only screen and (max-width: 900px) {
   .topStories {
+    margin: 0 auto 50px auto;
     h1 {
       margin: 0 auto 20px auto;
       padding-bottom: 10px;
@@ -196,7 +197,6 @@
       margin: 0 auto 20px auto;
     }
     .homeSlider {
-      margin: 0 auto 20px auto;
       .arrowLeft,
       .arrowRight {
         width: 40px;

@@ -1,22 +1,28 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import pawtalesVideo from "../assets/homepage/pawSongVideoComp.mp4";
-import pawtalesSong from "../assets/homepage/PawtalesSong.mp3";
+import songs from "../helpers/songs";
+import videos from "../helpers/videos";
+
 import musicOn from "../assets/icons/play-button.png";
 import musicOff from "../assets/icons/pause-button.png";
+import prev from "../assets/icons/back-button.png";
+import next from "../assets/icons/next-button.png";
 
 const SongPawtales = () => {
   const videoRef = useRef(null);
   const songRef = useRef(null);
-  const [mobile, setMobile] = useState(window.innerWidth < 701);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setMobile(window.innerWidth < 701);
+      setIsMobile(window.innerWidth < 701);
     };
+
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
@@ -26,85 +32,87 @@ const SongPawtales = () => {
   }, []);
 
   useEffect(() => {
-    const currentVideoRef = videoRef.current;
     const currentSongRef = songRef.current;
 
-    if (!mobile) {
-      if (currentVideoRef) {
-        currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
-        currentVideoRef.addEventListener(
+    if (currentSongRef) {
+      currentSongRef.addEventListener("timeupdate", handleTimeUpdate);
+      currentSongRef.addEventListener("loadedmetadata", handleLoadedMetadata);
+    }
+
+    return () => {
+      if (currentSongRef) {
+        currentSongRef.removeEventListener("timeupdate", handleTimeUpdate);
+        currentSongRef.removeEventListener(
           "loadedmetadata",
           handleLoadedMetadata
         );
       }
-    } else {
-      if (currentSongRef) {
-        currentSongRef.addEventListener("timeupdate", handleTimeUpdate);
-        currentSongRef.addEventListener("loadedmetadata", handleLoadedMetadata);
-      }
-    }
-
-    return () => {
-      if (!mobile) {
-        if (currentVideoRef) {
-          currentVideoRef.removeEventListener("timeupdate", handleTimeUpdate);
-          currentVideoRef.removeEventListener(
-            "loadedmetadata",
-            handleLoadedMetadata
-          );
-        }
-      } else {
-        if (currentSongRef) {
-          currentSongRef.removeEventListener("timeupdate", handleTimeUpdate);
-          currentSongRef.removeEventListener(
-            "loadedmetadata",
-            handleLoadedMetadata
-          );
-        }
-      }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mobile]);
+  }, [currentSongIndex]);
 
-  const handlePlayPause = () => {
-    if (isPlaying) {
-      if (mobile) {
-        songRef.current.pause();
-      } else {
-        videoRef.current.pause();
+  useEffect(() => {
+    if (isMobile) {
+      if (isPlaying) {
+        songRef.current.play();
       }
     } else {
-      if (mobile) {
+      if (isPlaying) {
         songRef.current.play();
-      } else {
         videoRef.current.play();
       }
     }
+  }, [currentSongIndex, isMobile, isPlaying]);
+
+  const handlePlayPause = () => {
+    if (isMobile) {
+      if (isPlaying) {
+        songRef.current.pause();
+      } else {
+        songRef.current.play();
+      }
+    } else {
+      if (isPlaying) {
+        songRef.current.pause();
+        videoRef.current.pause();
+      } else {
+        songRef.current.play();
+        videoRef.current.play();
+      }
+    }
+
     setIsPlaying(!isPlaying);
   };
 
   const handleTimeUpdate = () => {
-    if (mobile) {
-      setCurrentTime(songRef.current.currentTime);
-    } else {
-      setCurrentTime(videoRef.current.currentTime);
-    }
+    setCurrentTime(songRef.current.currentTime);
   };
 
   const handleLoadedMetadata = () => {
-    if (mobile) {
-      setDuration(songRef.current.duration);
-    } else {
-      setDuration(videoRef.current.duration);
-    }
+    setDuration(songRef.current.duration);
   };
 
   const handleSeek = (time) => {
-    if (mobile) {
-      songRef.current.currentTime = time;
-    } else {
-      videoRef.current.currentTime = time;
-    }
+    songRef.current.currentTime = time;
+  };
+
+  const handleNextSong = () => {
+    setCurrentSongIndex((prevIndex) => {
+      if (prevIndex === songs.length - 1) {
+        return 0;
+      } else {
+        return prevIndex + 1;
+      }
+    });
+  };
+
+  const handlePrevSong = () => {
+    setCurrentSongIndex((prevIndex) => {
+      if (prevIndex === 0) {
+        return songs.length - 1;
+      } else {
+        return prevIndex - 1;
+      }
+    });
   };
 
   return (
@@ -115,27 +123,27 @@ const SongPawtales = () => {
       transition={{ duration: 1, delay: 1 }}
       viewport={{ once: true }}
     >
-      <h1>Ακούστε το Τραγούδι μας</h1>
+      <h1>Τα Τραγούδια μας</h1>
       <div className="video_con">
-        {mobile ? (
-          <motion.audio
-            className="audio"
-            src={pawtalesSong}
-            alt="Pawtales Song"
-            loop
-            ref={songRef}
-          />
-        ) : (
+        <motion.audio
+          className="audio"
+          src={songs[currentSongIndex].src}
+          alt={songs[currentSongIndex].alt}
+          loop
+          ref={songRef}
+        />
+        {!isMobile && (
           <motion.video
             className="video"
-            src={pawtalesVideo}
-            alt="Pawtales Video"
+            src={videos[currentSongIndex].src}
+            alt={videos[currentSongIndex].alt}
             loop
             ref={videoRef}
           />
         )}
 
-        <div className="video_controls">
+        <div className="song_controls">
+          <h3 className="songTitle">{songs[currentSongIndex].title}</h3>
           <div className="track">
             <input
               type="range"
@@ -146,13 +154,21 @@ const SongPawtales = () => {
               onChange={(e) => handleSeek(parseFloat(e.target.value))}
             />
           </div>
-          <button onClick={handlePlayPause}>
-            {isPlaying ? (
-              <img src={musicOff} alt="Pause" />
-            ) : (
-              <img src={musicOn} alt="Play" />
-            )}
-          </button>
+          <div className="btns">
+            <button onClick={handlePrevSong}>
+              <img src={prev} alt="Previous Song" />
+            </button>
+            <button onClick={handlePlayPause}>
+              {isPlaying ? (
+                <img src={musicOff} alt="Pause" />
+              ) : (
+                <img src={musicOn} alt="Play" />
+              )}
+            </button>
+            <button onClick={handleNextSong}>
+              <img src={next} alt="Next Song" />
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

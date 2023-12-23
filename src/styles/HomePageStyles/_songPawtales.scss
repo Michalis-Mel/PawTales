@@ -1,4 +1,5 @@
 @use "../global/colors" as *;
+@use "../global/typography" as *;
 
 .video_con {
   overflow: hidden;
@@ -13,43 +14,14 @@
     width: 100%;
   }
 
-  .video_controls {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
+  .song_controls {
     width: 100%;
-    max-width: 350px;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
-    padding: 20px;
+    padding: 10px 40px 20px 40px;
     background: $blue;
-    border-radius: 40px;
-    box-shadow: 0 0 20px $brown;
-
-    button {
-      background: #fff;
-      border-radius: 50%;
-      border: none;
-      outline: none;
-      width: 100%;
-      max-width: 40px;
-      height: 100%;
-      max-height: 40px;
-      border: 2px solid #fff;
-      cursor: pointer;
-      margin-left: 10px;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-
-      img {
-        width: 100%;
-        font-size: 0;
-      }
-    }
+    row-gap: 10px;
 
     .track {
       background: rgb(34, 151, 255);
@@ -97,25 +69,50 @@
         cursor: pointer;
       }
     }
+
+    h3.songTitle {
+      text-align: center;
+      font-size: 26px;
+      margin: 10px auto;
+      font-family: $logo;
+      color: $black;
+      text-shadow: 2px 2px 2px $pink;
+    }
+    .btns {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      column-gap: 20px;
+      button {
+        background: #fff;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        width: 100%;
+        max-width: 40px;
+        height: 100%;
+        max-height: 40px;
+        border: 2px solid #fff;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          font-size: 0;
+        }
+      }
+    }
   }
 }
-@media only screen and (max-width: 700px) {
-  .video_con {
-    .video {
-      display: none;
-    }
-    .video_controls {
-      max-width: unset;
-      position: relative;
-      right: unset;
-      bottom: unset;
-    }
-  }
-}
+
 @media only screen and (max-width: 550px) {
   .video_con {
-    .video_controls {
-      padding: 10px;
+    .song_controls {
+      padding: 20px;
+      h3.songTitle {
+        font-size: 22px;
+      }
     }
   }
 }
