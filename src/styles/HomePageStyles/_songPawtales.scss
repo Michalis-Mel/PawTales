@@ -99,3 +99,23 @@
     }
   }
 }
+@media only screen and (max-width: 700px) {
+  .video_con {
+    .video {
+      display: none;
+    }
+    .video_controls {
+      max-width: unset;
+      position: relative;
+      right: unset;
+      bottom: unset;
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .video_con {
+    .video_controls {
+      padding: 10px;
+    }
+  }
+}

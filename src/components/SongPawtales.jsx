@@ -1,53 +1,110 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import pawtalesSong from "../assets/homepage/pawSongVideoComp.mp4";
+import pawtalesVideo from "../assets/homepage/pawSongVideoComp.mp4";
+import pawtalesSong from "../assets/homepage/PawtalesSong.mp3";
 import musicOn from "../assets/icons/play-button.png";
 import musicOff from "../assets/icons/pause-button.png";
 
 const SongPawtales = () => {
   const videoRef = useRef(null);
+  const songRef = useRef(null);
+  const [mobile, setMobile] = useState(window.innerWidth < 701);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    const currentVideoRef = videoRef.current;
+    const handleResize = () => {
+      setMobile(window.innerWidth < 701);
+    };
 
-    if (currentVideoRef) {
-      currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
-      currentVideoRef.addEventListener("loadedmetadata", handleLoadedMetadata);
-    }
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const currentVideoRef = videoRef.current;
+    const currentSongRef = songRef.current;
+
+    if (!mobile) {
       if (currentVideoRef) {
-        currentVideoRef.removeEventListener("timeupdate", handleTimeUpdate);
-        currentVideoRef.removeEventListener(
+        currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
+        currentVideoRef.addEventListener(
           "loadedmetadata",
           handleLoadedMetadata
         );
       }
+    } else {
+      if (currentSongRef) {
+        currentSongRef.addEventListener("timeupdate", handleTimeUpdate);
+        currentSongRef.addEventListener("loadedmetadata", handleLoadedMetadata);
+      }
+    }
+
+    return () => {
+      if (!mobile) {
+        if (currentVideoRef) {
+          currentVideoRef.removeEventListener("timeupdate", handleTimeUpdate);
+          currentVideoRef.removeEventListener(
+            "loadedmetadata",
+            handleLoadedMetadata
+          );
+        }
+      } else {
+        if (currentSongRef) {
+          currentSongRef.removeEventListener("timeupdate", handleTimeUpdate);
+          currentSongRef.removeEventListener(
+            "loadedmetadata",
+            handleLoadedMetadata
+          );
+        }
+      }
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mobile]);
 
   const handlePlayPause = () => {
     if (isPlaying) {
-      videoRef.current.pause();
+      if (mobile) {
+        songRef.current.pause();
+      } else {
+        videoRef.current.pause();
+      }
     } else {
-      videoRef.current.play();
+      if (mobile) {
+        songRef.current.play();
+      } else {
+        videoRef.current.play();
+      }
     }
     setIsPlaying(!isPlaying);
   };
 
   const handleTimeUpdate = () => {
-    setCurrentTime(videoRef.current.currentTime);
+    if (mobile) {
+      setCurrentTime(songRef.current.currentTime);
+    } else {
+      setCurrentTime(videoRef.current.currentTime);
+    }
   };
 
   const handleLoadedMetadata = () => {
-    setDuration(videoRef.current.duration);
+    if (mobile) {
+      setDuration(songRef.current.duration);
+    } else {
+      setDuration(videoRef.current.duration);
+    }
   };
 
   const handleSeek = (time) => {
-    videoRef.current.currentTime = time;
+    if (mobile) {
+      songRef.current.currentTime = time;
+    } else {
+      videoRef.current.currentTime = time;
+    }
   };
 
   return (
@@ -60,13 +117,23 @@ const SongPawtales = () => {
     >
       <h1>Ακούστε το Τραγούδι μας</h1>
       <div className="video_con">
-        <motion.video
-          className="video"
-          src={pawtalesSong}
-          alt="Pawtales Song"
-          loop
-          ref={videoRef}
-        />
+        {mobile ? (
+          <motion.audio
+            className="audio"
+            src={pawtalesSong}
+            alt="Pawtales Song"
+            loop
+            ref={songRef}
+          />
+        ) : (
+          <motion.video
+            className="video"
+            src={pawtalesVideo}
+            alt="Pawtales Video"
+            loop
+            ref={videoRef}
+          />
+        )}
 
         <div className="video_controls">
           <div className="track">
