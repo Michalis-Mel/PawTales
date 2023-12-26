@@ -96,6 +96,7 @@ const StoryDetails = () => {
   };
 
   const paragraphs = story.content ? story.content.split("<br />") : [];
+  const parArray = Object.values(paragraphs);
 
   const handlePause = () => {
     if (audioPlayer) {
@@ -201,8 +202,9 @@ const StoryDetails = () => {
               <span>{favorite ? "Αφαίρεση" : "Προσθήκη "}</span>
             </button>
           </div>
-          <div className="storyDetailsCon">
-            {story.image ? (
+
+          {story.image ? (
+            <div className="storyDetailsCon">
               <motion.img
                 className="storyDetailsImage"
                 src={story.image}
@@ -211,7 +213,9 @@ const StoryDetails = () => {
                 animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
               />
-            ) : (
+            </div>
+          ) : (
+            <div className="storyDetailsCon">
               <motion.img
                 src={environment}
                 alt="placeholder"
@@ -220,12 +224,13 @@ const StoryDetails = () => {
                 animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
               />
-            )}
-          </div>
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-
+            </div>
+          )}
+          {parArray
+            .slice(0, Math.floor(parArray.length / 2))
+            .map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           {story.secondImage ? (
             <div className="storyDetailsCon">
               <motion.img
@@ -238,15 +243,46 @@ const StoryDetails = () => {
               />
             </div>
           ) : (
-            <motion.img
-              className="placeholder"
-              src={environment}
-              alt="placeholder"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 1.5 } }}
-              whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-            />
+            <div className="storyDetailsCon">
+              <motion.img
+                className="placeholder"
+                src={environment}
+                alt="placeholder"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+              />
+            </div>
           )}
+          {parArray
+            .slice(Math.floor(parArray.length / 2))
+            .map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          {story.thirdImage ? (
+            <div className="storyDetailsCon">
+              <motion.img
+                className="storyDetailsImage"
+                src={story.thirdImage}
+                alt={story.title}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+              />
+            </div>
+          ) : (
+            <div className="storyDetailsCon">
+              <motion.img
+                className="placeholder"
+                src={environment}
+                alt="placeholder"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+              />
+            </div>
+          )}
+
           <ShareStory story={story} />
           <button className="back" onClick={() => navigate(-1)}>
             Πίσω

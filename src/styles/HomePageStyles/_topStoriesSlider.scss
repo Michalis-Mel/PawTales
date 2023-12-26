@@ -4,9 +4,7 @@
 .topStories {
   width: 100%;
   margin-bottom: 100px;
-  h1 {
-    margin-bottom: 40px;
-  }
+
   .homeSlider {
     width: 100%;
     max-width: 1200px;
@@ -167,11 +165,9 @@
 @media only screen and (max-width: 900px) {
   .topStories {
     margin: 0 auto 50px auto;
-    h1 {
-      margin: 0 auto 20px auto;
-      padding-bottom: 10px;
-    }
+
     .homeSlider {
+      aspect-ratio: 11/9;
       .arrowLeft,
       .arrowRight {
         width: 60px;
@@ -193,9 +189,6 @@
 }
 @media only screen and (max-width: 550px) {
   .topStories {
-    h1 {
-      margin: 0 auto 20px auto;
-    }
     .homeSlider {
       .arrowLeft,
       .arrowRight {

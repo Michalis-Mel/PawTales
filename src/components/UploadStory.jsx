@@ -40,6 +40,7 @@ const UploadStory = () => {
   const [id, setId] = useState(uuidv4());
   const [image, setImage] = useState("");
   const [secondImage, setSecondImage] = useState("");
+  const [thirdImage, setThirdImage] = useState("");
   const [smallDescription, setSmallDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -54,6 +55,7 @@ const UploadStory = () => {
       id,
       image,
       secondImage,
+      thirdImage,
       smallDescription,
     });
 
@@ -66,6 +68,7 @@ const UploadStory = () => {
       setId(uuidv4());
       setImage("");
       setSecondImage("");
+      setThirdImage("");
       setSmallDescription("");
       setErrorMessage("");
 
@@ -129,6 +132,16 @@ const UploadStory = () => {
               type="text"
               value={secondImage}
               onChange={(e) => setSecondImage(e.target.value)}
+              required
+              className="form-input"
+            />
+          </label>
+          <label>
+            Third Image URL:
+            <input
+              type="text"
+              value={thirdImage}
+              onChange={(e) => setThirdImage(e.target.value)}
               required
               className="form-input"
             />

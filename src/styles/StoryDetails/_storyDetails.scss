@@ -92,7 +92,7 @@
       position: relative;
       width: 100%;
       max-width: 380px;
-      padding-bottom: 80px;
+      padding-bottom: 50px;
       margin-top: 30px;
 
       .favorite {
@@ -176,7 +176,7 @@
 
         .time-control {
           position: absolute;
-          bottom: 30px;
+          bottom: 0px;
           left: 0;
           width: 100%;
           display: flex;
@@ -256,13 +256,19 @@
       overflow: hidden;
       width: 100%;
       max-width: 800px;
-      margin: 0 auto 50px auto;
+      margin: 30px auto 50px auto;
       border-radius: 50px;
       box-shadow: 0 0 20px $brown;
       font-size: 0;
+
       .storyDetailsImage {
         max-width: 100%;
         width: 100%;
+      }
+
+      .placeholder {
+        width: 100%;
+        max-width: 100%;
       }
     }
 
