@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //Database
@@ -13,7 +13,6 @@ import LogInModal from "../components/LogInModal";
 import ShareStory from "../components/ShareStory";
 
 //Images
-import environment from "../assets/homepage/slider/environment.jpg";
 import heart from "../assets/icons/heart.svg";
 import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
@@ -21,10 +20,12 @@ import musicOff from "../assets/icons/music-off.svg";
 const StoryDetails = () => {
   const navigate = useNavigate();
   const url = useParams();
+  const location = useLocation();
   const { user } = useContext(AuthContext);
   const { allStories, isLoading } = useContext(StoriesContext);
 
   const [story, setStory] = useState({});
+  const [errorMessage, setErrorMessage] = useState();
   const [favorite, setFavorite] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   const [audioPlayer, setAudioPlayer] = useState(null);
@@ -49,10 +50,14 @@ const StoryDetails = () => {
               duration: audio.duration,
             });
           });
-          audio.addEventListener("timeupdate", timeUpdateHandler); // Add this line
+          audio.addEventListener("timeupdate", timeUpdateHandler);
 
           setAudioPlayer(audio);
         }
+      } else {
+        setErrorMessage(
+          "Προέκυψε σφάλμα κατά τη λήψη της ιστορίας. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
+        );
       }
 
       // Check if the story is a favorite for the user
@@ -73,6 +78,7 @@ const StoryDetails = () => {
           });
       }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allStories, url, isLoading, user]);
 
@@ -143,6 +149,16 @@ const StoryDetails = () => {
     }
   };
 
+  useEffect(() => {
+    // Cleanup function
+    return () => {
+      if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.removeEventListener("timeupdate", timeUpdateHandler);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, audioPlayer]);
   return (
     <div className="storyDetailsLoad">
       {isLoading ? (
@@ -154,7 +170,7 @@ const StoryDetails = () => {
           <div className="dot" id="dot5"></div>
           <div className="dot" id="dot6"></div>
         </div>
-      ) : (
+      ) : story ? (
         <motion.div
           className="storyDetails"
           initial={{ y: 100, opacity: 0 }}
@@ -203,23 +219,12 @@ const StoryDetails = () => {
             </button>
           </div>
 
-          {story.image ? (
+          {story.image && (
             <div className="storyDetailsCon">
               <motion.img
                 className="storyDetailsImage"
                 src={story.image}
                 alt={story.title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { duration: 1.5 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-              />
-            </div>
-          ) : (
-            <div className="storyDetailsCon">
-              <motion.img
-                src={environment}
-                alt="placeholder"
-                className="storyDetailsImage"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
@@ -231,23 +236,12 @@ const StoryDetails = () => {
             .map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
-          {story.secondImage ? (
+          {story.secondImage && (
             <div className="storyDetailsCon">
               <motion.img
                 className="storyDetailsImage"
                 src={story.secondImage}
                 alt={story.title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { duration: 1.5 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-              />
-            </div>
-          ) : (
-            <div className="storyDetailsCon">
-              <motion.img
-                className="placeholder"
-                src={environment}
-                alt="placeholder"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
@@ -259,23 +253,12 @@ const StoryDetails = () => {
             .map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
-          {story.thirdImage ? (
+          {story.thirdImage && (
             <div className="storyDetailsCon">
               <motion.img
                 className="storyDetailsImage"
                 src={story.thirdImage}
                 alt={story.title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { duration: 1.5 } }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-              />
-            </div>
-          ) : (
-            <div className="storyDetailsCon">
-              <motion.img
-                className="placeholder"
-                src={environment}
-                alt="placeholder"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
@@ -288,6 +271,8 @@ const StoryDetails = () => {
             Πίσω
           </button>
         </motion.div>
+      ) : (
+        <h2 className="notFound">{errorMessage}</h2>
       )}
       <LogInModal modalActive={modalActive} setModalActive={setModalActive} />
     </div>
