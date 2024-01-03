@@ -16,6 +16,8 @@ import ShareStory from "../components/ShareStory";
 import heart from "../assets/icons/heart.svg";
 import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
+import slow from "../assets/icons/snail.png";
+import fast from "../assets/icons/hare.png";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -125,6 +127,13 @@ const StoryDetails = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  const getAdjustedTime = (time, rate) => {
+    const adjustedTime = time / rate;
+    const minutes = Math.floor(adjustedTime / 60);
+    const seconds = Math.floor(adjustedTime % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration || 0;
@@ -146,6 +155,26 @@ const StoryDetails = () => {
   const handleSeekComplete = () => {
     if (audioPlayer && isPlaying) {
       audioPlayer.play();
+    }
+  };
+
+  const handleSpeedDown = () => {
+    if (audioPlayer) {
+      if (audioPlayer.playbackRate === 1.2) {
+        audioPlayer.playbackRate = 1;
+      } else if (audioPlayer.playbackRate === 1) {
+        audioPlayer.playbackRate = 0.9;
+      }
+    }
+  };
+
+  const handleSpeedUp = () => {
+    if (audioPlayer) {
+      if (audioPlayer.playbackRate === 0.9) {
+        audioPlayer.playbackRate = 1;
+      } else if (audioPlayer.playbackRate === 1) {
+        audioPlayer.playbackRate = 1.2;
+      }
     }
   };
 
@@ -195,7 +224,15 @@ const StoryDetails = () => {
                   </button>
                 )}
                 <div className={`time-control ${isPlaying ? "show" : "hide"}`}>
-                  <p>{getTime(audioInfo.currentTime)}</p>
+                  <button onClick={handleSpeedDown} className="speed">
+                    <img src={slow} alt="Slow" />
+                  </button>
+                  <p>
+                    {getAdjustedTime(
+                      audioInfo.currentTime,
+                      audioPlayer.playbackRate
+                    )}
+                  </p>
                   <div className="track">
                     <input
                       type="range"
@@ -208,8 +245,17 @@ const StoryDetails = () => {
                     />
                   </div>
                   <p>
-                    {audioInfo.duration ? getTime(audioInfo.duration) : "0:00"}
+                    {audioInfo.duration
+                      ? getAdjustedTime(
+                          audioInfo.duration,
+                          audioPlayer.playbackRate
+                        )
+                      : "0:00"}
                   </p>
+
+                  <button onClick={handleSpeedUp} className="speed">
+                    <img src={fast} alt="Fast" />
+                  </button>
                 </div>
               </div>
             )}

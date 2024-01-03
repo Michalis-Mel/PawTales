@@ -96,8 +96,8 @@
       column-gap: 20px;
       position: relative;
       width: 100%;
-      max-width: 380px;
-      padding-bottom: 50px;
+      max-width: 450px;
+      padding-bottom: 70px;
       margin-top: 30px;
 
       .favorite {
@@ -197,6 +197,19 @@
             pointer-events: none;
           }
 
+          button.speed {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            img {
+              width: 100%;
+              font-size: 0;
+            }
+          }
+
           input {
             width: 100%;
             -webkit-appearance: none;
@@ -261,7 +274,7 @@
       overflow: hidden;
       width: 100%;
       max-width: 800px;
-      margin: 30px auto 50px auto;
+      margin: 20px auto 50px auto;
       border-radius: 50px;
       box-shadow: 0 0 20px $brown;
       font-size: 0;
