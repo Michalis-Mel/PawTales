@@ -57,28 +57,83 @@ const Stories = () => {
     }
   };
 
+  const handleFilters = (filter) => {
+    let sortedStories;
+    if (allStories.length > 0) {
+      if (filter === "popular") {
+        sortedStories = [...searchedStories].sort((a, b) => {
+          const dateA = new Date(
+            a.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          const dateB = new Date(
+            b.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          return dateB - dateA;
+        });
+      } else if (filter === "latest") {
+        sortedStories = [...searchedStories].sort((a, b) => {
+          const dateA = new Date(
+            a.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          const dateB = new Date(
+            b.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          return dateB - dateA;
+        });
+      } else if (filter === "oldest") {
+        sortedStories = [...searchedStories].sort((a, b) => {
+          const dateA = new Date(
+            a.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          const dateB = new Date(
+            b.dateCreated.split("-").reverse().join("-")
+          ).getTime();
+          return dateA - dateB;
+        });
+      }
+      setSearchedStories(sortedStories);
+    }
+  };
+
   return (
     <div className="stories">
       <h1>Οι Ιστορίες μας</h1>
-      <div className="searchBar">
+      <div className="filters">
         <SearchBar
           animalStories={allStories}
           setSearchedStories={setSearchedStories}
           setErrorMessage={setErrorMessage}
         />
-        <div className="layoutBtns">
-          <button
-            className={`details ${isGrid ? "active" : ""}`}
-            onClick={() => setIsGrid(false)}
-          >
-            <img src={details} alt="Details" />
-          </button>
-          <button
-            className={`grid ${isGrid ? "" : "active"}`}
-            onClick={() => setIsGrid(true)}
-          >
-            <img src={grid} alt="Grid" />
-          </button>
+
+        <div className="filters_right">
+          <div className="orderby">
+            <div className="orderby_cont">
+              <select
+                defaultValue={"latest"}
+                onChange={(e) => {
+                  handleFilters(e.target.value);
+                }}
+              >
+                <option value="popular">Δημοφιλείς </option>
+                <option value="latest">Πρόσφατες</option>
+                <option value="oldest">Παλαιότερες</option>
+              </select>
+            </div>
+          </div>
+          <div className="layoutBtns">
+            <button
+              className={`details ${isGrid ? "active" : ""}`}
+              onClick={() => setIsGrid(false)}
+            >
+              <img src={details} alt="Details" />
+            </button>
+            <button
+              className={`grid ${isGrid ? "" : "active"}`}
+              onClick={() => setIsGrid(true)}
+            >
+              <img src={grid} alt="Grid" />
+            </button>
+          </div>
         </div>
       </div>
 
