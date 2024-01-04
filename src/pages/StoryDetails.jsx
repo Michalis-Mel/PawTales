@@ -3,7 +3,16 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //Database
-import { doc, getDoc, updateDoc, deleteField } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  updateDoc,
+  deleteField,
+  increment,
+  collection,
+  getDocs,
+} from "firebase/firestore";
+
 import { firestore } from "../helpers/firebase";
 import { AuthContext } from "../Context/AuthContext";
 import { StoriesContext } from "../Context/StoriesContext";
@@ -16,8 +25,8 @@ import ShareStory from "../components/ShareStory";
 import heart from "../assets/icons/heart.svg";
 import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
-import slow from "../assets/icons/snail.png";
-import fast from "../assets/icons/hare.png";
+import slow from "../assets/icons/minus.png";
+import fast from "../assets/icons/plus.png";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -36,6 +45,23 @@ const StoryDetails = () => {
     currentTime: 0,
     duration: 0,
   });
+  useEffect(() => {
+    if (story) {
+      const incrementVisits = async () => {
+        try {
+          // Increment the visits field in the Firestore document
+          const storyRef = doc(firestore, "stories", story.id);
+          await updateDoc(storyRef, {
+            visits: increment(1),
+          });
+        } catch (error) {
+          // console.error("Error:", error);
+        }
+      };
+
+      incrementVisits();
+    }
+  }, [story]);
 
   useEffect(() => {
     if (!isLoading) {
@@ -224,38 +250,42 @@ const StoryDetails = () => {
                   </button>
                 )}
                 <div className={`time-control ${isPlaying ? "show" : "hide"}`}>
-                  <button onClick={handleSpeedDown} className="speed">
-                    <img src={slow} alt="Slow" />
-                  </button>
-                  <p>
-                    {getAdjustedTime(
-                      audioInfo.currentTime,
-                      audioPlayer.playbackRate
-                    )}
-                  </p>
-                  <div className="track">
-                    <input
-                      type="range"
-                      min={0}
-                      max={audioInfo.duration}
-                      step={0.001}
-                      value={audioInfo.currentTime}
-                      onChange={(e) => handleSeek(parseFloat(e.target.value))}
-                      onMouseUp={handleSeekComplete}
-                    />
+                  <div className="time-control-top">
+                    <p>
+                      {getAdjustedTime(
+                        audioInfo.currentTime,
+                        audioPlayer.playbackRate
+                      )}
+                    </p>
+                    <div className="track">
+                      <input
+                        type="range"
+                        min={0}
+                        max={audioInfo.duration}
+                        step={0.001}
+                        value={audioInfo.currentTime}
+                        onChange={(e) => handleSeek(parseFloat(e.target.value))}
+                        onMouseUp={handleSeekComplete}
+                      />
+                    </div>
+                    <p>
+                      {audioInfo.duration
+                        ? getAdjustedTime(
+                            audioInfo.duration,
+                            audioPlayer.playbackRate
+                          )
+                        : "0:00"}
+                    </p>
                   </div>
-                  <p>
-                    {audioInfo.duration
-                      ? getAdjustedTime(
-                          audioInfo.duration,
-                          audioPlayer.playbackRate
-                        )
-                      : "0:00"}
-                  </p>
-
-                  <button onClick={handleSpeedUp} className="speed">
-                    <img src={fast} alt="Fast" />
-                  </button>
+                  <div className="time-control-bot">
+                    <button onClick={handleSpeedDown} className="speed">
+                      <img src={slow} alt="Slow" />
+                    </button>
+                    <p>Ταχύτητα αναπαραγωγής</p>
+                    <button onClick={handleSpeedUp} className="speed">
+                      <img src={fast} alt="Fast" />
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -266,7 +296,7 @@ const StoryDetails = () => {
           </div>
 
           {story.image && (
-            <div className="storyDetailsCon">
+            <div className={`storyDetailsCon ${isPlaying ? "down" : "up"} `}>
               <motion.img
                 className="storyDetailsImage"
                 src={story.image}
