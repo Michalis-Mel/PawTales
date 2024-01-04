@@ -46,7 +46,6 @@ const UploadStory = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-
     const success = await uploadStoryToFirestore({
       title,
       content,
@@ -57,6 +56,7 @@ const UploadStory = () => {
       secondImage,
       thirdImage,
       smallDescription,
+      visits: 0,
     });
 
     if (success) {

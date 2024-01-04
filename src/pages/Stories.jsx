@@ -28,13 +28,9 @@ const Stories = () => {
     if (allStories.length > 0) {
       // Sort stories by creation date in descending order (most recent to oldest)
       const sortedStories = allStories.sort((a, b) => {
-        const dateA = new Date(
-          a.dateCreated.split("-").reverse().join("-")
-        ).getTime();
-        const dateB = new Date(
-          b.dateCreated.split("-").reverse().join("-")
-        ).getTime();
-        return dateB - dateA;
+        const visitsA = a.visits;
+        const visitsB = b.visits;
+        return visitsB - visitsA;
       });
 
       setAllStories(sortedStories);
@@ -62,13 +58,9 @@ const Stories = () => {
     if (allStories.length > 0) {
       if (filter === "popular") {
         sortedStories = [...searchedStories].sort((a, b) => {
-          const dateA = new Date(
-            a.dateCreated.split("-").reverse().join("-")
-          ).getTime();
-          const dateB = new Date(
-            b.dateCreated.split("-").reverse().join("-")
-          ).getTime();
-          return dateB - dateA;
+          const visitsA = a.visits;
+          const visitsB = b.visits;
+          return visitsB - visitsA;
         });
       } else if (filter === "latest") {
         sortedStories = [...searchedStories].sort((a, b) => {
@@ -109,7 +101,7 @@ const Stories = () => {
           <div className="orderby">
             <div className="orderby_cont">
               <select
-                defaultValue={"latest"}
+                defaultValue={"popular"}
                 onChange={(e) => {
                   handleFilters(e.target.value);
                 }}
