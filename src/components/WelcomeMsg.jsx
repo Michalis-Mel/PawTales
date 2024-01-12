@@ -19,7 +19,7 @@ const WelcomeMsg = () => {
           transition={{ duration: 1, delay: 1 }}
         >
           <h1>
-            Γειά σου,{" "}
+            Γεια σου,{" "}
             {user.displayName.split(" ").map(capitalizeFirstLetter).join(" ")}
           </h1>
         </motion.div>
