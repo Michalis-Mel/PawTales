@@ -52,7 +52,7 @@ const StoryDetails = () => {
           // Increment the visits field in the Firestore document
           const storyRef = doc(firestore, "stories", story.id);
           await updateDoc(storyRef, {
-            visits: increment(1),
+            visits: increment(0.01),
           });
         } catch (error) {
           // console.error("Error:", error);
