@@ -340,7 +340,7 @@ const StoryDetails = () => {
               />
             </div>
           )}
-          <RatingStars />
+          <RatingStars setModalActive={setModalActive} />
           <ShareStory story={story} />
           <button className="back" onClick={() => navigate(-1)}>
             Πίσω

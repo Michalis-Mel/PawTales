@@ -57,6 +57,7 @@ const UploadStory = () => {
       thirdImage,
       smallDescription,
       visits: 0,
+      ratings: [],
     });
 
     if (success) {
