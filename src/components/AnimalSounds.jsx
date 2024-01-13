@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import dog from "../assets/animals/sounds/bark.mp3";
 import cat from "../assets/animals/sounds/mewow.wav";
 import bird from "../assets/animals/sounds/bird.mp3";
@@ -13,7 +14,13 @@ const AnimalSounds = () => {
   };
 
   return (
-    <div className="animalSounds">
+    <motion.div
+      className="animalSounds"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
       <h1>Πάτησε εδώ!</h1>
       <div className="animalBarks">
         <img src={bark} alt="Beagle" className="right" />
@@ -22,7 +29,7 @@ const AnimalSounds = () => {
         </button>
         <img src={bark} alt="Beagle" className="left" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
