@@ -1,113 +1,122 @@
 @use "../global/colors" as *;
 @use "../global/typography" as *;
 
-.video_con {
-  overflow: hidden;
+.song_con {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto 50px auto;
-  border-radius: 50px;
-  box-shadow: 0 0 20px $brown;
-  font-size: 0;
-  position: relative;
-  .video {
+  margin: 0 auto 100px auto;
+  .video_con {
+    overflow: hidden;
     width: 100%;
-  }
-
-  .song_controls {
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    padding: 10px 40px 20px 40px;
-    background: $blue;
-    row-gap: 10px;
-
-    .track {
-      background: rgb(34, 151, 255);
-      background: linear-gradient(
-        75deg,
-        rgba(34, 151, 255, 1) 0%,
-        rgba(224, 138, 138, 1) 100%
-      );
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    border-radius: 50px;
+    box-shadow: 0 0 20px $brown;
+    font-size: 0;
+    position: relative;
+    .video {
       width: 100%;
-      height: 20px;
-      border-radius: 1rem;
-      overflow: hidden;
-
-      input {
-        width: 100%;
-        -webkit-appearance: none;
-        appearance: none;
-        background: transparent;
-        cursor: pointer;
-      }
-
-      input:focus {
-        outline: none;
-      }
-
-      input::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        height: 20px;
-        width: 20px;
-        background-color: #ffffff;
-        border: 2px solid $green;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 0 10px $green;
-      }
-
-      /* For Firefox */
-      input::-moz-range-thumb {
-        height: 20px;
-        width: 20px;
-        background-color: #ffffff;
-        border: 1px solid #000000;
-        border-radius: 50%;
-        cursor: pointer;
-      }
     }
 
-    h3.songTitle {
-      text-align: center;
-      font-size: 26px;
-      margin: 10px auto;
-      font-family: $logo;
-      color: $black;
-      text-shadow: 2px 2px 2px $pink;
-    }
-    .btns {
+    .song_controls {
       width: 100%;
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       align-items: center;
-      justify-content: center;
-      column-gap: 20px;
-      button {
-        background: #fff;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-        width: 100%;
-        max-width: 40px;
-        height: 100%;
-        max-height: 40px;
-        border: 2px solid #fff;
-        cursor: pointer;
+      padding: 10px 40px 20px 40px;
+      background: $blue;
+      row-gap: 10px;
 
-        img {
+      .track {
+        background: rgb(34, 151, 255);
+        background: linear-gradient(
+          75deg,
+          rgba(34, 151, 255, 1) 0%,
+          rgba(224, 138, 138, 1) 100%
+        );
+        width: 100%;
+        height: 20px;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        input {
           width: 100%;
-          font-size: 0;
+          -webkit-appearance: none;
+          appearance: none;
+          background: transparent;
+          cursor: pointer;
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        input::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          height: 20px;
+          width: 20px;
+          background-color: #ffffff;
+          border: 2px solid $green;
+          border-radius: 50%;
+          cursor: pointer;
+          box-shadow: 0 0 10px $green;
+        }
+
+        /* For Firefox */
+        input::-moz-range-thumb {
+          height: 20px;
+          width: 20px;
+          background-color: #ffffff;
+          border: 1px solid #000000;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+
+      h3.songTitle {
+        text-align: center;
+        font-size: 26px;
+        margin: 10px auto;
+        font-family: $logo;
+        color: $black;
+        text-shadow: 2px 2px 2px $pink;
+      }
+      .btns {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+        button {
+          background: #fff;
+          border-radius: 50%;
+          border: none;
+          outline: none;
+          width: 100%;
+          max-width: 40px;
+          height: 100%;
+          max-height: 40px;
+          border: 2px solid #fff;
+          cursor: pointer;
+
+          img {
+            width: 100%;
+            font-size: 0;
+          }
         }
       }
     }
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .song_con {
+    margin: 0 auto 50px auto;
+  }
+}
 @media only screen and (max-width: 550px) {
-  .video_con {
+  .song_con .video_con {
     .song_controls {
       padding: 20px;
       h3.songTitle {

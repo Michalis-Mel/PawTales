@@ -4,6 +4,7 @@ import HomeText from "../components/HomeText";
 import TopStoriesSlider from "../components/TopStoriesSlider";
 import AnimalsBackground from "../components/AnimalsBackground";
 import SongPawtales from "../components/SongPawtales";
+import AnimalSounds from "../components/AnimalSounds";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <HomeText />
         <TopStoriesSlider />
         <SongPawtales />
+        <AnimalSounds />
       </div>
     </>
   );

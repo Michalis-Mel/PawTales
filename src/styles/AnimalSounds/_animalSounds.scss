@@ -1,0 +1,83 @@
+@use "../global/colors" as *;
+
+.animalSounds {
+  width: 100%;
+  margin: 0 auto 100px auto;
+  .animalBarks {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px $brown;
+    padding: 20px;
+
+    img.right {
+      width: 100%;
+      max-width: 100px;
+      font-size: 0;
+      pointer-events: none;
+      border-radius: 20px;
+    }
+    img.left {
+      font-size: 0;
+      width: 100%;
+      max-width: 100px;
+      transform: rotateY(180deg);
+      pointer-events: none;
+      border-radius: 20px;
+    }
+
+    button {
+      margin: 0 80px;
+      border: none;
+      background-color: transparent;
+      width: 70px;
+      cursor: pointer;
+      animation: buttonScale 2.5s ease-in-out infinite;
+
+      img {
+        font-size: 0;
+        width: 100%;
+      }
+    }
+    @keyframes buttonScale {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .animalSounds {
+    margin: 0 auto 50px auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .animalSounds .animalBarks {
+    max-width: none;
+    width: fit-content;
+    padding: 50px;
+    border-radius: 50%;
+
+    button {
+      margin: 0;
+    }
+    img.left,
+    img.right {
+      display: none;
+    }
+  }
+}
