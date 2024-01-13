@@ -6,7 +6,7 @@ const HomeText = () => {
       className="homeText"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 0.8 }}
       viewport={{ once: true }}
     >
       <h1>Καλωσορίσατε στο PawTales</h1>
