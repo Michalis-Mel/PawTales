@@ -9,8 +9,6 @@ import {
   updateDoc,
   deleteField,
   increment,
-  collection,
-  getDocs,
 } from "firebase/firestore";
 
 import { firestore } from "../helpers/firebase";
@@ -20,6 +18,7 @@ import { StoriesContext } from "../Context/StoriesContext";
 //Components
 import LogInModal from "../components/LogInModal";
 import ShareStory from "../components/ShareStory";
+import RatingStars from "../components/RatingStars";
 
 //Images
 import heart from "../assets/icons/heart.svg";
@@ -341,7 +340,7 @@ const StoryDetails = () => {
               />
             </div>
           )}
-
+          <RatingStars />
           <ShareStory story={story} />
           <button className="back" onClick={() => navigate(-1)}>
             Πίσω
