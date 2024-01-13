@@ -51,24 +51,33 @@
 
       h3 {
         font-size: 24px;
-        line-height: 28px;
+        line-height: 32px;
         margin: 0 auto 30px auto;
       }
-      a {
-        width: 100%;
-        max-width: 120px;
-        padding: 5px 20px 8px 20px;
-        box-sizing: border-box;
-        font-size: 18px;
-        background: $green;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
 
-        &:hover {
-          box-shadow: 0 0 20px $brown;
-          background: $brown;
+      .logInBtns {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+        a {
+          width: 100%;
+          max-width: 120px;
+          padding: 5px 20px 8px 20px;
+          box-sizing: border-box;
+          font-size: 18px;
+          background: $green;
+          color: #fff;
+          border: none;
+          border-radius: 20px;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: 0 0 20px $brown;
+            background: $brown;
+          }
         }
       }
     }
@@ -81,7 +90,7 @@
       font-size: 20px;
       line-height: 24px;
     }
-    a {
+    .logInBtns a {
       font-size: 16px;
     }
   }

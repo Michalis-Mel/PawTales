@@ -24,10 +24,13 @@ const LogInModal = ({ modalActive, setModalActive }) => {
           <img src={x} alt="Close" />
         </button>
         <h3>
-          Πρέπει να συνδεθείτε για να προσθέσετε αυτή την ιστορία στα αγαπημένα
-          σας
+          Για να μπορέσετε να συνεχίσετε, παρακαλούμε συνδεθείτε εάν είστε ήδη
+          χρήστης, αλλιώς δημιουργήσετε έναν νέο λογαριασμό.
         </h3>
-        <NavLink to="/login">Σύνδεση</NavLink>
+        <div className="logInBtns">
+          <NavLink to="/login">Σύνδεση</NavLink>
+          <NavLink to="/signup">Εγγραφή</NavLink>
+        </div>
       </div>
     </div>
   );
