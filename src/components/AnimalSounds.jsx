@@ -18,7 +18,7 @@ const AnimalSounds = () => {
       className="animalSounds"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >
       <h1>Πάτησε εδώ!</h1>

@@ -120,7 +120,7 @@ const SongPawtales = () => {
       className="song_con"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >
       <h1>Τα Τραγούδια μας</h1>
