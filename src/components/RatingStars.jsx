@@ -1,4 +1,4 @@
-import { useContext, useEffect, useCallback } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 //Database
@@ -13,7 +13,7 @@ const RatingStars = ({ setModalActive }) => {
   const { user } = useContext(AuthContext);
   const url = useParams();
 
-  const fetchStoryData = useCallback(async () => {
+  const fetchStoryData = async () => {
     const storyRef = doc(firestore, "stories", url.id);
     const storyDoc = await getDoc(storyRef);
 
@@ -27,28 +27,33 @@ const RatingStars = ({ setModalActive }) => {
       console.log("No such document!");
       return null;
     }
-  }, [url.id, user.uid]);
+  };
 
   useEffect(() => {
     const setInitialRating = async () => {
-      const storyData = await fetchStoryData();
+      if (user) {
+        const storyData = await fetchStoryData();
 
-      if (storyData) {
-        const { userIndex } = storyData;
+        if (storyData) {
+          const { userIndex } = storyData;
 
-        if (userIndex !== -1) {
-          const userRating = storyData.ratings[userIndex + 1];
-          document.getElementById(`rs${userRating}`).click();
-        } else {
-          document.getElementById("rs0").click();
+          if (userIndex !== -1) {
+            const userRating = storyData.ratings[userIndex + 1];
+            document.getElementById(`rs${userRating}`).click();
+          } else {
+            document.getElementById("rs0").click();
+          }
         }
+      } else {
+        document.getElementById("rs0").click();
       }
     };
 
     setInitialRating();
-  }, [user, url.id, fetchStoryData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, url.id]);
 
-  const handleRating = async (rate, event) => {
+  const handleRating = async (rate, e) => {
     if (user) {
       const storyData = await fetchStoryData();
 
@@ -64,7 +69,7 @@ const RatingStars = ({ setModalActive }) => {
         await updateDoc(storyRef, { ratings });
       }
     } else {
-      event.preventDefault();
+      e.preventDefault();
       setModalActive(true);
     }
   };
@@ -75,15 +80,15 @@ const RatingStars = ({ setModalActive }) => {
       <input type="radio" name="rating" id="rs0" />
       <label htmlFor="rs0"></label>
       <input type="radio" name="rating" id="rs1" />
-      <label htmlFor="rs1" onClick={() => handleRating(1)}></label>
+      <label htmlFor="rs1" onClick={(e) => handleRating(1, e)}></label>
       <input type="radio" name="rating" id="rs2" />
-      <label htmlFor="rs2" onClick={() => handleRating(2)}></label>
+      <label htmlFor="rs2" onClick={(e) => handleRating(2, e)}></label>
       <input type="radio" name="rating" id="rs3" />
-      <label htmlFor="rs3" onClick={() => handleRating(3)}></label>
+      <label htmlFor="rs3" onClick={(e) => handleRating(3, e)}></label>
       <input type="radio" name="rating" id="rs4" />
-      <label htmlFor="rs4" onClick={() => handleRating(4)}></label>
+      <label htmlFor="rs4" onClick={(e) => handleRating(4, e)}></label>
       <input type="radio" name="rating" id="rs5" />
-      <label htmlFor="rs5" onClick={() => handleRating(5)}></label>
+      <label htmlFor="rs5" onClick={(e) => handleRating(5, e)}></label>
       <LogInModal />
     </div>
   );
