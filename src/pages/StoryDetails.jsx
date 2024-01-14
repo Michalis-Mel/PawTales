@@ -26,6 +26,7 @@ import musicOn from "../assets/icons/music-on.svg";
 import musicOff from "../assets/icons/music-off.svg";
 import slow from "../assets/icons/minus.png";
 import fast from "../assets/icons/plus.png";
+import Loading from "../components/Loading";
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -216,14 +217,7 @@ const StoryDetails = () => {
   return (
     <div className="storyDetailsLoad">
       {isLoading ? (
-        <div className="loading-indicator">
-          <div className="dot" id="dot1"></div>
-          <div className="dot" id="dot2"></div>
-          <div className="dot" id="dot3"></div>
-          <div className="dot" id="dot4"></div>
-          <div className="dot" id="dot5"></div>
-          <div className="dot" id="dot6"></div>
-        </div>
+        <Loading />
       ) : story ? (
         <motion.div
           className="storyDetails"

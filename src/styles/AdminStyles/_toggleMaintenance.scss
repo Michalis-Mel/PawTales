@@ -1,0 +1,27 @@
+.toggleMaintenance {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin: 0 auto 20px auto;
+  }
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    width: 100px;
+    font-size: 0;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

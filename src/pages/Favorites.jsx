@@ -7,6 +7,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { firestore } from "../helpers/firebase";
 import { motion } from "framer-motion";
+import Loading from "../components/Loading";
 
 const Favorites = () => {
   const { user } = useContext(AuthContext);
@@ -69,14 +70,7 @@ const Favorites = () => {
       <h1>Οι Αγαπημένες σας Ιστορίες</h1>
 
       {isLoading ? (
-        <div className="loading-indicator">
-          <div className="dot" id="dot1"></div>
-          <div className="dot" id="dot2"></div>
-          <div className="dot" id="dot3"></div>
-          <div className="dot" id="dot4"></div>
-          <div className="dot" id="dot5"></div>
-          <div className="dot" id="dot6"></div>
-        </div>
+        <Loading />
       ) : user ? (
         <motion.div
           className="favoritesCon"

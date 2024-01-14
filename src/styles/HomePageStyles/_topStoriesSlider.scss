@@ -65,11 +65,6 @@
             line-height: 27px;
             transition: all 0.2s ease-in-out;
           }
-          h4 {
-            margin-top: 10px;
-            font-family: $titles;
-            transition: all 0.2s ease-in-out;
-          }
         }
       }
     }
@@ -206,10 +201,6 @@
             h2 {
               font-size: 16px;
               line-height: 20px;
-            }
-
-            h4 {
-              display: none;
             }
           }
         }

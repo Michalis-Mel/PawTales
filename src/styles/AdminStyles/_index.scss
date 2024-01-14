@@ -1,6 +1,11 @@
 @forward "./uploadStory";
 @forward "./deleteStories";
+@forward "./toggleMaintenance";
 
 .admin {
   min-height: calc(100vh - 400px);
+}
+
+.maintenance_row .admin {
+  margin: 50px auto;
 }

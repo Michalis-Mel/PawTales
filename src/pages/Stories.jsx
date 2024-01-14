@@ -10,6 +10,7 @@ import SearchBar from "../components/SearchBar";
 //Images
 import grid from "../assets/icons/grid.png";
 import details from "../assets/icons/details.png";
+import Loading from "../components/Loading";
 
 const Stories = () => {
   const { allStories, setAllStories, isLoading } = useContext(StoriesContext);
@@ -130,14 +131,7 @@ const Stories = () => {
       </div>
 
       {isLoading ? (
-        <div className="loading-indicator">
-          <div className="dot" id="dot1"></div>
-          <div className="dot" id="dot2"></div>
-          <div className="dot" id="dot3"></div>
-          <div className="dot" id="dot4"></div>
-          <div className="dot" id="dot5"></div>
-          <div className="dot" id="dot6"></div>
-        </div>
+        <Loading />
       ) : (
         <motion.div
           className="storiesList"
@@ -149,8 +143,8 @@ const Stories = () => {
             className={`storiesListCon ${isGrid ? "gridList" : "detailsList"}`}
           >
             {searchedStories.length > 0 ? (
-              shortedStories.map((story) => (
-                <StoryItem key={story.id} story={story} />
+              shortedStories.map((story, index) => (
+                <StoryItem key={index} story={story} />
               ))
             ) : (
               <h2 className="notFound">{errorMessage}</h2>
