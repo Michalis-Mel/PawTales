@@ -1,8 +1,15 @@
-@use "../global/colors" as *;
+@use '../global/colors' as *;
 
 .animalSounds {
   width: 100%;
   margin: 0 auto 100px auto;
+
+  h6 {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 40px auto;
+  }
   .animalBarks {
     width: 100%;
     display: flex;
