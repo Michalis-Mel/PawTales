@@ -1,5 +1,5 @@
-@use "../global//colors" as *;
-@use "../global/typography" as *;
+@use '../global//colors' as *;
+@use '../global/typography' as *;
 
 .storyDetailsLoad {
   min-height: calc(100vh - 330px);
@@ -347,10 +347,27 @@
   .storyDetailsLoad .storyDetails {
     .storyBtns {
       margin: 20px auto 20px auto;
-      .favorite {
-        span {
-          display: none;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      .player {
+        order: 2;
+        width: 100%;
+        max-width: 300px;
+
+        button.audio {
+          width: 100%;
         }
+
+        .time-control {
+          top: 100px;
+        }
+      }
+      .favorite {
+        width: 100%;
+        order: 1;
+        margin-bottom: 10px;
+        max-width: 300px;
       }
     }
 
