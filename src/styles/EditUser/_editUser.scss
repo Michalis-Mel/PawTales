@@ -1,10 +1,11 @@
-@use "../global/colors" as *;
-@use "../global/typography" as *;
+@use '../global/colors' as *;
+@use '../global/typography' as *;
 
 .edit_user_con {
   margin: 20px auto 90px auto;
+  width: 90%;
   max-width: 1400px;
-  padding: 50px;
+  padding: 50px 50px 20px 50px;
   border: 2px solid $brown;
   background-color: $blue;
   border-radius: 10px;
@@ -15,10 +16,10 @@
     padding: 0;
     display: flex;
     width: 100%;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
-    justify-content: space-between;
-    column-gap: 40px;
+    justify-content: center;
+    row-gap: 20px;
 
     li {
       background-color: $green;
@@ -38,6 +39,15 @@
         background-color: $brown;
       }
     }
+  }
+
+  span {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-top: 40px;
+    color: rgb(210, 1, 1);
   }
 
   .loading-message {
@@ -68,6 +78,8 @@
     padding: 50px;
     border-radius: 20px;
     z-index: 101;
+    width: 90%;
+    max-width: 500px;
 
     h3 {
       font-size: 22px;
@@ -157,4 +169,49 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 550px) {
+  .edit_user_con {
+    padding: 40px 20px 20px 20px;
+    ul {
+      row-gap: 10px;
+      li {
+        font-size: 17px;
+        min-width: 220px;
+      }
+    }
+
+    .popupCon .popup {
+      h3 {
+        font-size: 20px;
+      }
+      .popBtns {
+        column-gap: 10px;
+
+        button {
+          font-size: 16px;
+          min-width: 120px;
+        }
+      }
+      h5 {
+        margin: 0 auto 20px auto;
+        font-size: 18px;
+      }
+      label {
+        font-size: 18px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+
+        input {
+          margin: 5px 0 0 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
 }
