@@ -175,21 +175,36 @@ const Header = () => {
           </motion.span>
         </NavLink>
         <NavLink to={authUser ? '/edit-account' : '/login'} className='link'>
-          <motion.img
-            src={user}
-            alt='Λογαριασμός'
-            initial='hidden'
-            animate='show'
-            variants={linkImgVariants}
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2, ease: 'linear' },
-            }}
-            whileTap={{
-              scale: 0.8,
-              transition: { duration: 0.2, ease: 'linear' },
-            }}
-          />
+          {authUser ? (
+            <motion.img
+              src={authUser.photoURL}
+              className='googleImg'
+              alt='Λογαριασμός'
+              initial='hidden'
+              animate='show'
+              variants={linkImgVariants}
+              whileTap={{
+                scale: 0.8,
+                transition: { duration: 0.2, ease: 'linear' },
+              }}
+            />
+          ) : (
+            <motion.img
+              src={user}
+              alt='Λογαριασμός'
+              initial='hidden'
+              animate='show'
+              variants={linkImgVariants}
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.2, ease: 'linear' },
+              }}
+              whileTap={{
+                scale: 0.8,
+                transition: { duration: 0.2, ease: 'linear' },
+              }}
+            />
+          )}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ y: 0, opacity: 1 }}

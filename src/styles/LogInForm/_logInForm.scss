@@ -1,5 +1,5 @@
-@use "../global/typography" as *;
-@use "../global/colors" as *;
+@use '../global/typography' as *;
+@use '../global/colors' as *;
 
 .logInForm {
   min-height: calc(100vh - 300px);
@@ -21,7 +21,7 @@
     border-radius: 30px;
     box-shadow: 0 0 20px $brown;
     padding: 30px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 50px auto;
 
     .errorMsg {
       width: 100%;
@@ -83,6 +83,29 @@
         box-shadow: 0 0 20px $brown;
         background: $brown;
       }
+    }
+  }
+
+  button.google {
+    margin: 0 auto 10px auto;
+    width: 100%;
+    max-width: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 0;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px $brown;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px $black;
     }
   }
 
