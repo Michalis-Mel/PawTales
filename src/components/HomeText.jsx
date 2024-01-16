@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-const HomeText = () => {
+const HomeText = ({ firstLoad }) => {
   return (
     <motion.div
-      className="homeText"
+      className='homeText'
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.8 }}
+      transition={{ duration: 1, delay: firstLoad ? 0.8 : 0.3 }}
       viewport={{ once: true }}
     >
       <h1>Καλωσορίσατε στο PawTales</h1>

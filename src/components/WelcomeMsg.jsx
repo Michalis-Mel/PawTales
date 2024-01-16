@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
 
-const WelcomeMsg = () => {
+const WelcomeMsg = ({ firstLoad }) => {
   const { user } = useContext(AuthContext);
 
   const capitalizeFirstLetter = (str) => {
@@ -13,14 +13,14 @@ const WelcomeMsg = () => {
     <>
       {user && (
         <motion.div
-          className="welcomeMsg"
+          className='welcomeMsg'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1, delay: firstLoad ? 0.8 : 0.5 }}
         >
           <h1>
-            Γεια σου,{" "}
-            {user.displayName.split(" ").map(capitalizeFirstLetter).join(" ")}
+            Γεια σου,{' '}
+            {user.displayName.split(' ').map(capitalizeFirstLetter).join(' ')}
           </h1>
         </motion.div>
       )}
