@@ -12,7 +12,7 @@ const WelcomeMsg = ({ firstLoad }) => {
     }, 5000);
 
     const timer2 = setTimeout(() => {
-      setMessage('');
+      setMessage(null);
     }, 7000);
 
     return () => {
@@ -22,23 +22,25 @@ const WelcomeMsg = ({ firstLoad }) => {
   }, [setMessage]);
 
   return (
-    <motion.div
-      className='welcomeMsg'
-      initial={{ opacity: 0, y: 0, height: 'auto' }}
-      animate={
-        fadeOut
-          ? { opacity: 0, y: '-50px', height: 0 }
-          : { opacity: 1, y: 0, height: 'auto' }
-      }
-      exit={{ opacity: 0, y: '-50px', height: 0 }}
-      transition={{
-        opacity: { duration: 1, delay: firstLoad ? 0.8 : 0.5 },
-        y: { duration: 1 },
-        height: { duration: 1 },
-      }}
-    >
-      <h1>{message}</h1>
-    </motion.div>
+    message && (
+      <motion.div
+        className='welcomeMsg'
+        initial={{ opacity: 0, y: 0, height: 'auto' }}
+        animate={
+          fadeOut
+            ? { opacity: 0, y: '5px', height: 0 }
+            : { opacity: 1, y: 0, height: 'auto' }
+        }
+        exit={{ opacity: 0, y: '5px', height: 0 }}
+        transition={{
+          opacity: { duration: 1, delay: firstLoad ? 0.8 : 0.5 },
+          y: { duration: 1 },
+          height: { duration: 1.5 },
+        }}
+      >
+        <h1>{message}</h1>
+      </motion.div>
+    )
   );
 };
 

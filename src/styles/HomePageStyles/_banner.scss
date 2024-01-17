@@ -8,6 +8,8 @@
   border-radius: 50px;
   box-shadow: 0 0 20px $brown;
   font-size: 0;
+  z-index: 2;
+  position: relative;
   .banner {
     width: 100%;
   }
