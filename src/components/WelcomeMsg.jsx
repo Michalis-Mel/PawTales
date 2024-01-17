@@ -28,10 +28,10 @@ const WelcomeMsg = ({ firstLoad }) => {
         initial={{ opacity: 0, y: 0, height: 'auto' }}
         animate={
           fadeOut
-            ? { opacity: 0, y: '5px', height: 0 }
+            ? { opacity: 0, y: '20px', height: 0 }
             : { opacity: 1, y: 0, height: 'auto' }
         }
-        exit={{ opacity: 0, y: '5px', height: 0 }}
+        exit={{ opacity: 0, y: '20px', height: 0 }}
         transition={{
           opacity: { duration: 1, delay: firstLoad ? 0.8 : 0.5 },
           y: { duration: 1 },
