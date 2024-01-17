@@ -1,13 +1,14 @@
-@use "../global//colors" as *;
-@use "../global//typography" as *;
+@use '../global//colors' as *;
+@use '../global//typography' as *;
 
 .welcomeMsg {
   width: 100%;
   text-align: center;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
 
   h1 {
     font-size: 32px;
+    margin: 0 auto;
 
     &::after {
       display: none;

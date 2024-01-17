@@ -21,7 +21,7 @@
     border-radius: 30px;
     box-shadow: 0 0 20px $brown;
     padding: 30px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 20px auto;
 
     .errorMsg {
       width: 100%;
@@ -86,26 +86,35 @@
     }
   }
 
-  button.google {
-    margin: 0 auto 5px auto;
-    width: 100%;
-    max-width: 40px;
-    padding: 5px;
-    box-sizing: border-box;
-    font-size: 0;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 10px $brown;
+  .providers {
+    width: fit-content;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+    margin: 0 auto 15px auto;
+    button {
+      width: 40px;
+      box-sizing: border-box;
+      font-size: 0;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px $brown;
 
-    img {
-      width: 100%;
-      max-width: 100%;
-    }
+      &.googleIcon {
+        padding: 5px;
+      }
 
-    &:hover {
-      box-shadow: 0 0 20px $black;
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px $black;
+      }
     }
   }
 

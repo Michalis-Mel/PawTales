@@ -3,14 +3,22 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, facebookProvider } from '../../helpers/firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
+import { HomeMsgContext } from '../../Context/HomeMsgContext';
 import googleIcon from '../../assets/icons/google.png';
+import facebookIcon from '../../assets/icons/facebook.png';
 
 const Login = () => {
   const { setUser } = useContext(AuthContext);
+  const { setMessage } = useContext(HomeMsgContext);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   const handleLogInWithEmailAndPassword = (e) => {
     e.preventDefault();
@@ -18,6 +26,12 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
+        setMessage(
+          `Γεια σου, ${user.displayName
+            .split(' ')
+            .map(capitalizeFirstLetter)
+            .join(' ')}`
+        );
         navigate('/');
       })
       .catch((error) => {
@@ -30,6 +44,13 @@ const Login = () => {
       const userCredential = await signInWithPopup(auth, googleProvider);
       const user = userCredential.user;
       setUser(user);
+      setMessage(
+        `Γεια σου, ${user.displayName
+          .split(' ')
+          .map(capitalizeFirstLetter)
+          .join(' ')}`
+      );
+
       navigate('/');
     } catch (error) {
       handleAuthError(error);
@@ -41,6 +62,13 @@ const Login = () => {
       const userCredential = await signInWithPopup(auth, facebookProvider);
       const user = userCredential.user;
       setUser(user);
+      setMessage(
+        `Γεια σου, ${user.displayName
+          .split(' ')
+          .map(capitalizeFirstLetter)
+          .join(' ')}`
+      );
+
       navigate('/');
     } catch (error) {
       handleAuthError(error);
@@ -97,10 +125,15 @@ const Login = () => {
 
         <button type='submit'>Σύνδεση</button>
       </form>
-      <button className='google' onClick={handleLogInWithGoogle}>
-        <img src={googleIcon} alt='Google' />
-      </button>
-      <button onClick={handleLogInWithFacebook}>Log in with Facebook</button>
+      <div className='providers'>
+        <button className='googleIcon' onClick={handleLogInWithGoogle}>
+          <img src={googleIcon} alt='Google' />
+        </button>
+        <button className='facebookIcon' onClick={handleLogInWithFacebook}>
+          <img src={facebookIcon} alt='Facebook' />
+        </button>
+      </div>
+
       <p>
         Δεν έχεις ακόμα λογαριασμό?
         <NavLink to='/signup'>Εγγραφή</NavLink>

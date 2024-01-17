@@ -1,10 +1,10 @@
-@use "../global/colors" as *;
+@use '../global/colors' as *;
 
 .banner_con {
   overflow: hidden;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto 50px auto;
+  margin: 10px auto 50px auto;
   border-radius: 50px;
   box-shadow: 0 0 20px $brown;
   font-size: 0;
