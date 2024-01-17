@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../../helpers/firebase';
+import { auth, googleProvider, facebookProvider } from '../../helpers/firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import googleIcon from '../../assets/icons/google.png';
@@ -28,6 +28,17 @@ const Login = () => {
   const handleLogInWithGoogle = async () => {
     try {
       const userCredential = await signInWithPopup(auth, googleProvider);
+      const user = userCredential.user;
+      setUser(user);
+      navigate('/');
+    } catch (error) {
+      handleAuthError(error);
+    }
+  };
+
+  const handleLogInWithFacebook = async () => {
+    try {
+      const userCredential = await signInWithPopup(auth, facebookProvider);
       const user = userCredential.user;
       setUser(user);
       navigate('/');
@@ -89,6 +100,7 @@ const Login = () => {
       <button className='google' onClick={handleLogInWithGoogle}>
         <img src={googleIcon} alt='Google' />
       </button>
+      <button onClick={handleLogInWithFacebook}>Log in with Facebook</button>
       <p>
         Δεν έχεις ακόμα λογαριασμό?
         <NavLink to='/signup'>Εγγραφή</NavLink>

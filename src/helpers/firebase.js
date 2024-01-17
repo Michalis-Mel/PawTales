@@ -1,6 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+} from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getPerformance } from 'firebase/performance';
 
@@ -28,5 +32,8 @@ export const auth = getAuth(app);
 
 // Create a GoogleAuthProvider instance
 export const googleProvider = new GoogleAuthProvider();
+
+// Create a AppleAuthProvider instance
+export const facebookProvider = new FacebookAuthProvider();
 
 export default app;

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../helpers/firebase';
 import { useState, useEffect } from 'react';
-import { useRef } from 'react';
 
 //Images
 import logo from '../assets/header/pawLogo.png';
@@ -14,7 +13,6 @@ import user from '../assets/header/user.png';
 
 const Header = () => {
   const [authUser, setAuthUser] = useState(null);
-  const userMenuRef = useRef(null);
 
   const linkImgVariants = {
     hidden: { scale: 0 },
@@ -177,7 +175,7 @@ const Header = () => {
         <NavLink to={authUser ? '/edit-account' : '/login'} className='link'>
           {authUser ? (
             <motion.img
-              src={authUser.photoURL}
+              src={authUser.photoURL || user}
               className='googleImg'
               alt='Λογαριασμός'
               initial='hidden'
