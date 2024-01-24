@@ -1,5 +1,5 @@
-@use "../global/typography" as *;
-@use "../global/colors" as *;
+@use '../global/typography' as *;
+@use '../global/colors' as *;
 
 .stories {
   width: 100%;
@@ -71,7 +71,7 @@
           right: 14px;
           top: 48%;
           transform: translateY(-50%) rotate(135deg);
-          content: "";
+          content: '';
           width: 10px;
           height: 10px;
           background: transparent;
@@ -82,6 +82,7 @@
         .orderby_cont {
           background: #fff;
           position: relative;
+          border-radius: 10px;
 
           select {
             min-width: 180px;

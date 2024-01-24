@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 //Database
 import {
@@ -9,24 +9,25 @@ import {
   updateDoc,
   deleteField,
   increment,
-} from "firebase/firestore";
+  setDoc,
+} from 'firebase/firestore';
 
-import { firestore } from "../helpers/firebase";
-import { AuthContext } from "../Context/AuthContext";
-import { StoriesContext } from "../Context/StoriesContext";
+import { firestore } from '../helpers/firebase';
+import { AuthContext } from '../Context/AuthContext';
+import { StoriesContext } from '../Context/StoriesContext';
 
 //Components
-import LogInModal from "../components/LogInModal";
-import ShareStory from "../components/ShareStory";
-import RatingStars from "../components/RatingStars";
+import LogInModal from '../components/LogInModal';
+import ShareStory from '../components/ShareStory';
+import RatingStars from '../components/RatingStars';
 
 //Images
-import heart from "../assets/icons/heart.svg";
-import musicOn from "../assets/icons/music-on.svg";
-import musicOff from "../assets/icons/music-off.svg";
-import slow from "../assets/icons/minus.png";
-import fast from "../assets/icons/plus.png";
-import Loading from "../components/Loading";
+import heart from '../assets/icons/heart.svg';
+import musicOn from '../assets/icons/music-on.svg';
+import musicOff from '../assets/icons/music-off.svg';
+import slow from '../assets/icons/minus.png';
+import fast from '../assets/icons/plus.png';
+import Loading from '../components/Loading';
 
 const StoryDetails = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const StoryDetails = () => {
       const incrementVisits = async () => {
         try {
           // Increment the visits field in the Firestore document
-          const storyRef = doc(firestore, "stories", story.id);
+          const storyRef = doc(firestore, 'stories', story.id);
           await updateDoc(storyRef, {
             visits: increment(0.01),
           });
@@ -72,26 +73,26 @@ const StoryDetails = () => {
 
         if (currentStory.audio) {
           const audio = new Audio(currentStory.audio);
-          audio.addEventListener("loadedmetadata", () => {
+          audio.addEventListener('loadedmetadata', () => {
             setAudioInfo({
               ...audioInfo,
               duration: audio.duration,
             });
           });
-          audio.addEventListener("timeupdate", timeUpdateHandler);
+          audio.addEventListener('timeupdate', timeUpdateHandler);
 
           setAudioPlayer(audio);
         }
       } else {
         setErrorMessage(
-          "Προέκυψε σφάλμα κατά τη λήψη της ιστορίας. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
+          'Προέκυψε σφάλμα κατά τη λήψη της ιστορίας. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά.'
         );
       }
 
       // Check if the story is a favorite for the user
       if (user) {
         // Replace 'favorites' with the name of your Firestore collection
-        const favoritesRef = doc(firestore, "favorites", user.uid);
+        const favoritesRef = doc(firestore, 'favorites', user.uid);
         getDoc(favoritesRef)
           .then((docSnap) => {
             if (docSnap.exists()) {
@@ -102,7 +103,7 @@ const StoryDetails = () => {
             }
           })
           .catch((error) => {
-            console.error("Error checking favorite:", error);
+            console.error('Error checking favorite:', error);
           });
       }
     }
@@ -113,8 +114,14 @@ const StoryDetails = () => {
   const toggleFavorite = async () => {
     if (user) {
       setFavorite(!favorite);
-      // Replace 'favorites' with the name of your Firestore collection
-      const favoritesRef = doc(firestore, "favorites", user.uid);
+
+      const favoritesRef = doc(firestore, 'favorites', user.uid);
+
+      const docSnap = await getDoc(favoritesRef);
+
+      if (!docSnap.exists()) {
+        await setDoc(favoritesRef, {});
+      }
 
       // Update the favorites collection based on the favorite state
       if (favorite) {
@@ -129,20 +136,20 @@ const StoryDetails = () => {
     }
   };
 
-  const paragraphs = story.content ? story.content.split("<br />") : [];
+  const paragraphs = story.content ? story.content.split('<br />') : [];
   const parArray = Object.values(paragraphs);
 
   const handlePause = () => {
     if (audioPlayer) {
       audioPlayer.pause();
-      audioPlayer.removeEventListener("timeupdate", timeUpdateHandler);
+      audioPlayer.removeEventListener('timeupdate', timeUpdateHandler);
       setIsPlaying(false);
     }
   };
   const handlePlay = () => {
     if (audioPlayer) {
       audioPlayer.play();
-      audioPlayer.addEventListener("timeupdate", timeUpdateHandler);
+      audioPlayer.addEventListener('timeupdate', timeUpdateHandler);
       setIsPlaying(true);
     }
   };
@@ -150,14 +157,14 @@ const StoryDetails = () => {
   const getTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
   const getAdjustedTime = (time, rate) => {
     const adjustedTime = time / rate;
     const minutes = Math.floor(adjustedTime / 60);
     const seconds = Math.floor(adjustedTime % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
   const timeUpdateHandler = (e) => {
@@ -209,50 +216,50 @@ const StoryDetails = () => {
     return () => {
       if (audioPlayer) {
         audioPlayer.pause();
-        audioPlayer.removeEventListener("timeupdate", timeUpdateHandler);
+        audioPlayer.removeEventListener('timeupdate', timeUpdateHandler);
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, audioPlayer]);
   return (
-    <div className="storyDetailsLoad">
+    <div className='storyDetailsLoad'>
       {isLoading ? (
         <Loading />
       ) : story ? (
         <motion.div
-          className="storyDetails"
+          className='storyDetails'
           initial={{ y: 100, opacity: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "linear" }}
+          transition={{ duration: 1.5, ease: 'linear' }}
         >
           <h1>{story.title}</h1>
-          <h3 className="date">Ημερομηνία : {story.dateCreated}</h3>
-          {story.idea && <h4 className="idea">Ιδέα : {story.idea}</h4>}
-          <div className="storyBtns">
+          <h3 className='date'>Ημερομηνία : {story.dateCreated}</h3>
+          {story.idea && <h4 className='idea'>Ιδέα : {story.idea}</h4>}
+          <div className='storyBtns'>
             {story.audio && (
-              <div className="player">
+              <div className='player'>
                 {isPlaying ? (
-                  <button onClick={handlePause} className="audio playing">
-                    <img src={musicOff} alt="Pause" />
+                  <button onClick={handlePause} className='audio playing'>
+                    <img src={musicOff} alt='Pause' />
                     <span>Παύση</span>
                   </button>
                 ) : (
-                  <button onClick={handlePlay} className="audio paused">
-                    <img src={musicOn} alt="Play" />
+                  <button onClick={handlePlay} className='audio paused'>
+                    <img src={musicOn} alt='Play' />
                     <span>Ακούστε την ιστορία</span>
                   </button>
                 )}
-                <div className={`time-control ${isPlaying ? "show" : "hide"}`}>
-                  <div className="time-control-top">
+                <div className={`time-control ${isPlaying ? 'show' : 'hide'}`}>
+                  <div className='time-control-top'>
                     <p>
                       {getAdjustedTime(
                         audioInfo.currentTime,
                         audioPlayer.playbackRate
                       )}
                     </p>
-                    <div className="track">
+                    <div className='track'>
                       <input
-                        type="range"
+                        type='range'
                         min={0}
                         max={audioInfo.duration}
                         step={0.001}
@@ -267,31 +274,31 @@ const StoryDetails = () => {
                             audioInfo.duration,
                             audioPlayer.playbackRate
                           )
-                        : "0:00"}
+                        : '0:00'}
                     </p>
                   </div>
-                  <div className="time-control-bot">
-                    <button onClick={handleSpeedDown} className="speed">
-                      <img src={slow} alt="Slow" />
+                  <div className='time-control-bot'>
+                    <button onClick={handleSpeedDown} className='speed'>
+                      <img src={slow} alt='Slow' />
                     </button>
                     <p>Ταχύτητα αναπαραγωγής</p>
-                    <button onClick={handleSpeedUp} className="speed">
-                      <img src={fast} alt="Fast" />
+                    <button onClick={handleSpeedUp} className='speed'>
+                      <img src={fast} alt='Fast' />
                     </button>
                   </div>
                 </div>
               </div>
             )}
-            <button onClick={toggleFavorite} className="favorite">
-              <img src={heart} alt="Favorite" />
-              <span>{favorite ? "Αφαίρεση" : "Προσθήκη "}</span>
+            <button onClick={toggleFavorite} className='favorite'>
+              <img src={heart} alt='Favorite' />
+              <span>{favorite ? 'Αφαίρεση' : 'Προσθήκη '}</span>
             </button>
           </div>
 
           {story.image && (
-            <div className={`storyDetailsCon ${isPlaying ? "down" : "up"} `}>
+            <div className={`storyDetailsCon ${isPlaying ? 'down' : 'up'} `}>
               <motion.img
-                className="storyDetailsImage"
+                className='storyDetailsImage'
                 src={story.image}
                 alt={story.title}
                 initial={{ opacity: 0 }}
@@ -306,9 +313,9 @@ const StoryDetails = () => {
               <p key={index}>{paragraph}</p>
             ))}
           {story.secondImage && (
-            <div className="storyDetailsCon">
+            <div className='storyDetailsCon'>
               <motion.img
-                className="storyDetailsImage"
+                className='storyDetailsImage'
                 src={story.secondImage}
                 alt={story.title}
                 initial={{ opacity: 0 }}
@@ -323,9 +330,9 @@ const StoryDetails = () => {
               <p key={index}>{paragraph}</p>
             ))}
           {story.thirdImage && (
-            <div className="storyDetailsCon">
+            <div className='storyDetailsCon'>
               <motion.img
-                className="storyDetailsImage"
+                className='storyDetailsImage'
                 src={story.thirdImage}
                 alt={story.title}
                 initial={{ opacity: 0 }}
@@ -336,12 +343,12 @@ const StoryDetails = () => {
           )}
           <RatingStars setModalActive={setModalActive} />
           <ShareStory story={story} />
-          <button className="back" onClick={() => navigate(-1)}>
+          <button className='back' onClick={() => navigate(-1)}>
             Πίσω
           </button>
         </motion.div>
       ) : (
-        <h2 className="notFound">{errorMessage}</h2>
+        <h2 className='notFound'>{errorMessage}</h2>
       )}
       <LogInModal modalActive={modalActive} setModalActive={setModalActive} />
     </div>
