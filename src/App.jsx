@@ -1,34 +1,36 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 //Database
-import { doc, getDoc } from "firebase/firestore";
-import { firestore } from "./helpers/firebase";
+import { doc, getDoc } from 'firebase/firestore';
+import { firestore } from './helpers/firebase';
 
 //Components
-import ScrollToTop from "./helpers/scrollToTop";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
-import IdeasForm from "./pages/IdeasForm";
-import Admin from "./pages/Admin";
-import Stories from "./pages/Stories";
-import LogInPage from "./pages/LogInPage";
-import EditUser from "./pages/EditUser";
-import SignUpPage from "./pages/SignUpPage";
-import StoryDetails from "./pages/StoryDetails";
-import TreesLeaves from "./components/TreesLeaves";
-import Maintenance from "./components/Maintenance";
-import Loading from "./components/Loading";
+import ScrollToTop from './helpers/scrollToTop';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Favorites from './pages/Favorites';
+import IdeasForm from './pages/IdeasForm';
+import Admin from './pages/Admin';
+import Stories from './pages/Stories';
+import LogInPage from './pages/LogInPage';
+import EditUser from './pages/EditUser';
+import SignUpPage from './pages/SignUpPage';
+import StoryDetails from './pages/StoryDetails';
+import TreesLeaves from './components/TreesLeaves';
+import Maintenance from './components/Maintenance';
+import Loading from './components/Loading';
+import RefreshPage from './components/RefreshPage';
 
 function App() {
   const [maintenance, setMaintenance] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isTimeout, setIsTimeout] = useState(false);
 
   useEffect(() => {
     const fetchStoryData = async () => {
-      const extraRef = doc(firestore, "extra", "maintenance");
+      const extraRef = doc(firestore, 'extra', 'maintenance');
       const extraDoc = await getDoc(extraRef);
       const extraData = extraDoc.data();
       const maintenaceState = extraData.state || false;
@@ -41,12 +43,24 @@ function App() {
       setIsLoading(false);
     };
 
-    fetchStoryData();
+    const timeout = new Promise((resolve) =>
+      setTimeout(() => resolve('timeout'), 6000)
+    );
+
+    Promise.race([fetchStoryData(), timeout]).then((result) => {
+      if (result === 'timeout') {
+        setIsTimeout(true);
+      }
+    });
   }, []);
+
+  if (isTimeout) {
+    return <RefreshPage />;
+  }
 
   if (isLoading) {
     return (
-      <div className="mainPage">
+      <div className='mainPage'>
         <Loading />
       </div>
     );
@@ -55,29 +69,29 @@ function App() {
   return (
     <>
       {maintenance ? (
-        <div className="row maintenance_row">
+        <div className='row maintenance_row'>
           <Router>
             <Routes>
-              <Route path="/" element={<Maintenance />} />
-              <Route path="/admin-mixalis" element={<Admin />} />
+              <Route path='/' element={<Maintenance />} />
+              <Route path='/admin-mixalis' element={<Admin />} />
             </Routes>
             <TreesLeaves />
           </Router>
         </div>
       ) : (
-        <div className="row">
+        <div className='row'>
           <Router>
             <Header />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/ideas" element={<IdeasForm />} />
-              <Route path="/favorites" element={<Favorites />} />
-              <Route path="/signup" element={<SignUpPage />} />
-              <Route path="/login" element={<LogInPage />} />
-              <Route path="/stories" element={<Stories />} />
-              <Route path="/stories/:id" element={<StoryDetails />} />
-              <Route path="/admin-mixalis" element={<Admin />} />
-              <Route path="/edit-account" element={<EditUser />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/ideas' element={<IdeasForm />} />
+              <Route path='/favorites' element={<Favorites />} />
+              <Route path='/signup' element={<SignUpPage />} />
+              <Route path='/login' element={<LogInPage />} />
+              <Route path='/stories' element={<Stories />} />
+              <Route path='/stories/:id' element={<StoryDetails />} />
+              <Route path='/admin-mixalis' element={<Admin />} />
+              <Route path='/edit-account' element={<EditUser />} />
             </Routes>
             <TreesLeaves />
             <Footer />
