@@ -203,6 +203,19 @@
             margin: 0 auto 5px 0;
             font-weight: 300;
           }
+          .rating {
+            font-size: 0;
+            margin: 0 auto 5px 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 5px;
+
+            img {
+              width: 25px;
+            }
+          }
 
           p {
             -webkit-line-clamp: 10;
@@ -271,6 +284,12 @@
                 margin: 10px auto 20px auto;
                 font-weight: 300;
               }
+
+              .rating {
+                justify-content: center;
+                width: 100%;
+              }
+
               p {
                 display: none;
               }
@@ -351,6 +370,15 @@
             h5 {
               margin: 0 auto;
             }
+
+            .rating {
+              margin: 10px auto 5px;
+              column-gap: 2px;
+
+              img {
+                width: 20px;
+              }
+            }
           }
         }
       }
@@ -365,6 +393,14 @@
             }
             h5 {
               margin: 0 auto;
+            }
+            .rating {
+              margin: 10px auto 5px;
+              column-gap: 2px;
+
+              img {
+                width: 20px;
+              }
             }
           }
         }

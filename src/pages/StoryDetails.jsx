@@ -22,6 +22,7 @@ import ShareStory from '../components/ShareStory';
 import RatingStars from '../components/RatingStars';
 
 //Images
+import star from '../assets/icons/star.png';
 import heart from '../assets/icons/heart.svg';
 import musicOn from '../assets/icons/music-on.svg';
 import musicOff from '../assets/icons/music-off.svg';
@@ -46,6 +47,19 @@ const StoryDetails = () => {
     currentTime: 0,
     duration: 0,
   });
+  let averageRating = null;
+
+  // Filter the array to get only the ratings
+  if (story.ratings) {
+    const ratingsOnly = story.ratings.filter((_, index) => index % 2 !== 0);
+
+    // Calculate average rating
+
+    if (ratingsOnly.length > 0) {
+      const sum = ratingsOnly.reduce((a, b) => a + b, 0);
+      averageRating = Math.ceil(sum / ratingsOnly.length);
+    }
+  }
   useEffect(() => {
     if (story) {
       const incrementVisits = async () => {
@@ -235,6 +249,15 @@ const StoryDetails = () => {
           <h1>{story.title}</h1>
           <h3 className='date'>Ημερομηνία : {story.dateCreated}</h3>
           {story.idea && <h4 className='idea'>Ιδέα : {story.idea}</h4>}
+          {averageRating && (
+            <div className='rating'>
+              <>
+                {Array.from({ length: averageRating }, (_, index) => (
+                  <img key={index} src={star} alt='star' />
+                ))}
+              </>
+            </div>
+          )}
           <div className='storyBtns'>
             {story.audio && (
               <div className='player'>

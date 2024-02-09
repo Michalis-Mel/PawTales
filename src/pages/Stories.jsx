@@ -1,16 +1,16 @@
-import { useState, useEffect, useContext } from "react";
-import { slice } from "lodash";
-import { motion } from "framer-motion";
-import { StoriesContext } from "../Context/StoriesContext";
+import { useState, useEffect, useContext } from 'react';
+import { slice } from 'lodash';
+import { motion } from 'framer-motion';
+import { StoriesContext } from '../Context/StoriesContext';
 
 //Components
-import StoryItem from "../components/StoryItem";
-import SearchBar from "../components/SearchBar";
+import StoryItem from '../components/StoryItem';
+import SearchBar from '../components/SearchBar';
 
 //Images
-import grid from "../assets/icons/grid.png";
-import details from "../assets/icons/details.png";
-import Loading from "../components/Loading";
+import grid from '../assets/icons/grid.png';
+import details from '../assets/icons/details.png';
+import Loading from '../components/Loading';
 
 const Stories = () => {
   const { allStories, setAllStories, isLoading } = useContext(StoriesContext);
@@ -38,7 +38,7 @@ const Stories = () => {
       setSearchedStories(sortedStories);
     } else {
       setErrorMessage(
-        "Προέκυψε σφάλμα κατά τη λήψη ιστοριών. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά."
+        'Προέκυψε σφάλμα κατά τη λήψη ιστοριών. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και προσπαθήστε ξανά.'
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,29 +57,41 @@ const Stories = () => {
   const handleFilters = (filter) => {
     let sortedStories;
     if (allStories.length > 0) {
-      if (filter === "popular") {
+      if (filter === 'popular') {
         sortedStories = [...searchedStories].sort((a, b) => {
           const visitsA = a.visits;
           const visitsB = b.visits;
           return visitsB - visitsA;
         });
-      } else if (filter === "latest") {
+      } else if (filter === 'top') {
+        sortedStories = [...searchedStories].sort((a, b) => {
+          const ratingsA = a.ratings.filter((item) => typeof item === 'number');
+          const ratingsB = b.ratings.filter((item) => typeof item === 'number');
+          const averageA =
+            ratingsA.reduce((acc, curr) => acc + curr, 0) /
+            (ratingsA.length || 1);
+          const averageB =
+            ratingsB.reduce((acc, curr) => acc + curr, 0) /
+            (ratingsB.length || 1);
+          return averageB - averageA;
+        });
+      } else if (filter === 'latest') {
         sortedStories = [...searchedStories].sort((a, b) => {
           const dateA = new Date(
-            a.dateCreated.split("-").reverse().join("-")
+            a.dateCreated.split('-').reverse().join('-')
           ).getTime();
           const dateB = new Date(
-            b.dateCreated.split("-").reverse().join("-")
+            b.dateCreated.split('-').reverse().join('-')
           ).getTime();
           return dateB - dateA;
         });
-      } else if (filter === "oldest") {
+      } else if (filter === 'oldest') {
         sortedStories = [...searchedStories].sort((a, b) => {
           const dateA = new Date(
-            a.dateCreated.split("-").reverse().join("-")
+            a.dateCreated.split('-').reverse().join('-')
           ).getTime();
           const dateB = new Date(
-            b.dateCreated.split("-").reverse().join("-")
+            b.dateCreated.split('-').reverse().join('-')
           ).getTime();
           return dateA - dateB;
         });
@@ -89,42 +101,43 @@ const Stories = () => {
   };
 
   return (
-    <div className="stories">
+    <div className='stories'>
       <h1>Οι Ιστορίες μας</h1>
-      <div className="filters">
+      <div className='filters'>
         <SearchBar
           animalStories={allStories}
           setSearchedStories={setSearchedStories}
           setErrorMessage={setErrorMessage}
         />
 
-        <div className="filters_right">
-          <div className="orderby">
-            <div className="orderby_cont">
+        <div className='filters_right'>
+          <div className='orderby'>
+            <div className='orderby_cont'>
               <select
-                defaultValue={"popular"}
+                defaultValue={'popular'}
                 onChange={(e) => {
                   handleFilters(e.target.value);
                 }}
               >
-                <option value="popular">Δημοφιλείς </option>
-                <option value="latest">Πρόσφατες</option>
-                <option value="oldest">Παλαιότερες</option>
+                <option value='popular'>Δημοφιλείς </option>
+                <option value='top'>Κορυφαία </option>
+                <option value='latest'>Πρόσφατες</option>
+                <option value='oldest'>Παλαιότερες</option>
               </select>
             </div>
           </div>
-          <div className="layoutBtns">
+          <div className='layoutBtns'>
             <button
-              className={`details ${isGrid ? "active" : ""}`}
+              className={`details ${isGrid ? 'active' : ''}`}
               onClick={() => setIsGrid(false)}
             >
-              <img src={details} alt="Details" />
+              <img src={details} alt='Details' />
             </button>
             <button
-              className={`grid ${isGrid ? "" : "active"}`}
+              className={`grid ${isGrid ? '' : 'active'}`}
               onClick={() => setIsGrid(true)}
             >
-              <img src={grid} alt="Grid" />
+              <img src={grid} alt='Grid' />
             </button>
           </div>
         </div>
@@ -134,25 +147,25 @@ const Stories = () => {
         <Loading />
       ) : (
         <motion.div
-          className="storiesList"
+          className='storiesList'
           initial={{ y: 100, opacity: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "linear" }}
+          transition={{ duration: 1.5, ease: 'linear' }}
         >
           <div
-            className={`storiesListCon ${isGrid ? "gridList" : "detailsList"}`}
+            className={`storiesListCon ${isGrid ? 'gridList' : 'detailsList'}`}
           >
             {searchedStories.length > 0 ? (
               shortedStories.map((story, index) => (
                 <StoryItem key={index} story={story} />
               ))
             ) : (
-              <h2 className="notFound">{errorMessage}</h2>
+              <h2 className='notFound'>{errorMessage}</h2>
             )}
           </div>
           {searchedStories.length > index && (
             <button
-              className="loadMore"
+              className='loadMore'
               disabled={isCompleted}
               onClick={loadMore}
             >

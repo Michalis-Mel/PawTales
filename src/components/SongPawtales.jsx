@@ -1,15 +1,14 @@
-import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import songs from "../helpers/songs";
-import videos from "../helpers/videos";
+import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import songs from '../helpers/songs';
+import songsImages from '../helpers/songsImages';
 
-import musicOn from "../assets/icons/play-button.png";
-import musicOff from "../assets/icons/pause-button.png";
-import prev from "../assets/icons/back-button.png";
-import next from "../assets/icons/next-button.png";
+import musicOn from '../assets/icons/play-button.png';
+import musicOff from '../assets/icons/pause-button.png';
+import prev from '../assets/icons/back-button.png';
+import next from '../assets/icons/next-button.png';
 
 const SongPawtales = () => {
-  const videoRef = useRef(null);
   const songRef = useRef(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -24,10 +23,10 @@ const SongPawtales = () => {
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -35,15 +34,15 @@ const SongPawtales = () => {
     const currentSongRef = songRef.current;
 
     if (currentSongRef) {
-      currentSongRef.addEventListener("timeupdate", handleTimeUpdate);
-      currentSongRef.addEventListener("loadedmetadata", handleLoadedMetadata);
+      currentSongRef.addEventListener('timeupdate', handleTimeUpdate);
+      currentSongRef.addEventListener('loadedmetadata', handleLoadedMetadata);
     }
 
     return () => {
       if (currentSongRef) {
-        currentSongRef.removeEventListener("timeupdate", handleTimeUpdate);
+        currentSongRef.removeEventListener('timeupdate', handleTimeUpdate);
         currentSongRef.removeEventListener(
-          "loadedmetadata",
+          'loadedmetadata',
           handleLoadedMetadata
         );
       }
@@ -58,7 +57,6 @@ const SongPawtales = () => {
     } else {
       if (isPlaying) {
         songRef.current.play();
-        videoRef.current.play();
       }
     }
   }, [currentSongIndex, isMobile, isPlaying]);
@@ -73,10 +71,8 @@ const SongPawtales = () => {
     } else {
       if (isPlaying) {
         songRef.current.pause();
-        videoRef.current.pause();
       } else {
         songRef.current.play();
-        videoRef.current.play();
       }
     }
 
@@ -117,36 +113,34 @@ const SongPawtales = () => {
 
   return (
     <motion.div
-      className="song_con"
+      className='song_con'
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >
       <h1>Τα Τραγούδια μας</h1>
-      <div className="video_con">
+      <div className='video_con'>
         <motion.audio
-          className="audio"
+          className='audio'
           src={songs[currentSongIndex].src}
           alt={songs[currentSongIndex].alt}
           loop
           ref={songRef}
         />
         {!isMobile && (
-          <motion.video
-            className="video"
-            src={videos[currentSongIndex].src}
-            alt={videos[currentSongIndex].alt}
-            loop
-            ref={videoRef}
+          <motion.img
+            className='video'
+            src={songsImages[currentSongIndex].src}
+            alt={songsImages[currentSongIndex].alt}
           />
         )}
 
-        <div className="song_controls">
-          <h3 className="songTitle">{songs[currentSongIndex].title}</h3>
-          <div className="track">
+        <div className='song_controls'>
+          <h3 className='songTitle'>{songs[currentSongIndex].title}</h3>
+          <div className='track'>
             <input
-              type="range"
+              type='range'
               min={0}
               max={duration}
               step={0.001}
@@ -154,19 +148,19 @@ const SongPawtales = () => {
               onChange={(e) => handleSeek(parseFloat(e.target.value))}
             />
           </div>
-          <div className="btns">
+          <div className='btns'>
             <button onClick={handlePrevSong}>
-              <img src={prev} alt="Previous Song" />
+              <img src={prev} alt='Previous Song' />
             </button>
             <button onClick={handlePlayPause}>
               {isPlaying ? (
-                <img src={musicOff} alt="Pause" />
+                <img src={musicOff} alt='Pause' />
               ) : (
-                <img src={musicOn} alt="Play" />
+                <img src={musicOn} alt='Play' />
               )}
             </button>
             <button onClick={handleNextSong}>
-              <img src={next} alt="Next Song" />
+              <img src={next} alt='Next Song' />
             </button>
           </div>
         </div>
