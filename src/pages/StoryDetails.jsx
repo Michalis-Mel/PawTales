@@ -250,13 +250,14 @@ const StoryDetails = () => {
           <h3 className='date'>Ημερομηνία : {story.dateCreated}</h3>
           {story.idea && <h4 className='idea'>Ιδέα : {story.idea}</h4>}
           {averageRating && (
-            <div className='rating'>
-              <>
+            <h3 className='rating'>
+              Βαθμολογία :
+              <div className='stars'>
                 {Array.from({ length: averageRating }, (_, index) => (
                   <img key={index} src={star} alt='star' />
                 ))}
-              </>
-            </div>
+              </div>
+            </h3>
           )}
           <div className='storyBtns'>
             {story.audio && (
