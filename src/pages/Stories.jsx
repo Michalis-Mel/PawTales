@@ -120,7 +120,7 @@ const Stories = () => {
                 }}
               >
                 <option value='popular'>Δημοφιλείς </option>
-                <option value='top'>Κορυφαία </option>
+                <option value='top'>Κορυφαίες </option>
                 <option value='latest'>Πρόσφατες</option>
                 <option value='oldest'>Παλαιότερες</option>
               </select>
