@@ -1,12 +1,39 @@
-@use "../global/" as *;
+@use '../global/' as *;
+@use '../global/colors' as *;
+
 footer {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  flex-flow: column nowrap;
+  padding: 20px 10px;
   box-sizing: border-box;
 
+  .social {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px 7px 10px;
+    border: 3px solid $black;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    color: $black;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 25px;
+      margin-left: 10px;
+      font-size: 0;
+    }
+  }
   span {
     font-size: 20px;
     font-family: $logo;
@@ -15,7 +42,15 @@ footer {
 }
 
 @media only screen and (max-width: 550px) {
-  footer span {
-    font-size: 18px;
+  footer {
+    .social {
+      font-size: 16px;
+      img {
+        width: 20px;
+      }
+    }
+    span {
+      font-size: 18px;
+    }
   }
 }
