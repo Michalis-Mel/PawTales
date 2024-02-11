@@ -14,7 +14,7 @@ import { getPerformance } from 'firebase/performance';
 const firebaseConfig = {
   apiKey: import.meta.env.FIREBASE_API_KEY_VERCEL,
   authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN_VERCEL,
-  projectId: import.meta.env.FIREBASE_PROJECT_ID_VERCEL,
+  projectId: 'pawtales-86bbb',
   storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET_VERCEL,
   messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID_VERCEL,
   appId: import.meta.env.FIREBASE_APP_ID_VERCEL,
