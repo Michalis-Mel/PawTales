@@ -365,7 +365,7 @@ const StoryDetails = () => {
             </div>
           )}
           <RatingStars setModalActive={setModalActive} />
-          <ShareStory story={story} />
+          {/* <ShareStory story={story} /> */}
           <button className='back' onClick={() => navigate(-1)}>
             Πίσω
           </button>
