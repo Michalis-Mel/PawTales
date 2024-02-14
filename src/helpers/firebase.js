@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
 } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, initializeFirestore } from 'firebase/firestore';
 import { getPerformance } from 'firebase/performance';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,7 +26,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const perf = getPerformance(app);
-export const firestore = getFirestore(app);
+// export const firestore = getFirestore(app);
+export const firestore = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+});
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
