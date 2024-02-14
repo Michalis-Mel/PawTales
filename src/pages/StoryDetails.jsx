@@ -318,7 +318,6 @@ const StoryDetails = () => {
               <span>{favorite ? 'Αφαίρεση' : 'Προσθήκη '}</span>
             </button>
           </div>
-
           {story.image && (
             <div className={`storyDetailsCon ${isPlaying ? 'down' : 'up'} `}>
               <motion.img
