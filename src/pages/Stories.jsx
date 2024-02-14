@@ -25,6 +25,7 @@ const Stories = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(initialStoriesShown);
   const shortedStories = slice(searchedStories, 0, index);
+
   useEffect(() => {
     if (allStories.length > 0) {
       // Sort stories by creation date in descending order (most recent to oldest)
@@ -78,20 +79,20 @@ const Stories = () => {
       } else if (filter === 'latest') {
         sortedStories = [...searchedStories].sort((a, b) => {
           const dateA = new Date(
-            a.dateCreated.split('-').reverse().join('-')
+            a.dateCreated.split('/').reverse().join('-')
           ).getTime();
           const dateB = new Date(
-            b.dateCreated.split('-').reverse().join('-')
+            b.dateCreated.split('/').reverse().join('-')
           ).getTime();
           return dateB - dateA;
         });
       } else if (filter === 'oldest') {
         sortedStories = [...searchedStories].sort((a, b) => {
           const dateA = new Date(
-            a.dateCreated.split('-').reverse().join('-')
+            a.dateCreated.split('/').reverse().join('-')
           ).getTime();
           const dateB = new Date(
-            b.dateCreated.split('-').reverse().join('-')
+            b.dateCreated.split('/').reverse().join('-')
           ).getTime();
           return dateA - dateB;
         });
