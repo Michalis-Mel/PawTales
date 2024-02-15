@@ -21,7 +21,8 @@ const Stories = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   //Load More Functionality
-  const initialStoriesShown = isGrid ? 12 : 5;
+  const initialStoriesShown = 10;
+  // const initialStoriesShown = isGrid ? 12 : 5;
   const [isCompleted, setIsCompleted] = useState(false);
   const [index, setIndex] = useState(initialStoriesShown);
   const shortedStories = slice(searchedStories, 0, index);
@@ -46,7 +47,8 @@ const Stories = () => {
   }, [allStories]);
 
   const loadMore = () => {
-    isGrid ? setIndex(index + 12) : setIndex(index + 5);
+    setIndex(index + 10);
+    // isGrid ? setIndex(index + 12) : setIndex(index + 5);
 
     if (index >= searchedStories.length) {
       setIsCompleted(true);
