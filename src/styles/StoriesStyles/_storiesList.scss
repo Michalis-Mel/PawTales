@@ -37,7 +37,7 @@
       }
 
       button {
-        cursor: pointer;
+        pointer-events: none;
         border: none;
         background: transparent;
         position: absolute;

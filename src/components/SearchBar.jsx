@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 //Images
-import searchIcon from "../assets/icons/search.png";
+import searchIcon from '../assets/icons/search.png';
 
 const SearchBar = ({ animalStories, setSearchedStories, setErrorMessage }) => {
-  const [textInput, setTextInput] = useState("");
+  const [textInput, setTextInput] = useState('');
 
   const handleTextInput = (e) => {
     setTextInput(e.target.value);
+    setSearchedStories([]);
+    animalStories.map((story) => {
+      const normalizedTitle = story.title
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+
+      if (normalizedTitle.includes(e.target.value.toLowerCase())) {
+        setSearchedStories((prev) => [...prev, story]);
+      } else {
+        setErrorMessage('Δεν βρέθηκε η ιστορία που αναζητήσατε');
+      }
+    });
   };
 
   const handleSubmit = (e) => {
@@ -17,22 +30,22 @@ const SearchBar = ({ animalStories, setSearchedStories, setErrorMessage }) => {
       if (story.title.toLowerCase().includes(textInput.toLowerCase())) {
         setSearchedStories((prev) => [...prev, story]);
       } else {
-        setErrorMessage("Δεν βρέθηκε η ιστορία που αναζητήσατε");
+        setErrorMessage('Δεν βρέθηκε η ιστορία που αναζητήσατε');
       }
     });
-    setTextInput("");
+    setTextInput('');
   };
 
   return (
-    <form onClick={handleSubmit}>
+    <form>
       <input
         onChange={handleTextInput}
-        placeholder="Αναζήτηση Ιστορίας..."
+        placeholder='Αναζήτηση Ιστορίας...'
         value={textInput}
-        type="text"
+        type='text'
       />
-      <button type="submit">
-        <img src={searchIcon} alt="Search Button" />
+      <button>
+        <img src={searchIcon} alt='Search Button' />
       </button>
     </form>
   );
