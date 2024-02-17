@@ -70,7 +70,7 @@
       flex-grow: 1;
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: flex-start;
       .btn_con {
         flex: 0 0 50%;
         width: 50%;
@@ -147,6 +147,23 @@
           }
         }
       }
+    }
+  }
+}
+@media only screen and (max-width: 350px) {
+  .guessingGame .game {
+    padding: 30px;
+    height: 550px;
+    h6 {
+      font-size: 18px;
+    }
+    button.start,
+    button.restart {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .game_btns .btn_con button {
+      font-size: 16px;
     }
   }
 }
