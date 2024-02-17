@@ -77,7 +77,9 @@ const GuessingGame = () => {
           )
         ) : (
           <>
-            <h6>Συγχαρητήρια! Έχετε ολοκληρώσει το παιχνίδι.</h6>
+            <h6>
+              Συγχαρητήρια! <br /> Έχετε ολοκληρώσει το παιχνίδι.
+            </h6>
             <button onClick={restartGame} className='restart'>
               Ξαναπαίξτε
             </button>
