@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 import { animalsGame } from '../helpers/guessingGame';
+import Loading from './Loading';
 
 const GuessingGame = () => {
   const [currentAnimal, setCurrentAnimal] = useState(null);
@@ -9,14 +10,21 @@ const GuessingGame = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (currentIndex < animalsGame.length) {
-      setCurrentAnimal(animalsGame[currentIndex]);
-      setSelectedOption(null);
-      setIsCorrect(null);
+      setIsLoading(true);
+      const img = new Image();
+      img.src = animalsGame[currentIndex].image;
+      img.onload = () => {
+        setCurrentAnimal(animalsGame[currentIndex]);
+        setSelectedOption(null);
+        setIsCorrect(null);
+        setIsLoading(false);
+      };
     }
-  }, [currentIndex, isCorrect]);
+  }, [currentIndex]);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -57,25 +65,29 @@ const GuessingGame = () => {
             </button>
           </>
         ) : currentIndex < animalsGame.length ? (
-          currentAnimal && (
-            <>
-              <img src={currentAnimal.image} alt={currentAnimal.name} />
-              <h6>Βρες το ζώο της εικόνας</h6>
-              <div className='game_btns'>
-                {currentAnimal.options.map((option, index) => (
-                  <div className='btn_con' key={index}>
-                    <button
-                      onClick={() => handleOptionClick(option)}
-                      className={` ${
-                        selectedOption === option && !isCorrect ? 'wrong' : ''
-                      } `}
-                    >
-                      {option}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </>
+          isLoading ? (
+            <Loading />
+          ) : (
+            currentAnimal && (
+              <>
+                <img src={currentAnimal.image} alt={currentAnimal.name} />
+                <h6>Βρες το ζώο της εικόνας</h6>
+                <div className='game_btns'>
+                  {currentAnimal.options.map((option, index) => (
+                    <div className='btn_con' key={index}>
+                      <button
+                        onClick={() => handleOptionClick(option)}
+                        className={` ${
+                          selectedOption === option && !isCorrect ? 'wrong' : ''
+                        } `}
+                      >
+                        {option}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )
           )
         ) : (
           <>
