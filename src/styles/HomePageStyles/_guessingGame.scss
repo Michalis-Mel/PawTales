@@ -1,0 +1,104 @@
+@use '../global/colors' as *;
+
+.guessingGame {
+  width: 100%;
+  margin: 0 auto 100px auto;
+
+  .game {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      margin: 0 auto 20px auto;
+    }
+
+    h6 {
+      font-size: 24px;
+      margin: 0 0 20px 0;
+    }
+
+    .game_btns {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      .btn_con {
+        flex: 0 0 50%;
+        width: 50%;
+        padding: 10px;
+
+        button {
+          cursor: pointer;
+          width: 100%;
+          border: 2px solid $green;
+          font-size: 20px;
+          color: #fff;
+          background-color: $green;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border-radius: 20px;
+          padding: 5px 20px;
+          transition: all 0.3s ease-in-out;
+          font-weight: 400;
+
+          &.wrong {
+            background: red;
+            border: 2px solid red;
+          }
+
+          &:hover {
+            background-color: #fff;
+            color: $green;
+          }
+          &.wrong:hover {
+            background-color: red;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .guessingGame {
+    margin: 0 auto 70px auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .guessingGame .game {
+    h6 {
+      font-size: 20px;
+    }
+    .game_btns {
+      flex-flow: column nowrap;
+      align-items: center;
+      .btn_con {
+        flex: unset;
+        width: 100%;
+        max-width: 300px;
+        padding: 7px 0;
+
+        button {
+          font-size: 18px;
+          &:hover {
+            background-color: $green;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
