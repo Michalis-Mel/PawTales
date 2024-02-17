@@ -10,9 +10,12 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
-
+    background-color: $blue;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #72442c;
     img {
       object-fit: contain;
       width: 100%;
