@@ -14,13 +14,13 @@ import { getPerformance } from 'firebase/performance';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: 'y_uaueU_OsCVFhVHSM0sMDzwd0o',
+  authDomain: 'pawtales-86bbb.firebaseapp.com',
+  projectId: 'pawtales-86bbb',
+  storageBucket: 'pawtales-86bbb.appspot.com',
+  messagingSenderId: '435684730064',
+  appId: '1:435684730064:web:bea724dbd9b5bec728aad5',
+  measurementId: 'G-HN9WTNEV37',
 };
 
 // Initialize Firebase
