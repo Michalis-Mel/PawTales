@@ -17,12 +17,23 @@ const GuessingGame = () => {
       setIsLoading(true);
       const img = new Image();
       img.src = animalsGame[currentIndex].image;
-      img.onload = () => {
+
+      const imgLoad = new Promise((resolve) => {
+        img.onload = () => {
+          resolve();
+        };
+      });
+
+      const timeout = new Promise((resolve) => {
+        setTimeout(resolve, 800);
+      });
+
+      Promise.all([imgLoad, timeout]).then(() => {
         setCurrentAnimal(animalsGame[currentIndex]);
         setSelectedOption(null);
         setIsCorrect(null);
         setIsLoading(false);
-      };
+      });
     }
   }, [currentIndex]);
 
