@@ -16,14 +16,37 @@
     img {
       object-fit: contain;
       width: 100%;
-      height: auto;
-      max-height: 300px;
+      height: 300px;
       margin: 0 auto 20px auto;
     }
 
     h6 {
       font-size: 24px;
-      margin: 0 0 20px 0;
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+
+    button.start,
+    button.restart {
+      cursor: pointer;
+      width: fit-content;
+      border: 2px solid $green;
+      font-size: 20px;
+      color: #fff;
+      background-color: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 20px;
+      padding: 10px 30px;
+      transition: all 0.3s ease-in-out;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #fff;
+        color: $green;
+      }
     }
 
     .game_btns {
@@ -81,6 +104,14 @@
   .guessingGame .game {
     h6 {
       font-size: 20px;
+    }
+    button.start,
+    button.restart {
+      font-size: 18px;
+    }
+
+    img {
+      height: 200px;
     }
     .game_btns {
       flex-flow: column nowrap;
