@@ -53,19 +53,18 @@ const GuessingGame = () => {
       viewport={{ once: true }}
     >
       <h1>Παιχνίδι Γνώσεων</h1>
-      <div className='game'>
-        {!isGameStarted ? (
-          <>
-            <h6>
-              Δείξε μας πόσο καλά γνωρίζεις τα ζώα που συναντάς στις ιστορίες
-              μας!
-            </h6>
-            <button onClick={startGame} className='start'>
-              Ξεκίνα το Παιχνίδι
-            </button>
-          </>
-        ) : currentIndex < animalsGame.length ? (
-          isLoading ? (
+      {!isGameStarted ? (
+        <div className='game small'>
+          <h6>
+            Δείξε μας πόσο καλά γνωρίζεις τα ζώα που συναντάς στις ιστορίες μας!
+          </h6>
+          <button onClick={startGame} className='start'>
+            Ξεκίνα το Παιχνίδι
+          </button>
+        </div>
+      ) : currentIndex < animalsGame.length ? (
+        <div className='game'>
+          {isLoading ? (
             <div className='gameLoading'>
               <Loading />
             </div>
@@ -90,18 +89,18 @@ const GuessingGame = () => {
                 </div>
               </>
             )
-          )
-        ) : (
-          <>
-            <h6>
-              Συγχαρητήρια! <br /> Ολοκλήρωσες το παιχνίδι με επιτυχία!
-            </h6>
-            <button onClick={restartGame} className='restart'>
-              Ξαναπαίξε
-            </button>
-          </>
-        )}
-      </div>
+          )}
+        </div>
+      ) : (
+        <div className='game small'>
+          <h6>
+            Συγχαρητήρια! <br /> Ολοκλήρωσες το παιχνίδι με επιτυχία!
+          </h6>
+          <button onClick={restartGame} className='restart'>
+            Ξαναπαίξε
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 };
