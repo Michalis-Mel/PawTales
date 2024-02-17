@@ -13,16 +13,18 @@ const GuessingGame = () => {
   useEffect(() => {
     if (currentIndex < animalsGame.length) {
       setCurrentAnimal(animalsGame[currentIndex]);
+      setSelectedOption(null);
+      setIsCorrect(null);
     }
-  }, [currentIndex]);
+  }, [currentIndex, isCorrect]);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    setIsCorrect(option === currentAnimal.name);
     if (option === currentAnimal.name) {
+      setIsCorrect(true);
       setCurrentIndex(currentIndex + 1);
-      setSelectedOption(null);
-      setIsCorrect(null);
+    } else {
+      setIsCorrect(false);
     }
   };
 
