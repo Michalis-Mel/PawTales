@@ -17,12 +17,12 @@ const GuessingGame = () => {
       setIsLoading(true);
       const img = new Image();
       img.src = animalsGame[currentIndex].image;
-      img.onload = () => {
-        setCurrentAnimal(animalsGame[currentIndex]);
-        setSelectedOption(null);
-        setIsCorrect(null);
-        setIsLoading(false);
-      };
+      // img.onload = () => {
+      //   setCurrentAnimal(animalsGame[currentIndex]);
+      //   setSelectedOption(null);
+      //   setIsCorrect(null);
+      //   setIsLoading(false);
+      // };
     }
   }, [currentIndex]);
 
@@ -66,7 +66,9 @@ const GuessingGame = () => {
           </>
         ) : currentIndex < animalsGame.length ? (
           isLoading ? (
-            <Loading />
+            <div className='gameLoading'>
+              <Loading />
+            </div>
           ) : (
             currentAnimal && (
               <>
