@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 import { animalsGame } from '../helpers/guessingGame';
+import win from '../assets/animals/sounds/win.wav';
+import lose from '../assets/animals/sounds/error.wav';
 import Loading from './Loading';
 
 const GuessingGame = () => {
@@ -11,6 +13,9 @@ const GuessingGame = () => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const winSound = new Audio(win);
+  const loseSound = new Audio(lose);
 
   useEffect(() => {
     if (currentIndex < animalsGame.length) {
@@ -42,7 +47,9 @@ const GuessingGame = () => {
     if (option === currentAnimal.name) {
       setIsCorrect(true);
       setCurrentIndex(currentIndex + 1);
+      winSound.play();
     } else {
+      loseSound.play();
       setIsCorrect(false);
     }
   };
