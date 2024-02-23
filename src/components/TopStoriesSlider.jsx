@@ -16,6 +16,12 @@ const TopStoriesSlider = () => {
   const [topStories, setTopStories] = useState([]);
   const [storyIndex, setStoryIndex] = useState(0);
 
+  useEffect(() => {
+    const slideInterval = setInterval(nextSlide, 5000);
+    return () => clearInterval(slideInterval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topStories, storyIndex]);
+
   // Fetch stories from Firestore
   useEffect(() => {
     const fetchTopStories = async () => {
