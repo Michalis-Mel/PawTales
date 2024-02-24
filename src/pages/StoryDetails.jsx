@@ -12,7 +12,7 @@ import {
   setDoc,
 } from 'firebase/firestore';
 
-import { firestore } from '../helpers/firebase';
+import { db } from '../helpers/firebase';
 import { AuthContext } from '../Context/AuthContext';
 import { StoriesContext } from '../Context/StoriesContext';
 
@@ -65,7 +65,7 @@ const StoryDetails = () => {
       const incrementVisits = async () => {
         try {
           // Increment the visits field in the Firestore document
-          const storyRef = doc(firestore, 'stories', story.id);
+          const storyRef = doc(db, 'stories', story.id);
           await updateDoc(storyRef, {
             visits: increment(0.01),
           });
@@ -106,7 +106,7 @@ const StoryDetails = () => {
       // Check if the story is a favorite for the user
       if (user) {
         // Replace 'favorites' with the name of your Firestore collection
-        const favoritesRef = doc(firestore, 'favorites', user.uid);
+        const favoritesRef = doc(db, 'favorites', user.uid);
         getDoc(favoritesRef)
           .then((docSnap) => {
             if (docSnap.exists()) {
@@ -129,7 +129,7 @@ const StoryDetails = () => {
     if (user) {
       setFavorite(!favorite);
 
-      const favoritesRef = doc(firestore, 'favorites', user.uid);
+      const favoritesRef = doc(db, 'favorites', user.uid);
 
       const docSnap = await getDoc(favoritesRef);
 

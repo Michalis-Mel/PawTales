@@ -1,20 +1,20 @@
-import { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 //Database
-import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { firestore } from "../helpers/firebase";
-import { AuthContext } from "../Context/AuthContext";
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { db } from '../helpers/firebase';
+import { AuthContext } from '../Context/AuthContext';
 
 //Components
-import LogInModal from "../components/LogInModal";
+import LogInModal from '../components/LogInModal';
 
 const RatingStars = ({ setModalActive }) => {
   const { user } = useContext(AuthContext);
   const url = useParams();
 
   const fetchStoryData = async () => {
-    const storyRef = doc(firestore, "stories", url.id);
+    const storyRef = doc(db, 'stories', url.id);
     const storyDoc = await getDoc(storyRef);
 
     if (storyDoc.exists()) {
@@ -24,7 +24,7 @@ const RatingStars = ({ setModalActive }) => {
 
       return { storyRef, ratings, userIndex };
     } else {
-      console.log("No such document!");
+      console.log('No such document!');
       return null;
     }
   };
@@ -41,11 +41,11 @@ const RatingStars = ({ setModalActive }) => {
             const userRating = storyData.ratings[userIndex + 1];
             document.getElementById(`rs${userRating}`).click();
           } else {
-            document.getElementById("rs0").click();
+            document.getElementById('rs0').click();
           }
         }
       } else {
-        document.getElementById("rs0").click();
+        document.getElementById('rs0').click();
       }
     };
 
@@ -75,20 +75,20 @@ const RatingStars = ({ setModalActive }) => {
   };
 
   return (
-    <div className="rating-stars">
+    <div className='rating-stars'>
       <h6>Βαθμολογήστε την ιστορία</h6>
-      <input type="radio" name="rating" id="rs0" />
-      <label htmlFor="rs0"></label>
-      <input type="radio" name="rating" id="rs1" />
-      <label htmlFor="rs1" onClick={(e) => handleRating(1, e)}></label>
-      <input type="radio" name="rating" id="rs2" />
-      <label htmlFor="rs2" onClick={(e) => handleRating(2, e)}></label>
-      <input type="radio" name="rating" id="rs3" />
-      <label htmlFor="rs3" onClick={(e) => handleRating(3, e)}></label>
-      <input type="radio" name="rating" id="rs4" />
-      <label htmlFor="rs4" onClick={(e) => handleRating(4, e)}></label>
-      <input type="radio" name="rating" id="rs5" />
-      <label htmlFor="rs5" onClick={(e) => handleRating(5, e)}></label>
+      <input type='radio' name='rating' id='rs0' />
+      <label htmlFor='rs0'></label>
+      <input type='radio' name='rating' id='rs1' />
+      <label htmlFor='rs1' onClick={(e) => handleRating(1, e)}></label>
+      <input type='radio' name='rating' id='rs2' />
+      <label htmlFor='rs2' onClick={(e) => handleRating(2, e)}></label>
+      <input type='radio' name='rating' id='rs3' />
+      <label htmlFor='rs3' onClick={(e) => handleRating(3, e)}></label>
+      <input type='radio' name='rating' id='rs4' />
+      <label htmlFor='rs4' onClick={(e) => handleRating(4, e)}></label>
+      <input type='radio' name='rating' id='rs5' />
+      <label htmlFor='rs5' onClick={(e) => handleRating(5, e)}></label>
       <LogInModal />
     </div>
   );

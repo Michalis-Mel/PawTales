@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
 } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, initializeFirestore } from 'firebase/firestore';
 import { getPerformance } from 'firebase/performance';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,7 +26,10 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
-export const firestore = getFirestore();
+export const db = initializeFirestore(app, {
+  experimentalAutoDetectLongPolling: true,
+});
+
 export const perf = getPerformance();
 
 export default app;

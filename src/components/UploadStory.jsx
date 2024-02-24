@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { setDoc, doc } from 'firebase/firestore';
-import { firestore } from '../helpers/firebase';
+import { db } from '../helpers/firebase';
 
 const uploadStoryToFirestore = async (storyData) => {
   try {
@@ -19,10 +19,7 @@ const uploadStoryToFirestore = async (storyData) => {
       dateCreated: formattedDate,
     };
 
-    await setDoc(
-      doc(firestore, 'stories', storyData.id),
-      dataWithFormattedDate
-    );
+    await setDoc(doc(db, 'stories', storyData.id), dataWithFormattedDate);
     return true;
   } catch (error) {
     console.error('Error uploading story:', error);

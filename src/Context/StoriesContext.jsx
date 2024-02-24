@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { firestore } from '../helpers/firebase';
+import { db } from '../helpers/firebase';
 
 export const StoriesContext = createContext([]);
 
@@ -11,9 +11,7 @@ export function StoriesProvider({ children }) {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const allStoriesSnapshot = await getDocs(
-          collection(firestore, 'stories')
-        );
+        const allStoriesSnapshot = await getDocs(collection(db, 'stories'));
         const allStoriesData = allStoriesSnapshot.docs.map((doc) => doc.data());
         setAllStories(allStoriesData);
       } catch (error) {

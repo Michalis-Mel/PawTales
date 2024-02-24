@@ -2,7 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { doc, updateDoc, deleteField } from 'firebase/firestore';
-import { firestore } from '../helpers/firebase';
+import { db } from '../helpers/firebase';
 import { onSnapshot } from 'firebase/firestore';
 
 import x from '../assets/icons/x.png';
@@ -29,7 +29,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
 
   const removeFromFavorites = async () => {
     if (user) {
-      const favoritesRef = doc(firestore, 'favorites', user.uid);
+      const favoritesRef = doc(db, 'favorites', user.uid);
       await updateDoc(favoritesRef, { [id]: deleteField() });
 
       removeFromFavoritesId(id);
@@ -42,7 +42,7 @@ const StoryItem = ({ story, removeFromFavoritesId }) => {
 
   useEffect(() => {
     if (user) {
-      const favDocRef = doc(firestore, 'favorites', user.uid);
+      const favDocRef = doc(db, 'favorites', user.uid);
       const unsubscribe = onSnapshot(favDocRef, (doc) => {
         const data = doc.data();
         if (data && data[id] !== undefined) {

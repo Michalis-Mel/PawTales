@@ -5,7 +5,7 @@ import { StoriesContext } from '../Context/StoriesContext';
 
 //DB
 import { collection, getDocs } from 'firebase/firestore';
-import { firestore } from '../helpers/firebase';
+import { db } from '../helpers/firebase';
 
 //Images
 import left from '../assets/icons/arrowLeft.png';
@@ -26,7 +26,7 @@ const TopStoriesSlider = () => {
   useEffect(() => {
     const fetchTopStories = async () => {
       try {
-        const topStoriesCollection = collection(firestore, 'topStories');
+        const topStoriesCollection = collection(db, 'topStories');
         const topStoriesSnapshot = await getDocs(topStoriesCollection);
         const ids = topStoriesSnapshot.docs.map((doc) => doc.id);
 

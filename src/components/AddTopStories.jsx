@@ -1,13 +1,13 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from 'react';
 import {
   collection,
   getDocs,
   setDoc,
   doc,
   deleteDoc,
-} from "firebase/firestore";
-import { firestore } from "../helpers/firebase";
-import { StoriesContext } from "../Context/StoriesContext";
+} from 'firebase/firestore';
+import { db } from '../helpers/firebase';
+import { StoriesContext } from '../Context/StoriesContext';
 
 const AddTopStories = () => {
   const { allStories, isLoading, setIsLoading } = useContext(StoriesContext);
@@ -17,7 +17,7 @@ const AddTopStories = () => {
   useEffect(() => {
     const fetchTopStories = async () => {
       try {
-        const topStoriesCollection = collection(firestore, "topStories");
+        const topStoriesCollection = collection(db, 'topStories');
         const topStoriesSnapshot = await getDocs(topStoriesCollection);
         const topStoriesData = topStoriesSnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -26,7 +26,7 @@ const AddTopStories = () => {
         setTopStories(topStoriesData);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching top stories:", error);
+        console.error('Error fetching top stories:', error);
         setIsLoading(false);
       }
     };
@@ -43,7 +43,7 @@ const AddTopStories = () => {
 
       if (isStoryInTopStories) {
         // If it's in topStories, remove it
-        const storyDoc = doc(firestore, "topStories", storyId);
+        const storyDoc = doc(db, 'topStories', storyId);
         await deleteDoc(storyDoc);
         setTopStories((prevTopStories) =>
           prevTopStories.filter((story) => story.id !== storyId)
@@ -53,16 +53,16 @@ const AddTopStories = () => {
         const selectedStory = allStories.find((story) => story.id === storyId);
 
         if (selectedStory) {
-          await setDoc(doc(firestore, "topStories", storyId), {});
+          await setDoc(doc(db, 'topStories', storyId), {});
         }
       }
     } catch (error) {
-      console.error("Error adding/removing story:", error);
+      console.error('Error adding/removing story:', error);
     }
   };
 
   return (
-    <div className="add-top-stories-container">
+    <div className='add-top-stories-container'>
       <h1>Προσθήκη Κορυφαίων Ιστοριών</h1>
       {isLoading && <p>Loading...</p>}
       {!isLoading && allStories.length === 0 && <p>Δεν βρέθηκαν ιστορίες.</p>}
@@ -73,8 +73,8 @@ const AddTopStories = () => {
             <h4>{story.title}</h4>
             <button onClick={() => handleAddRemoveStory(story.id)}>
               {topStories.some((topStory) => topStory.id === story.id)
-                ? "Αφαίρεση"
-                : "Προσθήκη"}
+                ? 'Αφαίρεση'
+                : 'Προσθήκη'}
             </button>
           </div>
         ))}

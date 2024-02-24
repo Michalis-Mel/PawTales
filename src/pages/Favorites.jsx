@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { slice } from "lodash";
-import { NavLink } from "react-router-dom";
-import StoryItem from "../components/StoryItem";
-import { StoriesContext } from "../Context/StoriesContext";
-import { AuthContext } from "../Context/AuthContext";
-import { getDoc, doc } from "firebase/firestore";
-import { firestore } from "../helpers/firebase";
-import { motion } from "framer-motion";
-import Loading from "../components/Loading";
+import React, { useContext, useEffect, useState } from 'react';
+import { slice } from 'lodash';
+import { NavLink } from 'react-router-dom';
+import StoryItem from '../components/StoryItem';
+import { StoriesContext } from '../Context/StoriesContext';
+import { AuthContext } from '../Context/AuthContext';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../helpers/firebase';
+import { motion } from 'framer-motion';
+import Loading from '../components/Loading';
 
 const Favorites = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const Favorites = () => {
   useEffect(() => {
     const fetchFavoriteStories = async () => {
       if (user) {
-        const favDocRef = doc(firestore, "favorites", user.uid);
+        const favDocRef = doc(db, 'favorites', user.uid);
         const docSnap = await getDoc(favDocRef);
 
         if (docSnap.exists()) {
@@ -66,14 +66,14 @@ const Favorites = () => {
   };
 
   return (
-    <div className="favorites">
+    <div className='favorites'>
       <h1>Οι Αγαπημένες σας Ιστορίες</h1>
 
       {isLoading ? (
         <Loading />
       ) : user ? (
         <motion.div
-          className="favoritesCon"
+          className='favoritesCon'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -87,29 +87,29 @@ const Favorites = () => {
               />
             ))
           ) : (
-            <h2 className="emptyFav">
+            <h2 className='emptyFav'>
               Δεν υπάρχουν ιστορίες στα αγαπημένα σας.
             </h2>
           )}
           {favStoriesShow.length > index && (
-            <button className="loadMore" onClick={() => setIndex(index + 5)}>
+            <button className='loadMore' onClick={() => setIndex(index + 5)}>
               Περισσότερες Ιστορίες
             </button>
           )}
         </motion.div>
       ) : (
         <motion.div
-          className="favoritesCon"
+          className='favoritesCon'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="favLogin">
+          <div className='favLogin'>
             <h2>
               Για να μπορέσετε να δείτε τις αγαπημένες σας ιστορίες πρέπει να
               συνδεθείτε!
             </h2>
-            <NavLink to="/login">Σύνδεση</NavLink>
+            <NavLink to='/login'>Σύνδεση</NavLink>
           </div>
         </motion.div>
       )}

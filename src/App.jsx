@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 //Database
 import { doc, getDoc } from 'firebase/firestore';
-import { firestore } from './helpers/firebase';
+import { db } from './helpers/firebase';
 
 //Components
 import ScrollToTop from './helpers/scrollToTop';
@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const fetchStoryData = async () => {
-      const extraRef = doc(firestore, 'extra', 'maintenance');
+      const extraRef = doc(db, 'extra', 'maintenance');
       const extraDoc = await getDoc(extraRef);
       const extraData = extraDoc.data();
       const maintenaceState = extraData.state || false;
