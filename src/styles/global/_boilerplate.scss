@@ -1,5 +1,5 @@
-@use "./colors" as *;
-@use "./typography" as *;
+@use './colors' as *;
+@use './typography' as *;
 
 *,
 *::after,
@@ -10,6 +10,7 @@
 }
 
 body {
+  overflow-y: scroll;
   min-height: 100vh;
   background: #ffefba; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -75,7 +76,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    content: "";
+    content: '';
     width: 60%;
     height: 5px;
     border-radius: 20px;
@@ -203,7 +204,7 @@ span {
   }
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1600px) {
   .tree1,
   .tree2,
   .leaf1,
