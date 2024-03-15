@@ -8,6 +8,7 @@
 }
 
 body {
+  overflow-y: scroll;
   min-height: 100vh;
   background: #ffefba; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ffffff, #ffefba); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -188,7 +189,7 @@ span {
     background-color: #8dcbc9;
   }
 }
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1600px) {
   .tree1,
   .tree2,
   .leaf1,
@@ -274,7 +275,7 @@ header .link {
   align-items: center;
   justify-content: center;
   font-size: 0;
-  margin: 0 50px;
+  margin: 0 30px;
   padding-bottom: 5px;
   position: relative;
   overflow: hidden;
@@ -314,16 +315,60 @@ header .link span {
 header .link span .permanent {
   margin: 0 5px;
 }
+header button.burger {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 26px;
+}
+header button.burger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 40px;
+  background: #55792f;
+  transition: all 0.3s ease-in-out;
+}
+header button.burger span.line1 {
+  top: 0;
+}
+header button.burger span.line2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+header button.burger span.line3 {
+  bottom: 0;
+}
+header button.burger.open span.line1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background: #8dcbc9;
+}
+header button.burger.open span.line2 {
+  opacity: 0;
+}
+header button.burger.open span.line3 {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  background: #8dcbc9;
+}
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1100px) {
   header .link {
     margin: 0 20px;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 980px) {
   header {
     min-height: 150px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   header .link span {
     font-size: 16px;
@@ -332,61 +377,172 @@ header .link span .permanent {
     display: none;
   }
   header .logo img {
-    max-width: 90px;
+    max-width: 100px;
   }
   header .logo span {
-    font-size: 30px;
+    font-size: 32px;
   }
 }
-@media only screen and (max-width: 750px) {
-  header .link span {
-    font-size: 0;
-  }
-}
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 900px) {
   header {
-    min-height: 110px;
-  }
-  header .link {
-    margin: 0 15px;
-  }
-  header .logo img {
-    max-width: 70px;
-  }
-  header .logo span {
-    font-size: 26px;
+    min-height: 100px;
   }
   header .headerLeft,
   header .headerRight {
-    flex: 0 0 calc(50% - 60px);
-    width: calc(50% - 60px);
+    display: none;
+  }
+  header .logo {
+    position: relative;
+    width: 100%;
+    left: unset;
+    top: unset;
+    transform: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  header .logo .logoLink {
+    width: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -20px;
+    margin: auto;
+  }
+  header button.burger {
+    z-index: 10;
+    display: unset;
   }
 }
 @media only screen and (max-width: 450px) {
   header {
-    min-height: 100px;
     margin-bottom: 20px;
-  }
-  header .link {
-    margin: 0 15px;
   }
   header .logo span {
     font-size: 0;
   }
-  header .headerLeft,
-  header .headerRight {
-    flex: 0 0 calc(50% - 50px);
-    width: calc(50% - 50px);
-  }
 }
-@media only screen and (max-width: 380px) {
-  header .link {
-    margin: 0 10px;
-  }
-  header .link img {
-    max-width: 30px;
-  }
+.mobileNav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("/src/assets/homepage/forest.jpg") no-repeat center center fixed;
+  background-size: cover;
+  z-index: 100;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
+.mobileNav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  opacity: 0.65;
+  z-index: -1;
+}
+.mobileNav .mobHeader {
+  height: 100px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.mobileNav .mobHeader .mobLogo {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  font-size: 0;
+  width: 100px;
+}
+.mobileNav .mobHeader .mobLogo img {
+  width: 100%;
+  max-width: 100%;
+}
+.mobileNav .mobHeader button.mobBurger {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 26px;
+}
+.mobileNav .mobHeader button.mobBurger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 40px;
+  background: #55792f;
+  transition: all 0.3s ease-in-out;
+}
+.mobileNav .mobHeader button.mobBurger span.line1 {
+  top: 0;
+}
+.mobileNav .mobHeader button.mobBurger span.line2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mobileNav .mobHeader button.mobBurger span.line3 {
+  bottom: 0;
+}
+.mobileNav .mobHeader button.mobBurger.open span.line1 {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background: #8dcbc9;
+}
+.mobileNav .mobHeader button.mobBurger.open span.line2 {
+  opacity: 0;
+}
+.mobileNav .mobHeader button.mobBurger.open span.line3 {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  background: #8dcbc9;
+}
+.mobileNav nav {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  row-gap: 25px;
+}
+.mobileNav .moblink {
+  width: 195px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  font-size: 0;
+}
+.mobileNav .moblink .googleImg {
+  border-radius: 50%;
+}
+.mobileNav .moblink img {
+  width: 33px;
+}
+.mobileNav .moblink span {
+  color: #fff;
+  margin: 0 0 0 18px;
+  font-size: 24px;
+  font-family: "Gentium Book Plus", serif;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
 footer {
   width: 100%;
   display: flex;
@@ -687,47 +843,47 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 2vw;
-  top: 20vh;
+  left: 16vw;
+  top: 29vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 32vw;
-  top: 14vh;
+  left: 10vw;
+  top: 50vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 9vw;
-  top: 30vh;
+  left: 24vw;
+  top: 51vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 16vw;
-  top: 48vh;
+  left: 72vw;
+  top: 16vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 55vw;
-  top: 27vh;
+  left: 40vw;
+  top: 77vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 84vw;
+  left: 114vw;
   top: 120vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
@@ -735,133 +891,133 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 7vw;
-  top: 152vh;
+  left: 126vw;
+  top: 19vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 88vw;
-  top: 132vh;
+  left: 152vw;
+  top: 28vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 45vw;
-  top: 84vh;
+  left: 81vw;
+  top: 192vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 120vw;
-  top: 42vh;
+  left: 160vw;
+  top: 162vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 7vw;
-    top: 18vh;
+    left: 18vw;
+    top: 28vh;
   }
   100% {
-    left: 2vw;
+    left: 6vw;
     top: 18vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 14vw;
-    top: 16vh;
+    left: 12vw;
+    top: 34vh;
   }
   100% {
     left: 38vw;
-    top: 18vh;
+    top: 50vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 15vw;
-    top: 45vh;
+    left: 30vw;
+    top: 15vh;
   }
   100% {
-    left: 24vw;
-    top: 30vh;
+    left: 33vw;
+    top: 72vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 20vw;
-    top: 84vh;
+    left: 64vw;
+    top: 36vh;
   }
   100% {
-    left: 48vw;
-    top: 76vh;
+    left: 16vw;
+    top: 52vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 90vw;
-    top: 57vh;
+    left: 70vw;
+    top: 82vh;
   }
   100% {
-    left: 45vw;
-    top: 57vh;
+    left: 55vw;
+    top: 97vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 84vw;
-    top: 132vh;
+    left: 90vw;
+    top: 42vh;
   }
   100% {
-    left: 36vw;
-    top: 66vh;
+    left: 48vw;
+    top: 36vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 49vw;
-    top: 124vh;
+    left: 112vw;
+    top: 19vh;
   }
   100% {
-    left: 84vw;
-    top: 152vh;
+    left: 14vw;
+    top: 103vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 40vw;
-    top: 84vh;
+    left: 96vw;
+    top: 28vh;
   }
   100% {
-    left: 72vw;
-    top: 44vh;
+    left: 48vw;
+    top: 140vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 135vw;
-    top: 147vh;
+    left: 54vw;
+    top: 75vh;
   }
   100% {
-    left: 9vw;
+    left: 72vw;
     top: 138vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 100vw;
-    top: 42vh;
+    left: 40vw;
+    top: 62vh;
   }
   100% {
-    left: 20vw;
-    top: 112vh;
+    left: 180vw;
+    top: 102vh;
   }
 }
 @media only screen and (max-width: 900px) {
