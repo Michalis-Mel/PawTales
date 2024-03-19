@@ -854,39 +854,39 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 20vw;
-  top: 19vh;
+  left: 3vw;
+  top: 29vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 40vw;
-  top: 22vh;
+  left: 2vw;
+  top: 46vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 42vw;
-  top: 30vh;
+  left: 51vw;
+  top: 24vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 48vw;
-  top: 52vh;
+  left: 32vw;
+  top: 68vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 55vw;
+  left: 50vw;
   top: 87vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
@@ -894,141 +894,141 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 108vw;
-  top: 42vh;
+  left: 120vw;
+  top: 102vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 119vw;
-  top: 124vh;
+  left: 84vw;
+  top: 47vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 72vw;
-  top: 100vh;
+  left: 160vw;
+  top: 76vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 81vw;
-  top: 39vh;
+  left: 162vw;
+  top: 102vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 60vw;
-  top: 202vh;
+  left: 100vw;
+  top: 132vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 18vw;
-    top: 29vh;
+    left: 3vw;
+    top: 26vh;
   }
   100% {
-    left: 11vw;
-    top: 26vh;
+    left: 1vw;
+    top: 25vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 34vw;
-    top: 24vh;
+    left: 18vw;
+    top: 48vh;
   }
   100% {
-    left: 34vw;
-    top: 20vh;
+    left: 20vw;
+    top: 40vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 42vw;
-    top: 63vh;
+    left: 30vw;
+    top: 36vh;
   }
   100% {
-    left: 30vw;
-    top: 30vh;
+    left: 51vw;
+    top: 60vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 64vw;
-    top: 44vh;
+    left: 60vw;
+    top: 48vh;
   }
   100% {
-    left: 40vw;
-    top: 36vh;
+    left: 60vw;
+    top: 44vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 15vw;
-    top: 67vh;
+    left: 35vw;
+    top: 102vh;
   }
   100% {
-    left: 50vw;
-    top: 77vh;
+    left: 45vw;
+    top: 57vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 42vw;
-    top: 30vh;
+    left: 6vw;
+    top: 84vh;
   }
   100% {
-    left: 114vw;
-    top: 132vh;
+    left: 36vw;
+    top: 120vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 98vw;
-    top: 75vh;
+    left: 77vw;
+    top: 40vh;
   }
   100% {
-    left: 70vw;
-    top: 26vh;
+    left: 126vw;
+    top: 75vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 136vw;
-    top: 76vh;
+    left: 32vw;
+    top: 68vh;
   }
   100% {
-    left: 144vw;
-    top: 36vh;
+    left: 112vw;
+    top: 76vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 117vw;
-    top: 93vh;
+    left: 81vw;
+    top: 156vh;
   }
   100% {
-    left: 108vw;
-    top: 84vh;
+    left: 27vw;
+    top: 93vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 150vw;
-    top: 162vh;
+    left: 170vw;
+    top: 122vh;
   }
   100% {
-    left: 170vw;
-    top: 72vh;
+    left: 160vw;
+    top: 112vh;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -3140,64 +3140,103 @@ footer span {
 }
 .animalSounds {
   width: 100%;
-  margin: 0 auto 100px auto;
+  margin: 50px auto;
 }
-.animalSounds h6 {
-  font-size: 20px;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 40px auto;
-}
-.animalSounds .animalBarks {
+.animalSounds .game {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  background-color: #8dcbc9;
-  max-width: 600px;
+  max-width: 700px;
+  min-height: 350px;
   margin: 0 auto;
-  border-radius: 20px;
+  background-color: #8dcbc9;
+  padding: 50px;
+  border-radius: 50px;
   box-shadow: 0 0 20px #72442c;
-  padding: 20px;
 }
-.animalSounds .animalBarks img.right {
-  width: 100%;
-  max-width: 100px;
-  font-size: 0;
-  pointer-events: none;
-  border-radius: 20px;
+.animalSounds .game.small {
+  min-height: unset;
 }
-.animalSounds .animalBarks img.left {
-  font-size: 0;
-  width: 100%;
-  max-width: 100px;
-  transform: rotateY(180deg);
-  pointer-events: none;
-  border-radius: 20px;
-}
-.animalSounds .animalBarks button {
-  margin: 0 80px;
-  border: none;
-  background-color: transparent;
-  width: 70px;
+.animalSounds .game img {
   cursor: pointer;
-  animation: buttonScale 2.5s ease-in-out infinite;
-}
-.animalSounds .animalBarks button img {
-  font-size: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 120px;
   width: 100%;
+  font-size: 0;
+  margin-bottom: 40px;
 }
-@keyframes buttonScale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+.animalSounds .game button.start,
+.animalSounds .game button.restart {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid #55792f;
+  font-size: 20px;
+  color: #fff;
+  background-color: #55792f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px 30px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+}
+.animalSounds .game button.start:hover,
+.animalSounds .game button.restart:hover {
+  background-color: #fff;
+  color: #55792f;
+}
+.animalSounds .game .gameLoading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animalSounds .game .game_btns {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.animalSounds .game .game_btns .btn_con {
+  flex: 0 0 50%;
+  width: 50%;
+  padding: 10px;
+}
+.animalSounds .game .game_btns .btn_con button {
+  cursor: pointer;
+  width: 100%;
+  border: 2px solid #55792f;
+  font-size: 20px;
+  color: #fff;
+  background-color: #55792f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px 20px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+}
+.animalSounds .game .game_btns .btn_con button.wrong {
+  background: red;
+  border: 2px solid red;
+}
+.animalSounds .game .game_btns .btn_con button:hover {
+  background-color: #fff;
+  color: #55792f;
+}
+.animalSounds .game .game_btns .btn_con button.wrong:hover {
+  background-color: red;
+  color: #fff;
 }
 
 @media only screen and (max-width: 900px) {
@@ -3206,24 +3245,48 @@ footer span {
   }
 }
 @media only screen and (max-width: 500px) {
-  .animalSounds .animalBarks {
-    max-width: none;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 50px;
-    border-radius: 50%;
+  .animalSounds .game button.start,
+  .animalSounds .game button.restart {
+    font-size: 18px;
   }
-  .animalSounds .animalBarks button {
-    margin: 0;
+  .animalSounds .game img {
+    height: 200px;
   }
-  .animalSounds .animalBarks img.left,
-  .animalSounds .animalBarks img.right {
-    display: none;
+  .animalSounds .game .game_btns {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .animalSounds .game .game_btns .btn_con {
+    flex: unset;
+    width: 100%;
+    max-width: 300px;
+    padding: 7px 0;
+  }
+  .animalSounds .game .game_btns .btn_con button {
+    font-size: 18px;
+  }
+  .animalSounds .game .game_btns .btn_con button:hover {
+    background-color: #55792f;
+    color: #fff;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .animalSounds .game {
+    padding: 30px;
+    height: 550px;
+  }
+  .animalSounds .game button.start,
+  .animalSounds .game button.restart {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .animalSounds .game .game_btns .btn_con button {
+    font-size: 16px;
   }
 }
 .guessingGame {
   width: 100%;
-  margin: 0 auto 100px auto;
+  margin: 50px auto 25px auto;
 }
 .guessingGame .game {
   width: 100%;
@@ -3232,7 +3295,7 @@ footer span {
   align-items: center;
   justify-content: center;
   max-width: 700px;
-  height: 600px;
+  min-height: 500px;
   margin: 0 auto;
   background-color: #8dcbc9;
   padding: 50px;
@@ -3240,7 +3303,7 @@ footer span {
   box-shadow: 0 0 20px #72442c;
 }
 .guessingGame .game.small {
-  height: unset;
+  min-height: unset;
 }
 .guessingGame .game img {
   -o-object-fit: contain;
@@ -3248,11 +3311,6 @@ footer span {
   width: 100%;
   height: 300px;
   margin: 0 auto 20px auto;
-}
-.guessingGame .game h6 {
-  font-size: 24px;
-  margin: 0 0 30px 0;
-  text-align: center;
 }
 .guessingGame .game button.start,
 .guessingGame .game button.restart {
@@ -3331,9 +3389,6 @@ footer span {
   }
 }
 @media only screen and (max-width: 500px) {
-  .guessingGame .game h6 {
-    font-size: 20px;
-  }
   .guessingGame .game button.start,
   .guessingGame .game button.restart {
     font-size: 18px;
@@ -3364,9 +3419,6 @@ footer span {
     padding: 30px;
     height: 550px;
   }
-  .guessingGame .game h6 {
-    font-size: 18px;
-  }
   .guessingGame .game button.start,
   .guessingGame .game button.restart {
     font-size: 16px;
@@ -3374,6 +3426,22 @@ footer span {
   }
   .guessingGame .game .game_btns .btn_con button {
     font-size: 16px;
+  }
+}
+h6 {
+  font-size: 24px;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  h6 {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  h6 {
+    font-size: 18px;
   }
 }
 .song_con {
