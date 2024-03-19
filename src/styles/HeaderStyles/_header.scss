@@ -8,7 +8,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   position: relative;
 
   .headerLeft,
@@ -206,12 +206,15 @@ header {
       justify-content: center;
 
       .logoLink {
-        width: 100px;
+        width: 85px;
         position: absolute;
         left: 0;
         right: 0;
         top: -20px;
         margin: auto;
+      }
+      span {
+        font-size: 28px;
       }
     }
     button.burger {
@@ -221,13 +224,18 @@ header {
   }
 }
 
-@media only screen and (max-width: 450px) {
-  header {
-    margin-bottom: 20px;
-    .logo {
-      span {
-        font-size: 0;
-      }
+@media only screen and (max-width: 600px) {
+  header button.burger {
+    width: 30px;
+    height: 22px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  header .logo {
+    min-height: 40px;
+    span {
+      font-size: 0;
     }
   }
 }

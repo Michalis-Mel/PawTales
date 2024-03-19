@@ -230,7 +230,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   position: relative;
 }
 header .headerLeft,
@@ -402,21 +402,30 @@ header button.burger.open span.line3 {
     justify-content: center;
   }
   header .logo .logoLink {
-    width: 100px;
+    width: 85px;
     position: absolute;
     left: 0;
     right: 0;
     top: -20px;
     margin: auto;
   }
+  header .logo span {
+    font-size: 28px;
+  }
   header button.burger {
     z-index: 10;
     display: unset;
   }
 }
-@media only screen and (max-width: 450px) {
-  header {
-    margin-bottom: 20px;
+@media only screen and (max-width: 600px) {
+  header button.burger {
+    width: 30px;
+    height: 22px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  header .logo {
+    min-height: 40px;
   }
   header .logo span {
     font-size: 0;
@@ -448,13 +457,14 @@ header button.burger.open span.line3 {
   z-index: -1;
 }
 .mobileNav .mobHeader {
-  height: 100px;
-  position: relative;
-  width: 100%;
+  height: 130px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
 }
 .mobileNav .mobHeader .mobLogo {
   position: absolute;
@@ -470,20 +480,19 @@ header button.burger.open span.line3 {
 }
 .mobileNav .mobHeader button.mobBurger {
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 15px;
+  top: 15px;
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 35px;
-  height: 26px;
+  width: 30px;
+  height: 22px;
 }
 .mobileNav .mobHeader button.mobBurger span {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 5px;
+  height: 4px;
   border-radius: 40px;
   background: #55792f;
   transition: all 0.3s ease-in-out;
@@ -512,10 +521,12 @@ header button.burger.open span.line3 {
   background: #8dcbc9;
 }
 .mobileNav nav {
-  flex-grow: 1;
+  padding-top: 50px;
+  height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
   row-gap: 25px;
 }
 .mobileNav .moblink {
@@ -843,64 +854,64 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 16vw;
-  top: 29vh;
+  left: 20vw;
+  top: 19vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 10vw;
-  top: 50vh;
+  left: 40vw;
+  top: 22vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 24vw;
-  top: 51vh;
+  left: 42vw;
+  top: 30vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 72vw;
-  top: 16vh;
+  left: 48vw;
+  top: 52vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 40vw;
-  top: 77vh;
+  left: 55vw;
+  top: 87vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 114vw;
-  top: 120vh;
+  left: 108vw;
+  top: 42vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 126vw;
-  top: 19vh;
+  left: 119vw;
+  top: 124vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 152vw;
-  top: 28vh;
+  left: 72vw;
+  top: 100vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
@@ -908,116 +919,116 @@ footer span {
   height: 40px;
   position: absolute;
   left: 81vw;
-  top: 192vh;
+  top: 39vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 160vw;
-  top: 162vh;
+  left: 60vw;
+  top: 202vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
     left: 18vw;
-    top: 28vh;
+    top: 29vh;
   }
   100% {
-    left: 6vw;
-    top: 18vh;
+    left: 11vw;
+    top: 26vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 12vw;
-    top: 34vh;
+    left: 34vw;
+    top: 24vh;
   }
   100% {
-    left: 38vw;
-    top: 50vh;
+    left: 34vw;
+    top: 20vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 30vw;
-    top: 15vh;
+    left: 42vw;
+    top: 63vh;
   }
   100% {
-    left: 33vw;
-    top: 72vh;
+    left: 30vw;
+    top: 30vh;
   }
 }
 @keyframes float4 {
   0% {
     left: 64vw;
-    top: 36vh;
+    top: 44vh;
   }
   100% {
-    left: 16vw;
-    top: 52vh;
+    left: 40vw;
+    top: 36vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 70vw;
-    top: 82vh;
+    left: 15vw;
+    top: 67vh;
   }
   100% {
-    left: 55vw;
-    top: 97vh;
+    left: 50vw;
+    top: 77vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 90vw;
-    top: 42vh;
+    left: 42vw;
+    top: 30vh;
   }
   100% {
-    left: 48vw;
-    top: 36vh;
+    left: 114vw;
+    top: 132vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 112vw;
-    top: 19vh;
+    left: 98vw;
+    top: 75vh;
   }
   100% {
-    left: 14vw;
-    top: 103vh;
+    left: 70vw;
+    top: 26vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 96vw;
-    top: 28vh;
+    left: 136vw;
+    top: 76vh;
   }
   100% {
-    left: 48vw;
-    top: 140vh;
+    left: 144vw;
+    top: 36vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 54vw;
-    top: 75vh;
+    left: 117vw;
+    top: 93vh;
   }
   100% {
-    left: 72vw;
-    top: 138vh;
+    left: 108vw;
+    top: 84vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 40vw;
-    top: 62vh;
+    left: 150vw;
+    top: 162vh;
   }
   100% {
-    left: 180vw;
-    top: 102vh;
+    left: 170vw;
+    top: 72vh;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -1040,201 +1051,6 @@ footer span {
   display: none;
 }
 
-.song_con {
-  width: 100%;
-  margin: 0 auto 100px auto;
-}
-.song_con .video_con {
-  overflow: hidden;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto 50px auto;
-  border-radius: 50px;
-  box-shadow: 0 0 20px #72442c;
-  font-size: 0;
-  position: relative;
-}
-.song_con .video_con .video {
-  width: 100%;
-}
-.song_con .video_con .song_controls {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  padding: 10px 40px 20px 40px;
-  background: #8dcbc9;
-  row-gap: 10px;
-}
-.song_con .video_con .song_controls .track {
-  background: rgb(34, 151, 255);
-  background: linear-gradient(75deg, rgb(34, 151, 255) 0%, rgb(224, 138, 138) 100%);
-  width: 100%;
-  height: 20px;
-  border-radius: 1rem;
-  overflow: hidden;
-  /* For Firefox */
-}
-.song_con .video_con .song_controls .track input {
-  width: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  background: transparent;
-  cursor: pointer;
-}
-.song_con .video_con .song_controls .track input:focus {
-  outline: none;
-}
-.song_con .video_con .song_controls .track input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 20px;
-  width: 20px;
-  background-color: #ffffff;
-  border: 2px solid #55792f;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 10px #55792f;
-}
-.song_con .video_con .song_controls .track input::-moz-range-thumb {
-  height: 20px;
-  width: 20px;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.song_con .video_con .song_controls h3.songTitle {
-  text-align: center;
-  font-size: 26px;
-  margin: 10px auto;
-  font-family: "Love Ya Like A Sister", cursive;
-  color: #1a1a1a;
-  text-shadow: 2px 2px 2px #e08a8a;
-}
-.song_con .video_con .song_controls .btns {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
-.song_con .video_con .song_controls .btns button {
-  background: #fff;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  width: 100%;
-  max-width: 40px;
-  height: 100%;
-  max-height: 40px;
-  border: 2px solid #fff;
-  cursor: pointer;
-}
-.song_con .video_con .song_controls .btns button img {
-  width: 100%;
-  font-size: 0;
-}
-
-@media only screen and (max-width: 900px) {
-  .song_con {
-    margin: 0 auto 70px auto;
-  }
-}
-@media only screen and (max-width: 550px) {
-  .song_con .video_con .song_controls {
-    padding: 20px;
-  }
-  .song_con .video_con .song_controls h3.songTitle {
-    font-size: 22px;
-  }
-}
-.animalSounds {
-  width: 100%;
-  margin: 0 auto 100px auto;
-}
-.animalSounds h6 {
-  font-size: 20px;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 40px auto;
-}
-.animalSounds .animalBarks {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #8dcbc9;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #72442c;
-  padding: 20px;
-}
-.animalSounds .animalBarks img.right {
-  width: 100%;
-  max-width: 100px;
-  font-size: 0;
-  pointer-events: none;
-  border-radius: 20px;
-}
-.animalSounds .animalBarks img.left {
-  font-size: 0;
-  width: 100%;
-  max-width: 100px;
-  transform: rotateY(180deg);
-  pointer-events: none;
-  border-radius: 20px;
-}
-.animalSounds .animalBarks button {
-  margin: 0 80px;
-  border: none;
-  background-color: transparent;
-  width: 70px;
-  cursor: pointer;
-  animation: buttonScale 2.5s ease-in-out infinite;
-}
-.animalSounds .animalBarks button img {
-  font-size: 0;
-  width: 100%;
-}
-@keyframes buttonScale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .animalSounds {
-    margin: 0 auto 70px auto;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .animalSounds .animalBarks {
-    max-width: none;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 50px;
-    border-radius: 50%;
-  }
-  .animalSounds .animalBarks button {
-    margin: 0;
-  }
-  .animalSounds .animalBarks img.left,
-  .animalSounds .animalBarks img.right {
-    display: none;
-  }
-}
 .refreshPage {
   width: 100vw;
   height: 100vh;
@@ -1270,161 +1086,6 @@ footer span {
   .refreshPage h2 {
     font-size: 24px;
     line-height: 30px;
-  }
-}
-.guessingGame {
-  width: 100%;
-  margin: 0 auto 100px auto;
-}
-.guessingGame .game {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 700px;
-  height: 600px;
-  margin: 0 auto;
-  background-color: #8dcbc9;
-  padding: 50px;
-  border-radius: 50px;
-  box-shadow: 0 0 20px #72442c;
-}
-.guessingGame .game.small {
-  height: unset;
-}
-.guessingGame .game img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  width: 100%;
-  height: 300px;
-  margin: 0 auto 20px auto;
-}
-.guessingGame .game h6 {
-  font-size: 24px;
-  margin: 0 0 30px 0;
-  text-align: center;
-}
-.guessingGame .game button.start,
-.guessingGame .game button.restart {
-  cursor: pointer;
-  width: -moz-fit-content;
-  width: fit-content;
-  border: 2px solid #55792f;
-  font-size: 20px;
-  color: #fff;
-  background-color: #55792f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 20px;
-  padding: 10px 30px;
-  transition: all 0.3s ease-in-out;
-  font-weight: 400;
-}
-.guessingGame .game button.start:hover,
-.guessingGame .game button.restart:hover {
-  background-color: #fff;
-  color: #55792f;
-}
-.guessingGame .game .gameLoading {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.guessingGame .game .game_btns {
-  width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-}
-.guessingGame .game .game_btns .btn_con {
-  flex: 0 0 50%;
-  width: 50%;
-  padding: 10px;
-}
-.guessingGame .game .game_btns .btn_con button {
-  cursor: pointer;
-  width: 100%;
-  border: 2px solid #55792f;
-  font-size: 20px;
-  color: #fff;
-  background-color: #55792f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 20px;
-  padding: 5px 20px;
-  transition: all 0.3s ease-in-out;
-  font-weight: 400;
-}
-.guessingGame .game .game_btns .btn_con button.wrong {
-  background: red;
-  border: 2px solid red;
-}
-.guessingGame .game .game_btns .btn_con button:hover {
-  background-color: #fff;
-  color: #55792f;
-}
-.guessingGame .game .game_btns .btn_con button.wrong:hover {
-  background-color: red;
-  color: #fff;
-}
-
-@media only screen and (max-width: 900px) {
-  .guessingGame {
-    margin: 0 auto 70px auto;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .guessingGame .game h6 {
-    font-size: 20px;
-  }
-  .guessingGame .game button.start,
-  .guessingGame .game button.restart {
-    font-size: 18px;
-  }
-  .guessingGame .game img {
-    height: 200px;
-  }
-  .guessingGame .game .game_btns {
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-  .guessingGame .game .game_btns .btn_con {
-    flex: unset;
-    width: 100%;
-    max-width: 300px;
-    padding: 7px 0;
-  }
-  .guessingGame .game .game_btns .btn_con button {
-    font-size: 18px;
-  }
-  .guessingGame .game .game_btns .btn_con button:hover {
-    background-color: #55792f;
-    color: #fff;
-  }
-}
-@media only screen and (max-width: 350px) {
-  .guessingGame .game {
-    padding: 30px;
-    height: 550px;
-  }
-  .guessingGame .game h6 {
-    font-size: 18px;
-  }
-  .guessingGame .game button.start,
-  .guessingGame .game button.restart {
-    font-size: 16px;
-    padding: 10px;
-  }
-  .guessingGame .game .game_btns .btn_con button {
-    font-size: 16px;
   }
 }
 .stories {
@@ -3475,5 +3136,355 @@ footer span {
     margin: 20px auto 0 auto;
     font-size: 24px;
     line-height: 28px;
+  }
+}
+.animalSounds {
+  width: 100%;
+  margin: 0 auto 100px auto;
+}
+.animalSounds h6 {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 40px auto;
+}
+.animalSounds .animalBarks {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #8dcbc9;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #72442c;
+  padding: 20px;
+}
+.animalSounds .animalBarks img.right {
+  width: 100%;
+  max-width: 100px;
+  font-size: 0;
+  pointer-events: none;
+  border-radius: 20px;
+}
+.animalSounds .animalBarks img.left {
+  font-size: 0;
+  width: 100%;
+  max-width: 100px;
+  transform: rotateY(180deg);
+  pointer-events: none;
+  border-radius: 20px;
+}
+.animalSounds .animalBarks button {
+  margin: 0 80px;
+  border: none;
+  background-color: transparent;
+  width: 70px;
+  cursor: pointer;
+  animation: buttonScale 2.5s ease-in-out infinite;
+}
+.animalSounds .animalBarks button img {
+  font-size: 0;
+  width: 100%;
+}
+@keyframes buttonScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .animalSounds {
+    margin: 0 auto 70px auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .animalSounds .animalBarks {
+    max-width: none;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 50px;
+    border-radius: 50%;
+  }
+  .animalSounds .animalBarks button {
+    margin: 0;
+  }
+  .animalSounds .animalBarks img.left,
+  .animalSounds .animalBarks img.right {
+    display: none;
+  }
+}
+.guessingGame {
+  width: 100%;
+  margin: 0 auto 100px auto;
+}
+.guessingGame .game {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #8dcbc9;
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #72442c;
+}
+.guessingGame .game.small {
+  height: unset;
+}
+.guessingGame .game img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 300px;
+  margin: 0 auto 20px auto;
+}
+.guessingGame .game h6 {
+  font-size: 24px;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+.guessingGame .game button.start,
+.guessingGame .game button.restart {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid #55792f;
+  font-size: 20px;
+  color: #fff;
+  background-color: #55792f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px 30px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+}
+.guessingGame .game button.start:hover,
+.guessingGame .game button.restart:hover {
+  background-color: #fff;
+  color: #55792f;
+}
+.guessingGame .game .gameLoading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.guessingGame .game .game_btns {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.guessingGame .game .game_btns .btn_con {
+  flex: 0 0 50%;
+  width: 50%;
+  padding: 10px;
+}
+.guessingGame .game .game_btns .btn_con button {
+  cursor: pointer;
+  width: 100%;
+  border: 2px solid #55792f;
+  font-size: 20px;
+  color: #fff;
+  background-color: #55792f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px 20px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+}
+.guessingGame .game .game_btns .btn_con button.wrong {
+  background: red;
+  border: 2px solid red;
+}
+.guessingGame .game .game_btns .btn_con button:hover {
+  background-color: #fff;
+  color: #55792f;
+}
+.guessingGame .game .game_btns .btn_con button.wrong:hover {
+  background-color: red;
+  color: #fff;
+}
+
+@media only screen and (max-width: 900px) {
+  .guessingGame {
+    margin: 0 auto 70px auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .guessingGame .game h6 {
+    font-size: 20px;
+  }
+  .guessingGame .game button.start,
+  .guessingGame .game button.restart {
+    font-size: 18px;
+  }
+  .guessingGame .game img {
+    height: 200px;
+  }
+  .guessingGame .game .game_btns {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .guessingGame .game .game_btns .btn_con {
+    flex: unset;
+    width: 100%;
+    max-width: 300px;
+    padding: 7px 0;
+  }
+  .guessingGame .game .game_btns .btn_con button {
+    font-size: 18px;
+  }
+  .guessingGame .game .game_btns .btn_con button:hover {
+    background-color: #55792f;
+    color: #fff;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .guessingGame .game {
+    padding: 30px;
+    height: 550px;
+  }
+  .guessingGame .game h6 {
+    font-size: 18px;
+  }
+  .guessingGame .game button.start,
+  .guessingGame .game button.restart {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .guessingGame .game .game_btns .btn_con button {
+    font-size: 16px;
+  }
+}
+.song_con {
+  width: 100%;
+  margin: 0 auto 100px auto;
+}
+.song_con .video_con {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #72442c;
+  font-size: 0;
+  position: relative;
+}
+.song_con .video_con .video {
+  width: 100%;
+}
+.song_con .video_con .song_controls {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 10px 40px 20px 40px;
+  background: #8dcbc9;
+  row-gap: 10px;
+}
+.song_con .video_con .song_controls .track {
+  background: rgb(34, 151, 255);
+  background: linear-gradient(75deg, rgb(34, 151, 255) 0%, rgb(224, 138, 138) 100%);
+  width: 100%;
+  height: 20px;
+  border-radius: 1rem;
+  overflow: hidden;
+  /* For Firefox */
+}
+.song_con .video_con .song_controls .track input {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.song_con .video_con .song_controls .track input:focus {
+  outline: none;
+}
+.song_con .video_con .song_controls .track input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border: 2px solid #55792f;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px #55792f;
+}
+.song_con .video_con .song_controls .track input::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.song_con .video_con .song_controls h3.songTitle {
+  text-align: center;
+  font-size: 26px;
+  margin: 10px auto;
+  font-family: "Love Ya Like A Sister", cursive;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 2px #e08a8a;
+}
+.song_con .video_con .song_controls .btns {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.song_con .video_con .song_controls .btns button {
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  max-height: 40px;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.song_con .video_con .song_controls .btns button img {
+  width: 100%;
+  font-size: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .song_con {
+    margin: 0 auto 70px auto;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .song_con .video_con .song_controls {
+    padding: 20px;
+  }
+  .song_con .video_con .song_controls h3.songTitle {
+    font-size: 22px;
   }
 }/*# sourceMappingURL=styles.css.map */

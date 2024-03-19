@@ -4,9 +4,6 @@ import Banner from '../components/Banner';
 import HomeText from '../components/HomeText';
 import TopStoriesSlider from '../components/TopStoriesSlider';
 import AnimalsBackground from '../components/AnimalsBackground';
-import SongPawtales from '../components/SongPawtales';
-import AnimalSounds from '../components/AnimalSounds';
-import GuessingGame from '../components/GuessingGame';
 
 const Home = () => {
   const [firstLoad, setFirstLoad] = useState(true);
@@ -23,9 +20,6 @@ const Home = () => {
         <Banner firstLoad={firstLoad} />
         <HomeText firstLoad={firstLoad} />
         <TopStoriesSlider />
-        <SongPawtales />
-        <AnimalSounds />
-        <GuessingGame />
       </div>
     </>
   );

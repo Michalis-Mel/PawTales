@@ -111,7 +111,7 @@ const Header = () => {
             Παιχνίδια
           </motion.span>
         </NavLink>
-        <NavLink to='/music' className='link'>
+        <NavLink to='/songs' className='link'>
           <motion.img
             src={music}
             alt='Τα τραγούδια μας'

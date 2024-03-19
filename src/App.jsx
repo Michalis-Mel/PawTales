@@ -22,6 +22,8 @@ import TreesLeaves from './components/TreesLeaves';
 import Maintenance from './components/Maintenance';
 import Loading from './components/Loading';
 import RefreshPage from './components/RefreshPage';
+import Games from './pages/Games';
+import Songs from './pages/Songs';
 
 function App() {
   const [maintenance, setMaintenance] = useState(false);
@@ -89,6 +91,8 @@ function App() {
               <Route path='/signup' element={<SignUpPage />} />
               <Route path='/login' element={<LogInPage />} />
               <Route path='/stories' element={<Stories />} />
+              <Route path='/games' element={<Games />} />
+              <Route path='/songs' element={<Songs />} />
               <Route path='/stories/:id' element={<StoryDetails />} />
               <Route path='/admin-mixalis' element={<Admin />} />
               <Route path='/edit-account' element={<EditUser />} />

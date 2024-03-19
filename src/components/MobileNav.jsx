@@ -40,7 +40,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
       initial={{ y: '-100vh' }}
       animate={{ y: '0' }}
       exit={{ y: '-100vh' }}
-      transition={{ duration: 0.5, type: 'spring', stiffness: 60 }}
+      transition={{ duration: 0.5 }}
     >
       <motion.div className='mobHeader'>
         <NavLink
@@ -60,7 +60,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -80,7 +80,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
             type: 'spring',
             duration: 2,
             ease: 'linear',
-            delay: 1,
+            delay: 0.5,
           }}
         >
           <span className='line1'></span>
@@ -106,7 +106,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -120,7 +120,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -147,7 +147,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -161,7 +161,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -172,7 +172,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
           </motion.span>
         </NavLink>
         <NavLink
-          to='/music'
+          to='/songs'
           className='moblink'
           onClick={() => {
             setMobileNavOpen(false);
@@ -188,7 +188,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -202,7 +202,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -229,7 +229,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -243,7 +243,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -270,7 +270,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -284,7 +284,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
             whileTap={{
               scale: 0.8,
@@ -313,7 +313,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
                 type: 'spring',
                 duration: 2,
                 ease: 'linear',
-                delay: 1,
+                delay: 0.5,
               }}
               whileTap={{
                 scale: 0.8,
@@ -330,7 +330,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
                 type: 'spring',
                 duration: 2,
                 ease: 'linear',
-                delay: 1,
+                delay: 0.5,
               }}
               whileTap={{
                 scale: 0.8,
@@ -349,7 +349,7 @@ const MobileNav = ({ setMobileNavOpen, mobileNavOpen, authUser }) => {
               type: 'spring',
               duration: 2,
               ease: 'linear',
-              delay: 1,
+              delay: 0.5,
             }}
           >
             {authUser ? 'Λογαριασμός' : 'Σύνδεση'}
