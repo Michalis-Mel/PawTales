@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import { HomeMsgContext } from '../../Context/HomeMsgContext';
 import googleIcon from '../../assets/icons/google.png';
 import facebookIcon from '../../assets/icons/facebook.png';
+import { motion } from 'framer-motion';
 
 const Login = () => {
   const { setUser } = useContext(AuthContext);
@@ -96,9 +97,14 @@ const Login = () => {
   };
 
   return (
-    <div className='logInForm'>
+    <motion.div
+      className='logInForm'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
       <h1>Συνδέσου στον Λογαριασμό σου</h1>
-
       <form onSubmit={handleLogInWithEmailAndPassword}>
         {errorMsg.length > 0 && (
           <div className='errorMsg'>
@@ -133,12 +139,11 @@ const Login = () => {
           <img src={facebookIcon} alt='Facebook' />
         </button>
       </div>
-
       <p>
         Δεν έχεις ακόμα λογαριασμό?
         <NavLink to='/signup'>Εγγραφή</NavLink>
       </p>
-    </div>
+    </motion.div>
   );
 };
 

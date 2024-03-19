@@ -104,7 +104,14 @@ const Stories = () => {
   };
 
   return (
-    <div className='stories'>
+    <motion.div
+      className='stories'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
+      {' '}
       <h1>Οι Ιστορίες μας</h1>
       <div className='filters'>
         <SearchBar
@@ -145,7 +152,6 @@ const Stories = () => {
           </div>
         </div>
       </div>
-
       {isLoading ? (
         <Loading />
       ) : (
@@ -177,7 +183,7 @@ const Stories = () => {
           )}
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

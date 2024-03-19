@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../helpers/firebase';
 import { AuthContext } from '../../Context/AuthContext';
 import { HomeMsgContext } from '../../Context/HomeMsgContext';
+import { motion } from 'framer-motion';
 
 const Signup = () => {
   const { setUser } = useContext(AuthContext);
@@ -83,7 +84,14 @@ const Signup = () => {
   };
 
   return (
-    <div className='signUpForm'>
+    <motion.div
+      className='signUpForm'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
+      {' '}
       <h1> Δημιουργία Λογαριασμού </h1>
       <form onSubmit={handleSignUp}>
         {errorMsg.length > 0 && (
@@ -130,12 +138,11 @@ const Signup = () => {
 
         <button type='submit'>Εγγραφή</button>
       </form>
-
       <p>
         Έχεις ήδη λογαριασμό?
         <NavLink to='/login'>Σύνδεση</NavLink>
       </p>
-    </div>
+    </motion.div>
   );
 };
 

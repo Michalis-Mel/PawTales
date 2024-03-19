@@ -2,65 +2,107 @@
 
 .animalSounds {
   width: 100%;
-  margin: 0 auto 100px auto;
+  margin: 50px auto;
 
-  h6 {
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto 40px auto;
-  }
-  .animalBarks {
+  .game {
     width: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    background-color: $blue;
-    max-width: 600px;
+    max-width: 700px;
+    min-height: 350px;
     margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0 0 20px $brown;
-    padding: 20px;
+    background-color: $blue;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #72442c;
 
-    img.right {
-      width: 100%;
-      max-width: 100px;
-      font-size: 0;
-      pointer-events: none;
-      border-radius: 20px;
-    }
-    img.left {
-      font-size: 0;
-      width: 100%;
-      max-width: 100px;
-      transform: rotateY(180deg);
-      pointer-events: none;
-      border-radius: 20px;
+    &.small {
+      min-height: unset;
     }
 
-    button {
-      margin: 0 80px;
-      border: none;
-      background-color: transparent;
-      width: 70px;
+    img {
       cursor: pointer;
-      animation: buttonScale 2.5s ease-in-out infinite;
+      object-fit: contain;
+      max-width: 120px;
+      width: 100%;
+      font-size: 0;
+      margin-bottom: 40px;
+    }
 
-      img {
-        font-size: 0;
-        width: 100%;
+    button.start,
+    button.restart {
+      cursor: pointer;
+      width: fit-content;
+      border: 2px solid $green;
+      font-size: 20px;
+      color: #fff;
+      background-color: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 20px;
+      padding: 10px 30px;
+      transition: all 0.3s ease-in-out;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #fff;
+        color: $green;
       }
     }
-    @keyframes buttonScale {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-      100% {
-        transform: scale(1);
+
+    .gameLoading {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game_btns {
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      .btn_con {
+        flex: 0 0 50%;
+        width: 50%;
+        padding: 10px;
+
+        button {
+          cursor: pointer;
+          width: 100%;
+          border: 2px solid $green;
+          font-size: 20px;
+          color: #fff;
+          background-color: $green;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border-radius: 20px;
+          padding: 5px 20px;
+          transition: all 0.3s ease-in-out;
+          font-weight: 400;
+
+          &.wrong {
+            background: red;
+            border: 2px solid red;
+          }
+
+          &:hover {
+            background-color: #fff;
+            color: $green;
+          }
+          &.wrong:hover {
+            background-color: red;
+            color: #fff;
+          }
+        }
       }
     }
   }
@@ -73,18 +115,46 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .animalSounds .animalBarks {
-    max-width: none;
-    width: fit-content;
-    padding: 50px;
-    border-radius: 50%;
-
-    button {
-      margin: 0;
+  .animalSounds .game {
+    button.start,
+    button.restart {
+      font-size: 18px;
     }
-    img.left,
-    img.right {
-      display: none;
+
+    img {
+      height: 200px;
+    }
+    .game_btns {
+      flex-flow: column nowrap;
+      align-items: center;
+      .btn_con {
+        flex: unset;
+        width: 100%;
+        max-width: 300px;
+        padding: 7px 0;
+
+        button {
+          font-size: 18px;
+          &:hover {
+            background-color: $green;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 350px) {
+  .animalSounds .game {
+    padding: 30px;
+    height: 550px;
+    button.start,
+    button.restart {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .game_btns .btn_con button {
+      font-size: 16px;
     }
   }
 }

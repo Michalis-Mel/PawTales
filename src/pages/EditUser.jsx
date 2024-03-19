@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DeleteUserPopup from '../components/DeleteUserPopup';
 import EditUserPopup from '../components/EditUserPopup';
 import { auth } from '../helpers/firebase';
+import { motion } from 'framer-motion';
 
 const EditUser = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -27,7 +28,13 @@ const EditUser = () => {
   };
 
   return (
-    <div className='edit_user_con'>
+    <motion.div
+      className='edit_user_con'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
       {user ? (
         <div className='edit_user'>
           <h1>Ο Λογαριασμός σας</h1>
@@ -50,7 +57,7 @@ const EditUser = () => {
       ) : (
         <h1 className='logIn'>Unauthorized</h1>
       )}
-    </div>
+    </motion.div>
   );
 };
 

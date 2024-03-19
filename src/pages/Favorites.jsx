@@ -66,9 +66,15 @@ const Favorites = () => {
   };
 
   return (
-    <div className='favorites'>
+    <motion.div
+      className='favorites'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
+      {' '}
       <h1>Οι Αγαπημένες σας Ιστορίες</h1>
-
       {isLoading ? (
         <Loading />
       ) : user ? (
@@ -113,7 +119,7 @@ const Favorites = () => {
           </div>
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

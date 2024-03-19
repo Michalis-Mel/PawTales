@@ -1,12 +1,14 @@
-import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { animalsGame } from '../helpers/animalSoundsGame';
 
-import { animalsGame } from '../helpers/guessingGame';
 import win from '../assets/animals/sounds/win.wav';
 import lose from '../assets/animals/sounds/error.wav';
 import Loading from './Loading';
 
-const GuessingGame = () => {
+import audio from '../assets/icons/audio.png';
+
+const AnimalSoundsGame = () => {
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -20,11 +22,11 @@ const GuessingGame = () => {
   useEffect(() => {
     if (currentIndex < animalsGame.length) {
       setIsLoading(true);
-      const img = new Image();
-      img.src = animalsGame[currentIndex].image;
+      const audio = new Audio();
+      audio.src = animalsGame[currentIndex].sound;
 
-      const imgLoad = new Promise((resolve) => {
-        img.onload = () => {
+      const audioLoad = new Promise((resolve) => {
+        audio.onloadeddata = () => {
           resolve();
         };
       });
@@ -33,7 +35,7 @@ const GuessingGame = () => {
         setTimeout(resolve, 800);
       });
 
-      Promise.all([imgLoad, timeout]).then(() => {
+      Promise.all([audioLoad, timeout]).then(() => {
         setCurrentAnimal(animalsGame[currentIndex]);
         setSelectedOption(null);
         setIsCorrect(null);
@@ -41,6 +43,13 @@ const GuessingGame = () => {
       });
     }
   }, [currentIndex]);
+
+  const playSound = () => {
+    if (currentAnimal) {
+      const animalSound = new Audio(currentAnimal.sound);
+      animalSound.play();
+    }
+  };
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -64,7 +73,7 @@ const GuessingGame = () => {
 
   return (
     <motion.div
-      className='guessingGame'
+      className='animalSounds'
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.3 }}
@@ -72,7 +81,7 @@ const GuessingGame = () => {
     >
       {!isGameStarted ? (
         <div className='game small'>
-          <h6>Μάντεψε τα ζώα που βλέπεις στις εικόνες</h6>
+          <h6>Μάντεψε τα ζώα που ακούγονται</h6>
           <button onClick={startGame} className='start'>
             Ξεκίνα το Παιχνίδι
           </button>
@@ -86,7 +95,7 @@ const GuessingGame = () => {
           ) : (
             currentAnimal && (
               <>
-                <img src={currentAnimal.image} alt={currentAnimal.name} />
+                <img onClick={playSound} src={audio} alt='Animal Sound' />
                 <div className='game_btns'>
                   {currentAnimal.options.map((option, index) => (
                     <div className='btn_con' key={index}>
@@ -119,4 +128,4 @@ const GuessingGame = () => {
   );
 };
 
-export default GuessingGame;
+export default AnimalSoundsGame;
