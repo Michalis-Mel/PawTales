@@ -289,7 +289,7 @@ const Header = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{
           type: 'spring',
-          duration: 2,
+          duration: 1.5,
           ease: 'linear',
           delay: 1,
         }}

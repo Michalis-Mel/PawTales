@@ -437,7 +437,7 @@ header button.burger.open span.line3 {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: url("/src/assets/homepage/forest.jpg") no-repeat center center fixed;
+  background: #1a1a1a url("/src/assets/homepage/forest.jpg") no-repeat center center fixed;
   background-size: cover;
   z-index: 100;
   display: flex;
@@ -854,181 +854,181 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 3vw;
-  top: 29vh;
+  left: 10vw;
+  top: 24vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 2vw;
-  top: 46vh;
+  left: 36vw;
+  top: 50vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 51vw;
-  top: 24vh;
+  left: 45vw;
+  top: 51vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 32vw;
-  top: 68vh;
+  left: 20vw;
+  top: 48vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 50vw;
-  top: 87vh;
+  left: 60vw;
+  top: 72vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 120vw;
-  top: 102vh;
+  left: 90vw;
+  top: 114vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 84vw;
-  top: 47vh;
+  left: 42vw;
+  top: 138vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 160vw;
-  top: 76vh;
+  left: 112vw;
+  top: 108vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 162vw;
-  top: 102vh;
+  left: 9vw;
+  top: 48vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 100vw;
-  top: 132vh;
+  left: 160vw;
+  top: 112vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 3vw;
-    top: 26vh;
+    left: 11vw;
+    top: 22vh;
   }
   100% {
-    left: 1vw;
-    top: 25vh;
+    left: 18vw;
+    top: 24vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 18vw;
-    top: 48vh;
+    left: 14vw;
+    top: 14vh;
   }
   100% {
-    left: 20vw;
-    top: 40vh;
+    left: 8vw;
+    top: 16vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 30vw;
-    top: 36vh;
+    left: 9vw;
+    top: 30vh;
   }
   100% {
-    left: 51vw;
-    top: 60vh;
+    left: 12vw;
+    top: 54vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 60vw;
-    top: 48vh;
+    left: 4vw;
+    top: 84vh;
   }
   100% {
-    left: 60vw;
-    top: 44vh;
+    left: 48vw;
+    top: 72vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 35vw;
-    top: 102vh;
+    left: 80vw;
+    top: 37vh;
   }
   100% {
-    left: 45vw;
-    top: 57vh;
+    left: 95vw;
+    top: 97vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 6vw;
-    top: 84vh;
+    left: 84vw;
+    top: 48vh;
   }
   100% {
-    left: 36vw;
-    top: 120vh;
+    left: 84vw;
+    top: 102vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 77vw;
-    top: 40vh;
+    left: 126vw;
+    top: 61vh;
   }
   100% {
-    left: 126vw;
-    top: 75vh;
+    left: 105vw;
+    top: 96vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 32vw;
-    top: 68vh;
+    left: 16vw;
+    top: 172vh;
   }
   100% {
-    left: 112vw;
-    top: 76vh;
+    left: 104vw;
+    top: 52vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 81vw;
-    top: 156vh;
+    left: 36vw;
+    top: 66vh;
   }
   100% {
-    left: 27vw;
-    top: 93vh;
+    left: 54vw;
+    top: 102vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 170vw;
-    top: 122vh;
+    left: 100vw;
+    top: 92vh;
   }
   100% {
-    left: 160vw;
-    top: 112vh;
+    left: 30vw;
+    top: 122vh;
   }
 }
 @media only screen and (max-width: 900px) {

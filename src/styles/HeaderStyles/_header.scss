@@ -233,9 +233,15 @@ header {
 
 @media only screen and (max-width: 400px) {
   header .logo {
-    min-height: 40px;
     span {
-      font-size: 0;
+      font-size: 24px;
+    }
+  }
+}
+@media only screen and (max-width: 350px) {
+  header .logo {
+    .logoLink {
+      width: 70px;
     }
   }
 }

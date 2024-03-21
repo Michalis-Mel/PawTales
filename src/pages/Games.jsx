@@ -1,4 +1,3 @@
-import AnimalSoundsGame from '../components/AnimalSoundsGame';
 import GuessingGame from '../components/GuessingGame';
 import { motion } from 'framer-motion';
 
@@ -15,7 +14,6 @@ const Games = () => {
         Δείξε μας πόσο καλά γνωρίζεις τα ζώα που συναντάς στις ιστορίες μας!
       </h6>
       <GuessingGame />
-      <AnimalSoundsGame />
     </motion.div>
   );
 };

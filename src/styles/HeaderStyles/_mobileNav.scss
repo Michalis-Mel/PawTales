@@ -7,8 +7,8 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: url('/src/assets/homepage/forest.jpg') no-repeat center center
-    fixed;
+  background: $black url('/src/assets/homepage/forest.jpg') no-repeat center
+    center fixed;
   background-size: cover;
   z-index: 100;
   display: flex;
