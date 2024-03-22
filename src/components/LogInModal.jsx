@@ -2,22 +2,6 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import x from '../assets/icons/x.png';
 const LogInModal = ({ modalActive, setModalActive }) => {
-  useEffect(() => {
-    disableBodyScroll();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modalActive]);
-
-  const disableBodyScroll = () => {
-    if (modalActive) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  };
-
-  const handleNavLinkClick = () => {
-    document.body.style.overflow = 'auto';
-  };
   return (
     <div
       className={`overlay ${modalActive ? 'active' : ''}`}
@@ -32,12 +16,8 @@ const LogInModal = ({ modalActive, setModalActive }) => {
           εγγραφή.
         </h3>
         <div className='logInBtns'>
-          <NavLink to='/login' onClick={handleNavLinkClick}>
-            Σύνδεση
-          </NavLink>
-          <NavLink to='/signup' onClick={handleNavLinkClick}>
-            Εγγραφή
-          </NavLink>
+          <NavLink to='/login'>Σύνδεση</NavLink>
+          <NavLink to='/signup'>Εγγραφή</NavLink>
         </div>
       </div>
     </div>
