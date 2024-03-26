@@ -1,7 +1,19 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-import { animalsGame } from '../helpers/guessingGame';
+import {
+  petsGame,
+  wildAnimalsGame,
+  underWaterAnimalsGame,
+  birdsGame,
+  farmAnimalsGame,
+  reptilesAmphibianGame,
+  insectsGame,
+  africanGame,
+  australianGame,
+  arcticGame,
+} from '../helpers/guessingGame';
+
 import win from '../assets/animals/sounds/win.wav';
 import lose from '../assets/animals/sounds/error.wav';
 import Loading from './Loading';
@@ -13,15 +25,46 @@ const GuessingGame = () => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
+
+  const games = {
+    petsGame,
+    wildAnimalsGame,
+    underWaterAnimalsGame,
+    birdsGame,
+    farmAnimalsGame,
+    reptilesAmphibianGame,
+    insectsGame,
+    africanGame,
+    australianGame,
+    arcticGame,
+  };
+  const gameNames = {
+    petsGame: 'Κατοικίδια',
+    wildAnimalsGame: 'Άγρια Ζώα',
+    underWaterAnimalsGame: 'Θαλλάσια Ζώα',
+    birdsGame: 'Πουλιά',
+    farmAnimalsGame: 'Ζώα Φάρμας',
+    reptilesAmphibianGame: 'Ερπετά και Αμφίβια',
+    insectsGame: 'Έντομα',
+    africanGame: 'Αφρικανικά Ζώα',
+    australianGame: 'Αυστραλιανά Ζώα',
+    arcticGame: 'Αρκτικά Ζώα',
+  };
+
+  const selectGame = (game) => {
+    setSelectedGame(game);
+    setIsGameStarted(true);
+  };
 
   const winSound = new Audio(win);
   const loseSound = new Audio(lose);
 
   useEffect(() => {
-    if (currentIndex < animalsGame.length) {
+    if (selectedGame && currentIndex < selectedGame.length) {
       setIsLoading(true);
       const img = new Image();
-      img.src = animalsGame[currentIndex].image;
+      img.src = selectedGame[currentIndex].image;
 
       const imgLoad = new Promise((resolve) => {
         img.onload = () => {
@@ -34,13 +77,13 @@ const GuessingGame = () => {
       });
 
       Promise.all([imgLoad, timeout]).then(() => {
-        setCurrentAnimal(animalsGame[currentIndex]);
+        setCurrentAnimal(selectedGame[currentIndex]);
         setSelectedOption(null);
         setIsCorrect(null);
         setIsLoading(false);
       });
     }
-  }, [currentIndex]);
+  }, [currentIndex, selectedGame]);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -54,12 +97,14 @@ const GuessingGame = () => {
     }
   };
 
-  const startGame = () => {
-    setIsGameStarted(true);
-  };
-
-  const restartGame = () => {
+  const newGame = () => {
+    setCurrentAnimal(null);
     setCurrentIndex(0);
+    setSelectedOption(null);
+    setIsCorrect(null);
+    setIsGameStarted(false);
+    setIsLoading(false);
+    setSelectedGame(null);
   };
 
   return (
@@ -72,12 +117,18 @@ const GuessingGame = () => {
     >
       {!isGameStarted ? (
         <div className='game small'>
-          <h6>Μάντεψε τα ζώα που βλέπεις στις εικόνες</h6>
-          <button onClick={startGame} className='start'>
-            Ξεκίνα το Παιχνίδι
-          </button>
+          <h6>Διάλεξε Κατηγορία</h6>
+          {Object.keys(games).map((gameKey) => (
+            <button
+              className='gameOption'
+              onClick={() => selectGame(games[gameKey])}
+              key={gameKey}
+            >
+              {gameNames[gameKey]}
+            </button>
+          ))}
         </div>
-      ) : currentIndex < animalsGame.length ? (
+      ) : currentIndex < (selectedGame ? selectedGame.length : 0) ? (
         <div className='game'>
           {isLoading ? (
             <div className='gameLoading'>
@@ -108,10 +159,10 @@ const GuessingGame = () => {
       ) : (
         <div className='game small'>
           <h6>
-            Συγχαρητήρια! <br /> Ολοκλήρωσες το παιχνίδι με επιτυχία!
+            Συγχαρητήρια! <br /> Βρήκες όλα τα ζώα με επιτυχία!
           </h6>
-          <button onClick={restartGame} className='restart'>
-            Ξαναπαίξε
+          <button onClick={newGame} className='restart'>
+            Νέο Παιχνίδι
           </button>
         </div>
       )}

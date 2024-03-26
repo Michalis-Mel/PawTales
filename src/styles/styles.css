@@ -424,11 +424,13 @@ header button.burger.open span.line3 {
   }
 }
 @media only screen and (max-width: 400px) {
-  header .logo {
-    min-height: 40px;
-  }
   header .logo span {
-    font-size: 0;
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  header .logo .logoLink {
+    width: 70px;
   }
 }
 .mobileNav {
@@ -556,6 +558,10 @@ header button.burger.open span.line3 {
 
 footer {
   width: 100%;
+  margin-top: 40px;
+}
+footer .footer_con {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -563,7 +569,7 @@ footer {
   padding: 20px 0;
   box-sizing: border-box;
 }
-footer .social {
+footer .footer_con .social {
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -577,28 +583,33 @@ footer .social {
   font-weight: 600;
   transition: all 0.3s ease-in-out;
 }
-footer .social:hover {
+footer .footer_con .social:hover {
   transform: scale(1.1);
 }
-footer .social img {
+footer .footer_con .social img {
   width: 25px;
   margin-left: 10px;
   font-size: 0;
 }
-footer span {
+footer .footer_con span {
   font-size: 20px;
   font-family: "Love Ya Like A Sister", cursive;
   text-align: center;
 }
 
 @media only screen and (max-width: 550px) {
-  footer .social {
-    font-size: 16px;
+  footer .footer_con .social {
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 50%;
   }
-  footer .social img {
-    width: 20px;
+  footer .footer_con .social img {
+    width: 80%;
+    margin: 0;
   }
-  footer span {
+  footer .footer_con span {
     font-size: 18px;
   }
 }
@@ -854,40 +865,40 @@ footer span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 10vw;
-  top: 24vh;
+  left: 7vw;
+  top: 27vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 36vw;
-  top: 50vh;
+  left: 8vw;
+  top: 22vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 45vw;
-  top: 51vh;
+  left: 51vw;
+  top: 39vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 20vw;
-  top: 48vh;
+  left: 48vw;
+  top: 44vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 60vw;
-  top: 72vh;
+  left: 90vw;
+  top: 82vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
@@ -895,140 +906,140 @@ footer span {
   height: 40px;
   position: absolute;
   left: 90vw;
-  top: 114vh;
+  top: 78vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 42vw;
-  top: 138vh;
+  left: 49vw;
+  top: 82vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 112vw;
-  top: 108vh;
+  left: 88vw;
+  top: 164vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 9vw;
-  top: 48vh;
+  left: 171vw;
+  top: 174vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 160vw;
-  top: 112vh;
+  left: 180vw;
+  top: 72vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 11vw;
-    top: 22vh;
+    left: 5vw;
+    top: 15vh;
   }
   100% {
-    left: 18vw;
-    top: 24vh;
+    left: 1vw;
+    top: 18vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 14vw;
-    top: 14vh;
+    left: 24vw;
+    top: 46vh;
   }
   100% {
-    left: 8vw;
-    top: 16vh;
+    left: 16vw;
+    top: 26vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 9vw;
-    top: 30vh;
+    left: 18vw;
+    top: 45vh;
   }
   100% {
-    left: 12vw;
-    top: 54vh;
+    left: 6vw;
+    top: 48vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 4vw;
-    top: 84vh;
+    left: 28vw;
+    top: 44vh;
   }
   100% {
     left: 48vw;
-    top: 72vh;
+    top: 76vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 80vw;
-    top: 37vh;
+    left: 85vw;
+    top: 97vh;
   }
   100% {
-    left: 95vw;
-    top: 97vh;
+    left: 80vw;
+    top: 72vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 84vw;
-    top: 48vh;
+    left: 114vw;
+    top: 102vh;
   }
   100% {
-    left: 84vw;
-    top: 102vh;
+    left: 6vw;
+    top: 114vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 126vw;
-    top: 61vh;
+    left: 140vw;
+    top: 54vh;
   }
   100% {
-    left: 105vw;
-    top: 96vh;
+    left: 35vw;
+    top: 124vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 16vw;
-    top: 172vh;
+    left: 56vw;
+    top: 92vh;
   }
   100% {
-    left: 104vw;
-    top: 52vh;
+    left: 48vw;
+    top: 132vh;
   }
 }
 @keyframes float9 {
   0% {
     left: 36vw;
-    top: 66vh;
+    top: 84vh;
   }
   100% {
-    left: 54vw;
-    top: 102vh;
+    left: 153vw;
+    top: 30vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 100vw;
-    top: 92vh;
+    left: 170vw;
+    top: 32vh;
   }
   100% {
-    left: 30vw;
-    top: 122vh;
+    left: 120vw;
+    top: 112vh;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -3138,152 +3149,6 @@ footer span {
     line-height: 28px;
   }
 }
-.animalSounds {
-  width: 100%;
-  margin: 50px auto;
-}
-.animalSounds .game {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 700px;
-  min-height: 350px;
-  margin: 0 auto;
-  background-color: #8dcbc9;
-  padding: 50px;
-  border-radius: 50px;
-  box-shadow: 0 0 20px #72442c;
-}
-.animalSounds .game.small {
-  min-height: unset;
-}
-.animalSounds .game img {
-  cursor: pointer;
-  -o-object-fit: contain;
-     object-fit: contain;
-  max-width: 120px;
-  width: 100%;
-  font-size: 0;
-  margin-bottom: 40px;
-}
-.animalSounds .game button.start,
-.animalSounds .game button.restart {
-  cursor: pointer;
-  width: -moz-fit-content;
-  width: fit-content;
-  border: 2px solid #55792f;
-  font-size: 20px;
-  color: #fff;
-  background-color: #55792f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 20px;
-  padding: 10px 30px;
-  transition: all 0.3s ease-in-out;
-  font-weight: 400;
-}
-.animalSounds .game button.start:hover,
-.animalSounds .game button.restart:hover {
-  background-color: #fff;
-  color: #55792f;
-}
-.animalSounds .game .gameLoading {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.animalSounds .game .game_btns {
-  width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-}
-.animalSounds .game .game_btns .btn_con {
-  flex: 0 0 50%;
-  width: 50%;
-  padding: 10px;
-}
-.animalSounds .game .game_btns .btn_con button {
-  cursor: pointer;
-  width: 100%;
-  border: 2px solid #55792f;
-  font-size: 20px;
-  color: #fff;
-  background-color: #55792f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 20px;
-  padding: 5px 20px;
-  transition: all 0.3s ease-in-out;
-  font-weight: 400;
-}
-.animalSounds .game .game_btns .btn_con button.wrong {
-  background: red;
-  border: 2px solid red;
-}
-.animalSounds .game .game_btns .btn_con button:hover {
-  background-color: #fff;
-  color: #55792f;
-}
-.animalSounds .game .game_btns .btn_con button.wrong:hover {
-  background-color: red;
-  color: #fff;
-}
-
-@media only screen and (max-width: 900px) {
-  .animalSounds {
-    margin: 0 auto 70px auto;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .animalSounds .game button.start,
-  .animalSounds .game button.restart {
-    font-size: 18px;
-  }
-  .animalSounds .game img {
-    height: 200px;
-  }
-  .animalSounds .game .game_btns {
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-  .animalSounds .game .game_btns .btn_con {
-    flex: unset;
-    width: 100%;
-    max-width: 300px;
-    padding: 7px 0;
-  }
-  .animalSounds .game .game_btns .btn_con button {
-    font-size: 18px;
-  }
-  .animalSounds .game .game_btns .btn_con button:hover {
-    background-color: #55792f;
-    color: #fff;
-  }
-}
-@media only screen and (max-width: 350px) {
-  .animalSounds .game {
-    padding: 30px;
-    height: 550px;
-  }
-  .animalSounds .game button.start,
-  .animalSounds .game button.restart {
-    font-size: 16px;
-    padding: 10px;
-  }
-  .animalSounds .game .game_btns .btn_con button {
-    font-size: 16px;
-  }
-}
 .guessingGame {
   width: 100%;
   margin: 50px auto 25px auto;
@@ -3294,13 +3159,16 @@ footer span {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
+  max-width: 900px;
   min-height: 500px;
   margin: 0 auto;
   background-color: #8dcbc9;
   padding: 50px;
   border-radius: 50px;
   box-shadow: 0 0 20px #72442c;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 .guessingGame .game.small {
   min-height: unset;
@@ -3311,6 +3179,33 @@ footer span {
   width: 100%;
   height: 300px;
   margin: 0 auto 20px auto;
+}
+.guessingGame .game h6 {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.guessingGame .game button.gameOption {
+  cursor: pointer;
+  width: 45%;
+  flex: 0 0 45%;
+  border: 2px solid #55792f;
+  font-size: 20px;
+  color: #fff;
+  background-color: #55792f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.guessingGame .game button.gameOption:hover {
+  background-color: #fff;
+  color: #55792f;
 }
 .guessingGame .game button.start,
 .guessingGame .game button.restart {
@@ -3387,8 +3282,21 @@ footer span {
   .guessingGame {
     margin: 0 auto 70px auto;
   }
+  .guessingGame .game {
+    padding: 30px 20px 20px 20px;
+  }
+  .guessingGame .game button.gameOption {
+    width: 48%;
+    flex: 0 0 48%;
+    font-size: 18px;
+  }
 }
 @media only screen and (max-width: 500px) {
+  .guessingGame .game button.gameOption {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
   .guessingGame .game button.start,
   .guessingGame .game button.restart {
     font-size: 18px;
@@ -3417,7 +3325,6 @@ footer span {
 @media only screen and (max-width: 350px) {
   .guessingGame .game {
     padding: 30px;
-    height: 550px;
   }
   .guessingGame .game button.start,
   .guessingGame .game button.restart {
@@ -3430,7 +3337,9 @@ footer span {
 }
 h6 {
   font-size: 24px;
-  margin: 0 0 30px 0;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  max-width: 600px;
   text-align: center;
 }
 

@@ -3,6 +3,7 @@
 
 footer {
   width: 100%;
+  margin-top: 40px;
 
   .footer_con {
     width: 100%;
@@ -45,11 +46,16 @@ footer {
 }
 
 @media only screen and (max-width: 550px) {
-  footer {
+  footer .footer_con {
     .social {
-      font-size: 16px;
+      font-size: 0;
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      border-radius: 50%;
       img {
-        width: 20px;
+        width: 80%;
+        margin: 0;
       }
     }
     span {

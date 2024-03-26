@@ -10,13 +10,16 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    max-width: 700px;
+    max-width: 900px;
     min-height: 500px;
     margin: 0 auto;
     background-color: $blue;
     padding: 50px;
     border-radius: 50px;
     box-shadow: 0 0 20px #72442c;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 
     &.small {
       min-height: unset;
@@ -27,6 +30,35 @@
       width: 100%;
       height: 300px;
       margin: 0 auto 20px auto;
+    }
+    h6 {
+      flex: 0 0 100%;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    button.gameOption {
+      cursor: pointer;
+      width: 45%;
+      flex: 0 0 45%;
+      border: 2px solid $green;
+      font-size: 20px;
+      color: #fff;
+      background-color: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 20px;
+      padding: 10px;
+      transition: all 0.3s ease-in-out;
+      font-weight: 400;
+      margin-bottom: 30px;
+
+      &:hover {
+        background-color: #fff;
+        color: $green;
+      }
     }
 
     button.start,
@@ -109,11 +141,25 @@
 @media only screen and (max-width: 900px) {
   .guessingGame {
     margin: 0 auto 70px auto;
+
+    .game {
+      padding: 30px 20px 20px 20px;
+      button.gameOption {
+        width: 48%;
+        flex: 0 0 48%;
+        font-size: 18px;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 500px) {
   .guessingGame .game {
+    button.gameOption {
+      flex: 0 0 100%;
+      width: 100%;
+      margin-bottom: 20px;
+    }
     button.start,
     button.restart {
       font-size: 18px;
@@ -145,7 +191,6 @@
 @media only screen and (max-width: 350px) {
   .guessingGame .game {
     padding: 30px;
-    height: 550px;
 
     button.start,
     button.restart {
