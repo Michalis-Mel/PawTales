@@ -1,5 +1,5 @@
-@use "../global/colors" as *;
-@use "../global/typography" as *;
+@use '../global/colors' as *;
+@use '../global/typography' as *;
 .ideasForm {
   min-height: calc(100vh - 300px);
 
@@ -28,7 +28,7 @@
     border-radius: 30px;
     box-shadow: 0 0 20px $brown;
     padding: 30px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto;
 
     .message {
       width: 100%;

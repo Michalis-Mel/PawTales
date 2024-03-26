@@ -1,5 +1,5 @@
-@use "../global/typography" as *;
-@use "../global/colors" as *;
+@use '../global/typography' as *;
+@use '../global/colors' as *;
 
 .signUpForm {
   min-height: calc(100vh - 300px);
@@ -89,7 +89,7 @@
 
   p {
     font-size: 14px;
-    margin: 0 auto 80px auto;
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-flow: column nowrap;

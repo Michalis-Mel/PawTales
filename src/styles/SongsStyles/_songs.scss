@@ -3,12 +3,12 @@
 
 .song_con {
   width: 100%;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
   .video_con {
     overflow: hidden;
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto;
     border-radius: 50px;
     box-shadow: 0 0 20px $brown;
     font-size: 0;
@@ -110,11 +110,6 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
-  .song_con {
-    margin: 0 auto 70px auto;
-  }
-}
 @media only screen and (max-width: 550px) {
   .song_con .video_con {
     .song_controls {

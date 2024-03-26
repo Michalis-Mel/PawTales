@@ -1,9 +1,8 @@
-@use "../global/colors" as *;
-@use "../global/typography" as *;
+@use '../global/colors' as *;
+@use '../global/typography' as *;
 
 .topStories {
   width: 100%;
-  margin-bottom: 100px;
 
   .homeSlider {
     width: 100%;
@@ -159,8 +158,6 @@
 
 @media only screen and (max-width: 900px) {
   .topStories {
-    margin: 0 auto 70px auto;
-
     .homeSlider {
       aspect-ratio: 11/9;
       .arrowLeft,

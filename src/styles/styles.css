@@ -677,7 +677,6 @@ footer .footer_con span {
 }
 .topStories {
   width: 100%;
-  margin-bottom: 100px;
 }
 .topStories .homeSlider {
   width: 100%;
@@ -811,9 +810,6 @@ footer .footer_con span {
   }
 }
 @media only screen and (max-width: 900px) {
-  .topStories {
-    margin: 0 auto 70px auto;
-  }
   .topStories .homeSlider {
     aspect-ratio: 11/9;
   }
@@ -865,72 +861,72 @@ footer .footer_con span {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 7vw;
-  top: 27vh;
+  left: 12vw;
+  top: 29vh;
   animation: float1 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(2) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 8vw;
-  top: 22vh;
+  left: 26vw;
+  top: 42vh;
   animation: float2 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(3) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 51vw;
-  top: 39vh;
+  left: 27vw;
+  top: 63vh;
   animation: float3 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(4) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 48vw;
-  top: 44vh;
+  left: 16vw;
+  top: 20vh;
   animation: float4 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(5) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 90vw;
-  top: 82vh;
+  left: 95vw;
+  top: 97vh;
   animation: float5 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(6) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 90vw;
-  top: 78vh;
+  left: 12vw;
+  top: 102vh;
   animation: float6 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(7) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 49vw;
-  top: 82vh;
+  left: 140vw;
+  top: 96vh;
   animation: float7 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(8) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 88vw;
-  top: 164vh;
+  left: 152vw;
+  top: 44vh;
   animation: float8 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(9) {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 171vw;
-  top: 174vh;
+  left: 54vw;
+  top: 84vh;
   animation: float9 10s linear infinite alternate-reverse;
 }
 .animalsBg img:nth-child(10) {
@@ -938,108 +934,108 @@ footer .footer_con span {
   height: 40px;
   position: absolute;
   left: 180vw;
-  top: 72vh;
+  top: 92vh;
   animation: float10 10s linear infinite alternate-reverse;
 }
 
 @keyframes float1 {
   0% {
-    left: 5vw;
-    top: 15vh;
+    left: 16vw;
+    top: 26vh;
   }
   100% {
-    left: 1vw;
+    left: 19vw;
     top: 18vh;
   }
 }
 @keyframes float2 {
   0% {
-    left: 24vw;
-    top: 46vh;
+    left: 18vw;
+    top: 36vh;
   }
   100% {
-    left: 16vw;
-    top: 26vh;
+    left: 22vw;
+    top: 50vh;
   }
 }
 @keyframes float3 {
   0% {
-    left: 18vw;
+    left: 27vw;
     top: 45vh;
   }
   100% {
-    left: 6vw;
-    top: 48vh;
+    left: 51vw;
+    top: 33vh;
   }
 }
 @keyframes float4 {
   0% {
-    left: 28vw;
-    top: 44vh;
+    left: 32vw;
+    top: 56vh;
   }
   100% {
-    left: 48vw;
-    top: 76vh;
+    left: 64vw;
+    top: 84vh;
   }
 }
 @keyframes float5 {
   0% {
-    left: 85vw;
-    top: 97vh;
+    left: 70vw;
+    top: 27vh;
   }
   100% {
-    left: 80vw;
-    top: 72vh;
+    left: 30vw;
+    top: 107vh;
   }
 }
 @keyframes float6 {
   0% {
-    left: 114vw;
-    top: 102vh;
+    left: 66vw;
+    top: 108vh;
   }
   100% {
-    left: 6vw;
-    top: 114vh;
+    left: 78vw;
+    top: 30vh;
   }
 }
 @keyframes float7 {
   0% {
-    left: 140vw;
-    top: 54vh;
+    left: 14vw;
+    top: 26vh;
   }
   100% {
-    left: 35vw;
+    left: 70vw;
     top: 124vh;
   }
 }
 @keyframes float8 {
   0% {
-    left: 56vw;
+    left: 120vw;
     top: 92vh;
   }
   100% {
-    left: 48vw;
-    top: 132vh;
+    left: 152vw;
+    top: 28vh;
   }
 }
 @keyframes float9 {
   0% {
-    left: 36vw;
-    top: 84vh;
+    left: 171vw;
+    top: 57vh;
   }
   100% {
-    left: 153vw;
-    top: 30vh;
+    left: 171vw;
+    top: 138vh;
   }
 }
 @keyframes float10 {
   0% {
-    left: 170vw;
-    top: 32vh;
+    left: 60vw;
+    top: 212vh;
   }
   100% {
-    left: 120vw;
-    top: 112vh;
+    left: 110vw;
+    top: 182vh;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -1102,7 +1098,7 @@ footer .footer_con span {
 .stories {
   width: 100%;
   max-width: 1600px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   min-height: calc(100vh - 300px);
 }
 .stories .filters {
@@ -2116,7 +2112,7 @@ footer .footer_con span {
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
-  margin: 0 auto 80px auto;
+  margin: 0 auto;
 }
 .logInForm p a {
   color: #55792f;
@@ -2225,7 +2221,7 @@ footer .footer_con span {
 }
 .signUpForm p {
   font-size: 14px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto;
   text-align: center;
   display: flex;
   flex-flow: column nowrap;
@@ -2282,7 +2278,7 @@ footer .footer_con span {
   border-radius: 30px;
   box-shadow: 0 0 20px #72442c;
   padding: 30px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
 }
 .ideasForm form .message {
   width: 100%;
@@ -2382,7 +2378,7 @@ footer .footer_con span {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  margin: 100px auto;
+  margin: 0 auto;
 }
 .favorites .favoritesCon .favLogin h2 {
   margin: 0 auto;
@@ -3151,7 +3147,7 @@ footer .footer_con span {
 }
 .guessingGame {
   width: 100%;
-  margin: 50px auto 25px auto;
+  margin: 50px auto 0px auto;
 }
 .guessingGame .game {
   width: 100%;
@@ -3280,7 +3276,7 @@ footer .footer_con span {
 
 @media only screen and (max-width: 900px) {
   .guessingGame {
-    margin: 0 auto 70px auto;
+    margin: 0 auto;
   }
   .guessingGame .game {
     padding: 30px 20px 20px 20px;
@@ -3355,13 +3351,13 @@ h6 {
 }
 .song_con {
   width: 100%;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
 }
 .song_con .video_con {
   overflow: hidden;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   border-radius: 50px;
   box-shadow: 0 0 20px #72442c;
   font-size: 0;
@@ -3452,11 +3448,6 @@ h6 {
   font-size: 0;
 }
 
-@media only screen and (max-width: 900px) {
-  .song_con {
-    margin: 0 auto 70px auto;
-  }
-}
 @media only screen and (max-width: 550px) {
   .song_con .video_con .song_controls {
     padding: 20px;
